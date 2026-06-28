@@ -63,7 +63,7 @@ export const metadata: Metadata = {
       'Agus Collection melayani pembuatan seragam sekolah, seragam perusahaan, kaos custom, polo shirt, celana, rok, almamater, wearpack, dan bahan kain dengan kualitas premium dan harga langsung pabrik.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Agus Collection — Konveksi Premium Indonesia',
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     title: 'Agus Collection | Konveksi Premium Indonesia',
     description:
       'Seragam berkualitas, harga pabrik langsung. Gratis desain, gratis konsultasi, pengiriman seluruh Indonesia.',
-    images: ['/og-image.png'],
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,

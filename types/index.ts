@@ -51,6 +51,7 @@ export type Product = {
   specifications: { label: string; value: string }[];
   shopeeUrl?: string;
   educationPricing?: EducationPricing[];
+  priceRange?: { min: number; max: number };
 };
 
 export type Category = {

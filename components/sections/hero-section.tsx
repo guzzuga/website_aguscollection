@@ -20,6 +20,7 @@ export function HeroSection() {
       {/* Background layers */}
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-20" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy via-navy-700 to-navy" />
+      
       {/* Animated gold orbs */}
       <motion.div
         animate={{
@@ -37,6 +38,38 @@ export function HeroSection() {
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         className="pointer-events-none absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-gold/15 blur-[100px]"
       />
+      
+      {/* Floating particles - optimized for performance */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <motion.div
+            key={i}
+            initial={{
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1920),
+              y: Math.random() * 800,
+              opacity: 0,
+              scale: 0,
+            }}
+            animate={{
+              y: [null, Math.random() * -100 - 50],
+              opacity: [0, Math.random() * 0.5 + 0.3, 0],
+              scale: [0, Math.random() * 0.5 + 0.5, 0],
+              rotate: [0, Math.random() * 360],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 15,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+              ease: 'easeInOut',
+            }}
+            className="absolute h-1 w-1 rounded-full bg-gold-400"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+          />
+        ))}
+      </div>
 
       <div className="container-page relative pb-20 pt-10 lg:pb-28 lg:pt-16">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
@@ -143,7 +176,16 @@ export function HeroSection() {
                     key={i}
                     className="relative h-9 w-9 overflow-hidden rounded-full border-2 border-navy"
                   >
-                    <Image src={src} alt="Klien" fill sizes="36px" className="object-cover" />
+                    <Image
+                      src={src}
+                      alt="Klien"
+                      fill
+                      sizes="36px"
+                      className="object-cover"
+                      loading="eager"
+                      decoding="async"
+                      quality={75}
+                    />
                   </span>
                 ))}
               </div>
@@ -179,6 +221,8 @@ export function HeroSection() {
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
+                decoding="async"
+                quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
             </motion.div>

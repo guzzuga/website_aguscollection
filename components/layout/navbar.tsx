@@ -38,10 +38,17 @@ export function Navbar() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-500 border-b',
         scrolled
-          ? 'glass-nav border-slate-200/60 bg-white/90 shadow-soft'
-          : 'border-transparent bg-navy/95 backdrop-blur',
+          ? 'glass-nav border-white/15 bg-white/95 shadow-soft backdrop-blur-2xl'
+          : 'border-white/10 bg-navy/90 backdrop-blur-2xl',
       )}
     >
+      {/* Animated gradient border bottom */}
+      <div
+        className={cn(
+          'absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent transition-opacity duration-500',
+          scrolled ? 'opacity-100' : 'opacity-0',
+        )}
+      />
       <nav className="container-page flex h-16 items-center justify-between lg:h-20">
         {/* Logo */}
         <Link
@@ -51,9 +58,16 @@ export function Navbar() {
         >
           <span
             className={cn(
-              'relative flex h-9 w-9 items-center justify-center rounded-xl border-2 border-gold/40 bg-white/90 shadow-gold-glow transition-transform duration-300 group-hover:scale-110',
+              'relative flex h-9 w-9 items-center justify-center rounded-xl border-2 border-gold/40 bg-white/90 shadow-gold-glow transition-all duration-500 group-hover:scale-110 group-hover:shadow-gold-glow-lg',
             )}
           >
+            {/* Shine effect */}
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.3, 0] }}
+              transition={{ duration: 3, repeat: Infinity, delay: 5 }}
+              className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/60 via-transparent to-transparent"
+            />
             <Image
               src="/images/logo.jpg"
               alt="Agus Collection Logo"
@@ -85,19 +99,24 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'group relative px-4 py-2 text-sm font-medium transition-colors',
+                  'group relative px-4 py-2 text-sm font-medium transition-all duration-300',
                   scrolled
                     ? 'text-slate-700 hover:text-navy'
                     : 'text-slate-200 hover:text-white',
                 )}
               >
                 {link.label}
-                <span
+                <motion.span
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  animate={{
+                    scaleX: isActive ? 1 : 0,
+                    opacity: isActive || scrolled ? 1 : 0.6,
+                  }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className={cn(
-                    'absolute inset-x-4 -bottom-0.5 h-0.5 origin-left rounded-full bg-gold-gradient transition-transform duration-300',
-                    isActive
-                      ? 'scale-x-100'
-                      : 'scale-x-0 group-hover:scale-x-100',
+                    'absolute inset-x-4 -bottom-0.5 h-0.5 origin-left rounded-full',
+                    'bg-gradient-to-r from-gold-400 to-gold-600',
                   )}
                 />
               </Link>

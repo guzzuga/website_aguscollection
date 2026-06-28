@@ -37,6 +37,9 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            loading="eager"
+            decoding="async"
+            quality={85}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           {product.badge && (
@@ -82,6 +85,10 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
               <span className="block text-xs text-slate-400">Mulai dari</span>
               <span className="text-xl font-extrabold text-navy">
                 {(() => {
+                  // If priceRange is defined, display it
+                  if (product.priceRange) {
+                    return `${formatRupiah(product.priceRange.min)} - ${formatRupiah(product.priceRange.max)}`;
+                  }
                   // Calculate lowest price (highest discount tier)
                   const lowestTier = product.priceTiers[product.priceTiers.length - 1];
                   const basePrice = product.educationPricing 

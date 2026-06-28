@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { WhatsAppFloatingButton } from '@/components/layout/whatsapp-floating-button';
+import { LoadingProvider } from '@/components/loading-provider';
 import { cn } from '@/lib/utils';
 
 const inter = Inter({
@@ -103,10 +104,12 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
       <body className="min-h-screen bg-background font-sans antialiased">
-        <Navbar />
-        <main className="relative">{children}</main>
-        <Footer />
-        <WhatsAppFloatingButton />
+        <LoadingProvider>
+          <Navbar />
+          <main className="relative">{children}</main>
+          <Footer />
+          <WhatsAppFloatingButton />
+        </LoadingProvider>
       </body>
     </html>
   );

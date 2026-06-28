@@ -67,7 +67,7 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Agus Collection — Konveksi Premium Indonesia',
+        alt: 'Agus Collection — Konveksi Premium Berkualitas',
       },
     ],
   },
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Agus Collection | Konveksi Premium Berkualitas',
     description:
-      'Seragam berkualitas, harga pabrik langsung. Gratis desain, gratis konsultasi, pengiriman seluruh Indonesia.',
+      'Seragam berkualitas, harga dari konveksi langsung. Gratis desain, gratis konsultasi, pengiriman seluruh Indonesia.',
     images: ['/og-image.jpg'],
   },
   robots: {

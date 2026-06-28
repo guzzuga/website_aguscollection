@@ -1,5 +1,3 @@
-'use client';
-
 import { trustLogos } from '@/constants/site';
 
 export function TrustBar() {

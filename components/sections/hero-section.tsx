@@ -41,7 +41,7 @@ export function HeroSection() {
       
       {/* Floating particles - optimized for performance */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {Array.from({ length: 12 }).map((_, i) => (
+        {Array.from({ length: 6 }).map((_, i) => (
           <motion.div
             key={i}
             initial={{
@@ -75,13 +75,15 @@ export function HeroSection() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
           {/* Left content */}
           <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-col items-start"
-          >
+                    variants={staggerContainer}
+                    initial="visible"
+                    animate="visible"
+                    className="flex flex-col items-start"
+                  >
             <motion.div
               variants={fadeUp}
+              initial="visible"
+              animate="visible"
               className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 backdrop-blur"
             >
               <span className="relative flex h-2 w-2">
@@ -93,6 +95,8 @@ export function HeroSection() {
 
             <motion.h1
               variants={fadeUp}
+              initial="visible"
+              animate="visible"
               className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-white text-balance sm:text-5xl lg:text-6xl xl:text-7xl"
             >
               Seragam Berkualitas,
@@ -104,6 +108,8 @@ export function HeroSection() {
 
             <motion.p
               variants={fadeUp}
+              initial="visible"
+              animate="visible"
               className="mt-6 max-w-xl text-base leading-[1.7] text-slate-300 text-pretty sm:text-lg"
             >
               Melayani pembuatan seragam sekolah, seragam perusahaan, kaos custom,
@@ -114,6 +120,8 @@ export function HeroSection() {
             {/* Highlights */}
             <motion.ul
               variants={fadeUp}
+              initial="visible"
+              animate="visible"
               className="mt-7 flex flex-wrap gap-x-6 gap-y-3"
             >
               {heroHighlights.map((h) => (
@@ -129,6 +137,8 @@ export function HeroSection() {
             {/* CTAs */}
             <motion.div
               variants={fadeUp}
+              initial="visible"
+              animate="visible"
               className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
               <Button
@@ -163,6 +173,8 @@ export function HeroSection() {
             {/* Mini rating */}
             <motion.div
               variants={fadeUp}
+              initial="visible"
+              animate="visible"
               className="mt-10 flex items-center gap-4"
             >
               <div className="flex -space-x-3">

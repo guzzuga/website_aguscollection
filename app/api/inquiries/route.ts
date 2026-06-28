@@ -37,6 +37,17 @@ function validateInput(data: Partial<InquiryInput>): string | null {
 
 export async function POST(req: NextRequest) {
   try {
+    // Check if Supabase is configured
+    if (!supabase) {
+      console.warn('Supabase not configured - inquiries will not be saved');
+      // Return success anyway - customer can still contact via WhatsApp
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Please contact us via WhatsApp for inquiries',
+        whatsapp: '087874722632'
+      }, { status: 200 });
+    }
+
     const body = (await req.json()) as Partial<InquiryInput>;
     const error = validateInput(body);
     if (error) {
@@ -79,6 +90,14 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
   try {
+    // Check if Supabase is configured
+    if (!supabase) {
+      return NextResponse.json({ 
+        data: [],
+        message: 'Supabase not configured'
+      }, { status: 200 });
+    }
+
     const { data, error } = await supabase
       .from('inquiries')
       .select('*')

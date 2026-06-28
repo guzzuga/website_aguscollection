@@ -17,7 +17,7 @@ const SITE_URL = 'https://aguscollection.web.id';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Agus Collection | Konveksi Premium Indonesia',
+    default: 'Agus Collection | Konveksi Premium Berkualitas',
     template: '%s | Agus Collection',
   },
   description:
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     locale: 'id_ID',
     url: SITE_URL,
     siteName: 'Agus Collection',
-    title: 'Agus Collection | Konveksi Premium Indonesia',
+    title: 'Agus Collection | Konveksi Premium Berkualitas',
     description:
       'Agus Collection melayani pembuatan seragam sekolah, seragam perusahaan, kaos custom, polo shirt, celana, rok, almamater, wearpack, dan bahan kain dengan kualitas premium dan harga langsung pabrik.',
     images: [
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Agus Collection | Konveksi Premium Indonesia',
+    title: 'Agus Collection | Konveksi Premium Berkualitas',
     description:
       'Seragam berkualitas, harga pabrik langsung. Gratis desain, gratis konsultasi, pengiriman seluruh Indonesia.',
     images: ['/og-image.jpg'],

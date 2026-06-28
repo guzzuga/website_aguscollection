@@ -7,9 +7,9 @@ export const categories: Category[] = [
     description:
       'Seragam siswa dan siswi dengan bahan nyaman, tahan lama, dan sesuai standar sekolah.',
     image:
-      'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/categories/seragam-sekolah.jpg',
     icon: 'GraduationCap',
-    productCount: 12,
+    productCount: 13,
   },
   {
     slug: 'seragam-perusahaan',
@@ -17,7 +17,7 @@ export const categories: Category[] = [
     description:
       'Seragam kerja profesional yang merepresentasikan identitas brand perusahaan Anda.',
     image:
-      'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/categories/seragam-perusahaan.jpg',
     icon: 'Building2',
     productCount: 9,
   },
@@ -27,17 +27,28 @@ export const categories: Category[] = [
     description:
       'Kaos sablon custom dengan teknik sablon premium dan bahan katun combed berkualitas.',
     image:
-      'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/categories/kaos-custom.jpg',
     icon: 'Shirt',
     productCount: 15,
   },
+  {
+    slug: 'fashion-stylish',
+    name: 'Fashion Stylish',
+    description:
+      'Busana muslim modern dan pakaian stylish dengan desain kekinian dan bahan premium.',
+    image:
+      '/images/categories/fashion-stylish.jpg',
+    icon: 'Sparkles',
+    productCount: 1,
+  },
+
   {
     slug: 'polo-shirt',
     name: 'Polo Shirt',
     description:
       'Polo shirt premium dengan bordir logo atau sablon untuk seragam kerja dan komunitas.',
     image:
-      'https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/categories/polo-shirt.jpg',
     icon: 'Shirt',
     productCount: 10,
   },
@@ -47,17 +58,17 @@ export const categories: Category[] = [
     description:
       'Wearpack industri dan lapangan dengan bahan ripstop yang kuat, aman, dan nyaman dipakai.',
     image:
-      'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/categories/wearpack.jpg',
     icon: 'HardHat',
     productCount: 8,
   },
   {
-    slug: 'jaket',
-    name: 'Jaket',
+    slug: 'almamater',
+    name: 'Almamater & Jaz',
     description:
-      'Jaket varsity, bomber, dan almamater premium dengan bahan berkualitas dan bordir kustom.',
+      'Koleksi almamater dan jaket premium dengan desain eksklusif dan bahan berkualitas tinggi. Cocok untuk wisuda, organisasi, komunitas, dan acara spesial.',
     image:
-      'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/categories/almamater.jpg',
     icon: 'Wind',
     productCount: 7,
   },
@@ -67,7 +78,7 @@ export const categories: Category[] = [
     description:
       'Aneka bahan kain grade A: katun combed, drill, polyester, dan lainnya dengan harga grosir.',
     image:
-      'https://images.pexels.com/photos/6809657/pexels-photo-6809657.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/categories/bahan-kain.jpg',
     icon: 'Layers',
     productCount: 20,
   },
@@ -77,7 +88,7 @@ export const categories: Category[] = [
     description:
       'Dasi, topi, dompet, tali nama, sabuk, dan atribut sekolah lengkap dengan kualitas terjamin.',
     image:
-      'https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/categories/atribut-sekolah.jpg',
     icon: 'Star',
     productCount: 18,
   },
@@ -94,16 +105,22 @@ export const products: Product[] = [
     description:
       'Seragam sekolah standar dengan bahan katun twill premium yang adem, tidak menerawang, dan tahan lama. Jahitan rantai di area kritikal memastikan ketahanan saat dicuci berulang. Tersedia untuk SD, SMP, dan SMA dengan warna sesuai standar sekolah.',
     images: [
-      'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8617742/pexels-photo-8617742.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8617711/pexels-photo-8617711.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8617743/pexels-photo-8617743.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/seragam-sekolah-standar/foto-1.jpg',
+      '/images/products/seragam-sekolah-standar/foto-2.jpg',
+      '/images/products/seragam-sekolah-standar/foto-3.jpg',
+      '/images/products/seragam-sekolah-standar/foto-4.jpg',
     ],
-    basePrice: 65000,
+    basePrice: 102500,
+    educationPricing: [
+      { level: 'SD', basePrice: 105000, label: 'Sekolah Dasar' },
+      { level: 'SMP', basePrice: 120000, label: 'Sekolah Menengah Pertama' },
+      { level: 'SMA', basePrice: 135000, label: 'Sekolah Menengah Atas' },
+    ],
     priceTiers: [
-      { minQty: 10, maxQty: 49, price: 65000, label: '10–49 pcs' },
-      { minQty: 50, maxQty: 199, price: 55000, label: '50–199 pcs' },
-      { minQty: 200, maxQty: null, price: 48000, label: '200+ pcs' },
+      { minQty: 10, maxQty: 49, discount: 0, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 99, discount: 1000, label: '50–99 pcs' },
+      { minQty: 100, maxQty: 199, discount: 1500, label: '100–199 pcs' },
+      { minQty: 200, maxQty: 500, discount: 2500, label: '200–500 pcs' },
     ],
     colors: [
       { name: 'Putih', hex: '#f8fafc' },
@@ -130,7 +147,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '7–10 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
     slug: 'seragam-olahraga-sekolah',
@@ -141,16 +158,22 @@ export const products: Product[] = [
     description:
       'Seragam olahraga sekolah dengan bahan drifit polyester yang menyerap keringat cepat, ringan, dan nyaman dipakai aktivitas tinggi. Sablon nama sekolah dan logo dengan teknik heat transfer premium. Tersedia untuk SD, SMP, dan SMA.',
     images: [
-      'https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/2827400/pexels-photo-2827400.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3621175/pexels-photo-3621175.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/seragam-olahraga-sekolah/foto-1.jpg',
+      '/images/products/seragam-olahraga-sekolah/foto-2.jpg',
+      '/images/products/seragam-olahraga-sekolah/foto-3.jpg',
+      '/images/products/seragam-olahraga-sekolah/foto-4.jpg',
     ],
-    basePrice: 55000,
+    basePrice: 58000,
+    educationPricing: [
+      { level: 'SD', basePrice: 60000, label: 'Sekolah Dasar' },
+      { level: 'SMP', basePrice: 70000, label: 'Sekolah Menengah Pertama' },
+      { level: 'SMA', basePrice: 80000, label: 'Sekolah Menengah Atas' },
+    ],
     priceTiers: [
-      { minQty: 10, maxQty: 49, price: 55000, label: '10–49 pcs' },
-      { minQty: 50, maxQty: 199, price: 47000, label: '50–199 pcs' },
-      { minQty: 200, maxQty: null, price: 40000, label: '200+ pcs' },
+      { minQty: 10, maxQty: 49, discount: 0, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 99, discount: 1000, label: '50–99 pcs' },
+      { minQty: 100, maxQty: 199, discount: 1500, label: '100–199 pcs' },
+      { minQty: 200, maxQty: 500, discount: 2500, label: '200–500 pcs' },
     ],
     colors: [
       { name: 'Putih', hex: '#f8fafc' },
@@ -177,27 +200,178 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '5–7 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
-    slug: 'rok-sekolah',
-    name: 'Rok Sekolah Plisket & Polos',
+    slug: 'celana-sekolah',
+    name: 'Celana Sekolah Standar',
     category: 'seragam-sekolah',
     categoryLabel: 'Seragam Sekolah',
-    shortDescription: 'Rok sekolah plisket dan polos untuk SD, SMP, SMA berkualitas.',
+    shortDescription: 'Celana sekolah bahan drill premium dengan ketahanan tinggi.',
     description:
-      'Rok sekolah tersedia model plisket dan polos dengan bahan serge berkualitas yang jatuh sempurna, tidak mudah kusut, dan tahan lama. Tersedia berbagai ukuran dari anak-anak hingga dewasa sesuai standar sekolah.',
+      'Celana sekolah dengan bahan drill yang tidak mudah kusut, tahan lama, dan nyaman dipakai seharian. Jahitan rantai di area kritikal untuk ketahanan ekstra. Tersedia untuk SD, SMP, dan SMA dengan warna sesuai standar sekolah.',
     images: [
-      'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8617742/pexels-photo-8617742.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8617711/pexels-photo-8617711.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/celana-sekolah/foto-1.jpg',
+      '/images/products/celana-sekolah/foto-2.jpg',
+      '/images/products/celana-sekolah/foto-3.jpg',
+      '/images/products/celana-sekolah/foto-4.jpg',
     ],
-    basePrice: 45000,
+    basePrice: 75000,
+    educationPricing: [
+      { level: 'SD', basePrice: 75000, label: 'Sekolah Dasar' },
+      { level: 'SMP', basePrice: 85000, label: 'Sekolah Menengah Pertama' },
+      { level: 'SMA', basePrice: 95000, label: 'Sekolah Menengah Atas' },
+    ],
     priceTiers: [
-      { minQty: 10, maxQty: 49, price: 45000, label: '10–49 pcs' },
-      { minQty: 50, maxQty: 199, price: 38000, label: '50–199 pcs' },
-      { minQty: 200, maxQty: null, price: 32000, label: '200+ pcs' },
+      { minQty: 10, maxQty: 49, discount: 0, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 99, discount: 1000, label: '50–99 pcs' },
+      { minQty: 100, maxQty: 199, discount: 1500, label: '100–199 pcs' },
+      { minQty: 200, maxQty: 500, discount: 2500, label: '200–500 pcs' },
+    ],
+    colors: [
+      { name: 'Abu', hex: '#64748b' },
+      { name: 'Navy', hex: '#0a0a2e' },
+      { name: 'Hitam', hex: '#0f172a' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    rating: 4.8,
+    reviewCount: 87,
+    features: [
+      'Bahan drill premium, tidak mudah kusut',
+      'Jahitan rantai di area kritikal',
+      'Tersedia warna sesuai standar sekolah',
+      'Bordir nama sekolah gratis (min. 50 pcs)',
+      'Quality control ketat sebelum pengiriman',
+    ],
+    specifications: [
+      { label: 'Bahan', value: 'Drill 200 gsm' },
+      { label: 'Model', value: 'Celana Pendek / Panjang' },
+      { label: 'MOQ', value: '10 pcs' },
+      { label: 'Estimasi Produksi', value: '7–10 hari kerja' },
+      { label: 'Pengiriman', value: 'Seluruh Indonesia' },
+    ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
+  },
+  {
+    slug: 'musolla-sekolah',
+    name: 'Musolla Sekolah Muslimah',
+    category: 'seragam-sekolah',
+    categoryLabel: 'Seragam Sekolah',
+    shortDescription: 'Musolla/mantel seragam muslimah bahan katun adem dan syar\'i.',
+    description:
+      'Musolla atau mantel seragam muslimah dengan bahan katun yang adem, tidak menerawang, dan nyaman dipakai seharian. Model syar\'i dengan panjang lengan dan tubuh sesuai standar seragam sekolah. Tersedia untuk SD, SMP, dan SMA.',
+    images: [
+      '/images/products/musolla-sekolah/foto-1.jpg',
+      '/images/products/musolla-sekolah/foto-2.jpg',
+      '/images/products/musolla-sekolah/foto-3.jpg',
+      '/images/products/musolla-sekolah/foto-4.jpg',
+    ],
+    basePrice: 85000,
+    educationPricing: [
+      { level: 'SD', basePrice: 85000, label: 'Sekolah Dasar' },
+      { level: 'SMP', basePrice: 95000, label: 'Sekolah Menengah Pertama' },
+      { level: 'SMA', basePrice: 110000, label: 'Sekolah Menengah Atas' },
+    ],
+    priceTiers: [
+      { minQty: 10, maxQty: 49, discount: 0, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 99, discount: 1000, label: '50–99 pcs' },
+      { minQty: 100, maxQty: 199, discount: 1500, label: '100–199 pcs' },
+      { minQty: 200, maxQty: 500, discount: 2500, label: '200–500 pcs' },
+    ],
+    colors: [
+      { name: 'Putih', hex: '#f8fafc' },
+      { name: 'Navy', hex: '#0a0a2e' },
+      { name: 'Abu', hex: '#64748b' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    rating: 4.8,
+    reviewCount: 64,
+    features: [
+      'Bahan katun adem, tidak menerawang',
+      'Model syar\'i dengan panjang sesuai standar',
+      'Jahitan rapi dan tahan lama',
+      'Bordir nama sekolah gratis (min. 50 pcs)',
+      'Quality control ketat sebelum pengiriman',
+    ],
+    specifications: [
+      { label: 'Bahan', value: 'Katun Twill 30s' },
+      { label: 'Model', value: 'Musolla / Mantel Muslimah' },
+      { label: 'MOQ', value: '10 pcs' },
+      { label: 'Estimasi Produksi', value: '7–10 hari kerja' },
+      { label: 'Pengiriman', value: 'Seluruh Indonesia' },
+    ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
+  },
+  {
+    slug: 'jas-labschool',
+    name: 'Jas Labschool Premium',
+    category: 'seragam-sekolah',
+    categoryLabel: 'Seragam Sekolah',
+    shortDescription: 'Jas lab seragam sekolah dengan bahan yang tahan kimia dan mudah dicuci.',
+    description:
+      'Jas lab seragam sekolah dengan bahan drill tahan kimia dan mudah dicuci. Model kancing depan, saku fungsional, dan kantong pensil. Cocok untuk praktikum IPA, Biologi, Kimia, dan Fisika. Tersedia untuk SD, SMP, dan SMA.',
+    images: [
+      '/images/products/jas-labschool/foto-1.jpg',
+      '/images/products/jas-labschool/foto-2.jpg',
+      '/images/products/jas-labschool/foto-3.jpg',
+      '/images/products/jas-labschool/foto-4.jpg',
+    ],
+    basePrice: 65000,
+    educationPricing: [
+      { level: 'SD', basePrice: 65000, label: 'Sekolah Dasar' },
+      { level: 'SMP', basePrice: 75000, label: 'Sekolah Menengah Pertama' },
+      { level: 'SMA', basePrice: 85000, label: 'Sekolah Menengah Atas' },
+    ],
+    priceTiers: [
+      { minQty: 10, maxQty: 49, discount: 0, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 99, discount: 1000, label: '50–99 pcs' },
+      { minQty: 100, maxQty: 199, discount: 1500, label: '100–199 pcs' },
+      { minQty: 200, maxQty: 500, discount: 2500, label: '200–500 pcs' },
+    ],
+    colors: [
+      { name: 'Putih', hex: '#f8fafc' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    rating: 4.7,
+    reviewCount: 52,
+    features: [
+      'Bahan drill tahan kimia dan mudah dicuci',
+      'Model kancing depan dengan saku fungsional',
+      'Kantong pensil di lengan',
+      'Bordir nama sekolah gratis (min. 50 pcs)',
+      'Quality control ketat sebelum pengiriman',
+    ],
+    specifications: [
+      { label: 'Bahan', value: 'Drill 180 gsm' },
+      { label: 'Model', value: 'Jas Lab / Apron' },
+      { label: 'MOQ', value: '10 pcs' },
+      { label: 'Estimasi Produksi', value: '7–10 hari kerja' },
+      { label: 'Pengiriman', value: 'Seluruh Indonesia' },
+    ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
+  },
+
+  // FASHION STYLISH
+  {
+    slug: 'rok-sekolah',
+    name: 'Rok Plisket Dewasa Premium',
+    category: 'fashion-stylish',
+    categoryLabel: 'Fashion Stylish',
+    shortDescription: 'Rok plisket premium outfit stylish cewek gen z.',
+    description:
+      'Rok plisket premium dengan bahan berkualitas dan model stylish. Cocok untuk outfit sehari-hari, kuliah, atau acara casual. Tersedia dalam berbagai warna dan ukuran.',
+    images: [
+      '/images/products/rok-sekolah-plisket/foto-1.jpg',
+      '/images/products/rok-sekolah-plisket/foto-2.jpg',
+      '/images/products/rok-sekolah-plisket/foto-3.jpg',
+      '/images/products/rok-sekolah-plisket/foto-4.jpg',
+    ],
+    basePrice: 60000,
+    priceTiers: [
+      { minQty: 10, maxQty: 49, discount: 0, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 99, discount: 1000, label: '50–99 pcs' },
+      { minQty: 100, maxQty: 199, discount: 1500, label: '100–199 pcs' },
+      { minQty: 200, maxQty: 500, discount: 2500, label: '200–500 pcs' },
     ],
     colors: [
       { name: 'Abu', hex: '#64748b' },
@@ -222,7 +396,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '5–7 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
 
   // ─── SERAGAM PERUSAHAAN ────────────────────────────────────────────────────
@@ -235,10 +409,10 @@ export const products: Product[] = [
     description:
       'Polo shirt seragam perusahaan dengan bahan lacoste pique yang breathable dan tahan kusut. Bordir logo perusahaan dengan teknik computerized embroidery menghasilkan detail tajam dan tahan lama. Cocok untuk staff, sales, dan event perusahaan.',
     images: [
-      'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/seragam-perusahaan-polo/foto-1.jpg',
+      '/images/products/seragam-perusahaan-polo/foto-2.jpg',
+      '/images/products/seragam-perusahaan-polo/foto-3.jpg',
+      '/images/products/seragam-perusahaan-polo/foto-4.jpg',
     ],
     basePrice: 85000,
     priceTiers: [
@@ -272,7 +446,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '7–10 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
     slug: 'kemeja-seragam-perusahaan',
@@ -283,10 +457,10 @@ export const products: Product[] = [
     description:
       'Kemeja seragam perusahaan dengan bahan katun CVC yang tidak mudah kusut dan nyaman dipakai seharian. Model lengan panjang dan pendek tersedia. Bordir logo di dada kiri dengan teknik computerized untuk tampilan profesional.',
     images: [
-      'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/kemeja-seragam-perusahaan/foto-1.jpg',
+      '/images/products/kemeja-seragam-perusahaan/foto-2.jpg',
+      '/images/products/kemeja-seragam-perusahaan/foto-3.jpg',
+      '/images/products/kemeja-seragam-perusahaan/foto-4.jpg',
     ],
     basePrice: 90000,
     priceTiers: [
@@ -319,7 +493,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '7–10 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
 
   // ─── KAOS CUSTOM ──────────────────────────────────────────────────────────
@@ -332,10 +506,8 @@ export const products: Product[] = [
     description:
       'Kaos custom dengan bahan katun combed 30s yang lembut, adem, dan jatuh sempurna. Sablon menggunakan tinta plastisol / waterbased yang aman dan tahan lama. Cocok untuk event, komunitas, merchandise, dan promo.',
     images: [
-      'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/kaos-custom-combed/foto-1.jpg',
+      '/images/products/kaos-custom-combed/foto-2.jpg',
     ],
     basePrice: 45000,
     priceTiers: [
@@ -370,7 +542,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '5–7 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
     slug: 'kaos-oversize-custom',
@@ -381,10 +553,10 @@ export const products: Product[] = [
     description:
       'Kaos oversize dengan bahan cotton bamboo yang lembut, adem, dan jatuh bagus untuk tampilan streetwear kekinian. Sablon DTF (Direct To Film) full color dengan detail tinggi. Cocok untuk brand clothing, merchandise komunitas, dan event.',
     images: [
-      'https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/kaos-oversize-custom/foto-1.jpg',
+      '/images/products/kaos-oversize-custom/foto-2.jpg',
+      '/images/products/kaos-oversize-custom/foto-3.jpg',
+      '/images/products/kaos-oversize-custom/foto-4.jpg',
     ],
     basePrice: 55000,
     priceTiers: [
@@ -417,7 +589,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '5–7 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
 
   // ─── POLO SHIRT ───────────────────────────────────────────────────────────
@@ -430,10 +602,10 @@ export const products: Product[] = [
     description:
       'Polo shirt dengan bahan lacoste pique grade A yang breathable, tahan kusut, dan nyaman dipakai seharian. Bordir logo dengan computerized embroidery menghasilkan detail yang tajam. Cocok untuk seragam kerja, komunitas, dan event.',
     images: [
-      'https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/polo-shirt-lacoste/foto-1.jpg',
+      '/images/products/polo-shirt-lacoste/foto-2.jpg',
+      '/images/products/polo-shirt-lacoste/foto-3.jpg',
+      '/images/products/polo-shirt-lacoste/foto-4.jpg',
     ],
     basePrice: 80000,
     priceTiers: [
@@ -467,7 +639,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '7–10 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
     slug: 'polo-shirt-drifit',
@@ -478,10 +650,10 @@ export const products: Product[] = [
     description:
       'Polo shirt drifit dengan bahan polyester microfiber yang ringan, menyerap keringat, dan cepat kering. Cocok untuk seragam olahraga, kepanitiaan, event outdoor, dan aktivitas lapangan. Tersedia dengan opsi sablon atau bordir.',
     images: [
-      'https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3622608/pexels-photo-3622608.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/2827400/pexels-photo-2827400.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3621175/pexels-photo-3621175.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/polo-shirt-drifit/foto-1.jpg',
+      '/images/products/polo-shirt-drifit/foto-2.jpg',
+      '/images/products/polo-shirt-drifit/foto-3.jpg',
+      '/images/products/polo-shirt-drifit/foto-4.jpg',
     ],
     basePrice: 65000,
     priceTiers: [
@@ -513,7 +685,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '5–7 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
 
   // ─── WEARPACK ─────────────────────────────────────────────────────────────
@@ -526,10 +698,10 @@ export const products: Product[] = [
     description:
       'Wearpack industri dengan bahan ripstop yang kuat, tahan abrasi, dan nyaman dipakai di lingkungan kerja berat. Jahitan dobel di area tekanan tinggi. Dilengkapi banyak kantong fungsional. Cocok untuk industri manufaktur, tambang, dan konstruksi.',
     images: [
-      'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/wearpack-industri-ripstop/foto-1.jpg',
+      '/images/products/wearpack-industri-ripstop/foto-2.jpg',
+      '/images/products/wearpack-industri-ripstop/foto-3.jpg',
+      '/images/products/wearpack-industri-ripstop/foto-4.jpg',
     ],
     basePrice: 185000,
     priceTiers: [
@@ -562,7 +734,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '10–14 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
     slug: 'wearpack-mekanik',
@@ -573,10 +745,10 @@ export const products: Product[] = [
     description:
       'Wearpack model coverall satu bagian untuk mekanik dan teknisi dengan bahan canvas yang tebal dan tahan lama. Resleting YKK berkualitas, kantong banyak dan fungsional, serta bordir nama teknisi untuk tampilan profesional.',
     images: [
-      'https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/wearpack-mekanik/foto-1.jpg',
+      '/images/products/wearpack-mekanik/foto-2.jpg',
+      '/images/products/wearpack-mekanik/foto-3.jpg',
+      '/images/products/wearpack-mekanik/foto-4.jpg',
     ],
     basePrice: 210000,
     priceTiers: [
@@ -607,23 +779,23 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '10–14 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
 
-  // ─── JAKET ────────────────────────────────────────────────────────────────
+  // ─── ALMAMATER ────────────────────────────────────────────────────────────
   {
     slug: 'jaket-varsity-premium',
-    name: 'Jaket Varsity & Almamater',
-    category: 'jaket',
-    categoryLabel: 'Jaket',
-    shortDescription: 'Jaket varsity dan almamater dengan kombinasi bahan premium.',
+    name: 'Almamater & Jaz',
+    category: 'almamater',
+    categoryLabel: 'Almamater',
+    shortDescription: 'Jaket dan almamater premium dengan kombinasi bahan berkualitas dan bordir elegan.',
     description:
-      'Jaket varsity dan almamater premium dengan kombinasi body wool premium dan sleeve kulit sintetis berkualitas. Lining furing lembut di dalam, kancing khas varsity, dan bordir logo yang elegan. Cocok untuk jaket wisuda, almamater, komunitas, dan organisasi.',
+      'Jaket dan almamater premium dengan kombinasi body wool premium dan sleeve kulit sintetis berkualitas tinggi. Lining furing lembut di dalam, kancing khas varsity, dan bordir logo yang elegan. Cocok untuk jaket wisuda, almamater organisasi, komunitas, dan acara spesial. Tersedia dalam berbagai warna dan ukuran dengan opsi custom bordir logo.',
     images: [
-      'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8217420/pexels-photo-8217420.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8217419/pexels-photo-8217419.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/jazz-almamater/foto-1.jpg',
+      '/images/products/jazz-almamater/foto-2.jpg',
+      '/images/products/jazz-almamater/foto-3.jpg',
+      '/images/products/jazz-almamater/foto-4.jpg',
     ],
     basePrice: 175000,
     priceTiers: [
@@ -656,21 +828,21 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '10–14 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
     slug: 'jaket-bomber',
     name: 'Jaket Bomber Custom',
-    category: 'jaket',
-    categoryLabel: 'Jaket',
+    category: 'almamater',
+    categoryLabel: 'Almamater',
     shortDescription: 'Jaket bomber custom dengan bahan taslan water repellent premium.',
     description:
       'Jaket bomber custom dengan bahan taslan yang water repellent (tahan air ringan) dan windproof. Lining furing fleece yang hangat. Cocok untuk seragam komunitas, kepanitiaan, event outdoor, dan promo brand.',
     images: [
-      'https://images.pexels.com/photos/2220316/pexels-photo-2220316.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8217420/pexels-photo-8217420.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8217419/pexels-photo-8217419.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/jaket-bomber/foto-1.jpg',
+      '/images/products/jaket-bomber/foto-2.jpg',
+      '/images/products/jaket-bomber/foto-3.jpg',
+      '/images/products/jaket-bomber/foto-4.jpg',
     ],
     basePrice: 155000,
     priceTiers: [
@@ -702,7 +874,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '10–14 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
 
   // ─── BAHAN KAIN ───────────────────────────────────────────────────────────
@@ -715,10 +887,10 @@ export const products: Product[] = [
     description:
       'Kain katun combed 30s grade A yang lembut, adem, dan memiliki tekstur halus. Cocok untuk produksi kaos, baju tidur, dan pakaian casual. Tersedia berbagai warna solid dan motif. Dijual per meter dengan harga grosir.',
     images: [
-      'https://images.pexels.com/photos/6809657/pexels-photo-6809657.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/6809657/pexels-photo-6809657.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/bahan-katun-combed/foto-1.jpg',
+      '/images/products/bahan-katun-combed/foto-2.jpg',
+      '/images/products/bahan-katun-combed/foto-3.jpg',
+      '/images/products/bahan-katun-combed/foto-4.jpg',
     ],
     basePrice: 35000,
     priceTiers: [
@@ -751,7 +923,7 @@ export const products: Product[] = [
       { label: 'Min. Pembelian', value: '10 meter' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
     slug: 'bahan-serge-drill',
@@ -762,10 +934,10 @@ export const products: Product[] = [
     description:
       'Kain serge dan drill berkualitas tinggi yang biasa digunakan untuk produksi seragam sekolah, seragam kantor, dan celana. Bahan tidak mudah kusut, tahan lama, dan memiliki jatuh yang bagus. Dijual per meter.',
     images: [
-      'https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/6809657/pexels-photo-6809657.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/6809657/pexels-photo-6809657.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/bahan-serge-drill/foto-1.jpg',
+      '/images/products/bahan-serge-drill/foto-2.jpg',
+      '/images/products/bahan-serge-drill/foto-3.jpg',
+      '/images/products/bahan-serge-drill/foto-4.jpg',
     ],
     basePrice: 28000,
     priceTiers: [
@@ -797,7 +969,7 @@ export const products: Product[] = [
       { label: 'Min. Pembelian', value: '10 meter' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
 
   // ─── ATRIBUT SEKOLAH ──────────────────────────────────────────────────────
@@ -810,10 +982,9 @@ export const products: Product[] = [
     description:
       'Dasi sekolah custom dengan bahan polyester satin berkualitas, warna dan corak sesuai identitas sekolah. Mudah dipakai dengan klip/karet pengait. Tersedia berbagai model: dasi panjang, kupu-kupu, dan segitiga.',
     images: [
-      'https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8617742/pexels-photo-8617742.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/dasi-sekolah/foto-1.jpg',
+      '/images/products/dasi-sekolah/foto-2.jpg',
+      '/images/products/dasi-sekolah/foto-3.jpg',
     ],
     basePrice: 12000,
     priceTiers: [
@@ -846,7 +1017,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '5–7 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
     slug: 'topi-sekolah',
@@ -857,10 +1028,9 @@ export const products: Product[] = [
     description:
       'Topi sekolah custom dengan bahan drill berkualitas yang tidak mudah layu. Bordir logo dan nama sekolah dengan computerized embroidery. Tersedia model topi pet (baseball cap), topi rimba, dan topi dinas sesuai kebutuhan sekolah.',
     images: [
-      'https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8617743/pexels-photo-8617743.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=1200',
+      '/images/products/topi-sekolah-custom/foto-1.jpg',
+      '/images/products/topi-sekolah-custom/foto-2.jpg',
+      '/images/products/topi-sekolah-custom/foto-3.jpg',
     ],
     basePrice: 18000,
     priceTiers: [
@@ -892,7 +1062,194 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '5–7 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    shopeeUrl: 'https://shopee.co.id/aguscollection',
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
+  },
+  {
+    slug: 'dompet-sekolah',
+    name: 'Dompet Sekolah Custom',
+    category: 'atribut-sekolah',
+    categoryLabel: 'Atribut Sekolah',
+    shortDescription: 'Dompet sekolah custom dengan bahan kulit sintetis berkualitas dan bordir logo.',
+    description:
+      'Dompet sekolah custom dengan bahan kulit sintetis (PU leather) berkualitas yang tahan lama. Bordir logo dan nama sekolah dengan computerized embroidery. Model dompet kancing, resleting, atau kancing magnet sesuai permintaan. Tersedia berbagai warna.',
+    images: [
+      '/images/products/dompet-sekolah/foto-1.jpg',
+      '/images/products/dompet-sekolah/foto-2.jpg',
+      '/images/products/dompet-sekolah/foto-3.jpg',
+      '/images/products/dompet-sekolah/foto-4.jpg',
+    ],
+    basePrice: 15000,
+    priceTiers: [
+      { minQty: 50, maxQty: 199, price: 15000, label: '50–199 pcs' },
+      { minQty: 200, maxQty: 499, price: 12500, label: '200–499 pcs' },
+      { minQty: 500, maxQty: null, price: 10500, label: '500+ pcs' },
+    ],
+    colors: [
+      { name: 'Navy', hex: '#0a0a2e' },
+      { name: 'Hitam', hex: '#0f172a' },
+      { name: 'Merah Maroon', hex: '#7f1d1d' },
+    ],
+    sizes: ['All Size'],
+    rating: 4.7,
+    reviewCount: 78,
+    features: [
+      'Bahan kulit sintetis PU berkualitas',
+      'Bordir logo sekolah computerized',
+      'Tersedia model kancing, resleting, magnet',
+      'Lapangan dalam luas, muat uang & kartu',
+      'Quality control ketat sebelum pengiriman',
+    ],
+    specifications: [
+      { label: 'Bahan', value: 'PU Leather' },
+      { label: 'Model', value: 'Kancing / Resleting / Magnet' },
+      { label: 'Teknik Logo', value: 'Computerized Embroidery' },
+      { label: 'MOQ', value: '50 pcs' },
+      { label: 'Estimasi Produksi', value: '5–7 hari kerja' },
+      { label: 'Pengiriman', value: 'Seluruh Indonesia' },
+    ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
+  },
+  {
+    slug: 'tali-nama-sekolah',
+    name: 'Tali Nama / ID Card Holder Sekolah',
+    category: 'atribut-sekolah',
+    categoryLabel: 'Atribut Sekolah',
+    shortDescription: 'Tali nama dan ID card holder custom dengan logo dan nama sekolah.',
+    description:
+      'Tali nama dan ID card holder custom dengan bahan polyester berkualitas. Sablon atau bordir logo dan nama sekolah. Model tali leher dengan klip kancing atau velcro. Tersedia berbagai warna dan ukuran kartu ID.',
+    images: [
+      '/images/products/tali-nama-sekolah/foto-1.jpg',
+      '/images/products/tali-nama-sekolah/foto-2.jpg',
+      '/images/products/tali-nama-sekolah/foto-3.jpg',
+      '/images/products/tali-nama-sekolah/foto-4.jpg',
+    ],
+    basePrice: 5000,
+    priceTiers: [
+      { minQty: 100, maxQty: 299, price: 5000, label: '100–299 pcs' },
+      { minQty: 300, maxQty: 499, price: 4000, label: '300–499 pcs' },
+      { minQty: 500, maxQty: null, price: 3500, label: '500+ pcs' },
+    ],
+    colors: [
+      { name: 'Biru', hex: '#2563eb' },
+      { name: 'Merah', hex: '#dc2626' },
+      { name: 'Hijau', hex: '#16a34a' },
+      { name: 'Hitam', hex: '#0f172a' },
+    ],
+    sizes: ['All Size'],
+    rating: 4.6,
+    reviewCount: 112,
+    features: [
+      'Bahan polyester berkualitas, tahan lama',
+      'Sablon atau bordir logo sekolah',
+      'Klip kancing / velcro mudah pasang',
+      'Ukuran kartu ID standar',
+      'Quality control ketat sebelum pengiriman',
+    ],
+    specifications: [
+      { label: 'Bahan', value: 'Polyester Ribbon' },
+      { label: 'Model', value: 'Tali Leher + ID Card Holder' },
+      { label: 'Teknik Logo', value: 'Sablon / Bordir' },
+      { label: 'MOQ', value: '100 pcs' },
+      { label: 'Estimasi Produksi', value: '3–5 hari kerja' },
+      { label: 'Pengiriman', value: 'Seluruh Indonesia' },
+    ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
+  },
+  {
+    slug: 'sabuk-sekolah',
+    name: 'Sabuk Sekolah Kulit Sintetis',
+    category: 'atribut-sekolah',
+    categoryLabel: 'Atribut Sekolah',
+    shortDescription: 'Sabuk sekolah dengan bahan kulit sintetis berkualitas dan gesper metal.',
+    description:
+      'Sabuk sekolah dengan bahan kulit sintetis (PU leather) berkualitas yang tahan lama. Gesper metal chrome atau gold yang kokoh. Lebar standar 3.5 cm untuk anak-anak. Tersedia warna hitam dan coklat dengan berbagai ukuran.',
+    images: [
+      '/images/products/sabuk-sekolah/foto-1.jpg',
+      '/images/products/sabuk-sekolah/foto-2.jpg',
+      '/images/products/sabuk-sekolah/foto-3.jpg',
+      '/images/products/sabuk-sekolah/foto-4.jpg',
+    ],
+    basePrice: 18000,
+    priceTiers: [
+      { minQty: 50, maxQty: 199, price: 18000, label: '50–199 pcs' },
+      { minQty: 200, maxQty: 499, price: 15000, label: '200–499 pcs' },
+      { minQty: 500, maxQty: null, price: 12500, label: '500+ pcs' },
+    ],
+    colors: [
+      { name: 'Hitam', hex: '#0f172a' },
+      { name: 'Coklat', hex: '#92400e' },
+    ],
+    sizes: ['S', 'M', 'L'],
+    rating: 4.7,
+    reviewCount: 65,
+    features: [
+      'Bahan kulit sintetis PU berkualitas',
+      'Gesper metal chrome/gold kokoh',
+      'Lebar standar 3.5 cm untuk anak',
+      'Tersedia berbagai ukuran',
+      'Quality control ketat sebelum pengiriman',
+    ],
+    specifications: [
+      { label: 'Bahan', value: 'PU Leather' },
+      { label: 'Gesper', value: 'Metal Chrome / Gold' },
+      { label: 'Lebar', value: '3.5 cm' },
+      { label: 'MOQ', value: '50 pcs' },
+      { label: 'Estimasi Produksi', value: '5–7 hari kerja' },
+      { label: 'Pengiriman', value: 'Seluruh Indonesia' },
+    ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
+  },
+  {
+    slug: 'jilbab-sekolah',
+    name: 'Jilbab / Hijab Sekolah',
+    category: 'atribut-sekolah',
+    categoryLabel: 'Atribut Sekolah',
+    shortDescription: 'Jilbab sekolah bahan voal/mawar syar\'i dengan bordir nama sekolah.',
+    description:
+      'Jilbab sekolah dengan bahan voal/mawar yang ringan, adem, dan tidak menerawang. Model syar\'i dengan panjang hingga perut. Bordir nama dan logo sekolah di bagian luar. Tersedia berbagai warna sesuai standar seragam sekolah.',
+    images: [
+      '/images/products/jilbab-sekolah/foto-1.jpg',
+      '/images/products/jilbab-sekolah/foto-2.jpg',
+      '/images/products/jilbab-sekolah/foto-3.jpg',
+      '/images/products/jilbab-sekolah/foto-4.jpg',
+    ],
+    basePrice: 35000,
+    educationPricing: [
+      { level: 'SD', basePrice: 35000, label: 'Sekolah Dasar' },
+      { level: 'SMP', basePrice: 40000, label: 'Sekolah Menengah Pertama' },
+      { level: 'SMA', basePrice: 45000, label: 'Sekolah Menengah Atas' },
+    ],
+    priceTiers: [
+      { minQty: 50, maxQty: 199, price: 35000, label: '50–199 pcs' },
+      { minQty: 200, maxQty: 499, price: 30000, label: '200–499 pcs' },
+      { minQty: 500, maxQty: null, price: 27000, label: '500+ pcs' },
+    ],
+    colors: [
+      { name: 'Putih', hex: '#f8fafc' },
+      { name: 'Navy', hex: '#0a0a2e' },
+      { name: 'Abu', hex: '#64748b' },
+      { name: 'Abu Muda', hex: '#e2e8f0' },
+    ],
+    sizes: ['All Size'],
+    rating: 4.8,
+    reviewCount: 89,
+    badge: 'Populer',
+    features: [
+      'Bahan voal/mawar ringan, adem, tidak menerawang',
+      'Model syar\'i panjang hingga perut',
+      'Bordir nama dan logo sekolah',
+      'Tersedia berbagai warna seragam',
+      'Quality control ketat sebelum pengiriman',
+    ],
+    specifications: [
+      { label: 'Bahan', value: 'Voal / Mawar' },
+      { label: 'Model', value: 'Syar\'i / Segi Empat' },
+      { label: 'Teknik Logo', value: 'Bordir Computerized' },
+      { label: 'MOQ', value: '50 pcs' },
+      { label: 'Estimasi Produksi', value: '5–7 hari kerja' },
+      { label: 'Pengiriman', value: 'Seluruh Indonesia' },
+    ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
 ];
 

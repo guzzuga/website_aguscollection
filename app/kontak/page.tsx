@@ -143,14 +143,13 @@ export default function ContactPage() {
                 {/* Map */}
                 <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 shadow-soft">
                   <iframe
-                    title="Lokasi Sri Bayu Garment"
-                    src={`https://www.google.com/maps?q=${encodeURIComponent(
-                      siteConfig.mapsQuery,
-                    )}&output=embed`}
+                    title="Lokasi Agus Collection"
+                    src="https://www.google.com/maps?q=-7.4063689,112.4104139&z=18&output=embed"
                     width="100%"
-                    height="280"
+                    height="400"
+                    style={{ border: 0, borderRadius: '20px' }}
+                    allowFullScreen
                     loading="lazy"
-                    style={{ border: 0 }}
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                 </div>

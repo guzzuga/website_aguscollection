@@ -5,11 +5,11 @@ export const siteConfig = {
   description:
     'Konveksi Premium Indonesia yang melayani produksi seragam sekolah, perusahaan, kaos custom, polo shirt, celana, almamater, wearpack, serta penjualan bahan kain berkualitas.',
   url: 'https://aguscollection.com',
-  email: 'admin@aguscollection.com',
-  phone: '087874622632',
+  email: 'aguscollectionmjk@gmail.com',
+  phone: '087874722632',
   whatsapp: '6287874722632',
   address: 'Dusun Bulu, RT.019/RW.005, Bulu, Sawo, Kec. Jetis, Kabupaten Mojokerto, Jawa Timur 61352',
-  mapsQuery: 'Kecamatan Jetis, Kabupaten Mojokerto, Jawa Timur',
+  mapsQuery: '-7.4063689,112.4104139',
   hours: 'Senin–Sabtu, 08.00–17.00 WIB',
   social: {
     instagram: 'https://instagram.com/agus_collection_mjk',
@@ -17,7 +17,7 @@ export const siteConfig = {
     tiktok: 'https://tiktok.com/@aguscollection',
     youtube: 'https://youtube.com/@aguscollection',
   },
-  shopee: 'https://shopee.co.id/aguscollection',
+  shopee: 'https://s.shopee.co.id/20tQvxOu1S',
   tokopedia: 'https://tokopedia.com/aguscollection',
 } as const;
 
@@ -38,7 +38,7 @@ export const stats = [
 export const trustLogos = [
   'SMA Negeri 1 Mojokerto',
   'PT Maju Sejahtera',
-  'SMP Negeri 3 Jetis',
+  'SMP Negeri 1 Jetis',
   'Bank Jatim',
   'Universitas Brawijaya',
   'PT Sinar Nusantara',
@@ -46,6 +46,10 @@ export const trustLogos = [
   'Pemkab Mojokerto',
   'PT Garuda Nusantara',
   'Yayasan Pendidikan Islam',
+  'PT PABRIK KERTAS TJIWI KIMIA',
+  'PP Bahrul Ulum (Tambak Beras)',
+  'MA Negeri 1 Jombang',
+  'PT INKASA JAYA ABADI',
 ] as const;
 
 export const features = [
@@ -148,7 +152,7 @@ export const testimonials = [
   {
     name: 'Budi Santoso',
     role: 'Kepala Sekolah, SMA Negeri 1 Mojokerto',
-    avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200',
+    avatar: '/images/testimonials/budi-santoso.jpg',
     rating: 5,
     review:
       'Seragam siswa kami dikerjakan Agus Collection dengan sangat rapi. Jahitan kuat, bahan nyaman, dan pengiriman tepat waktu. Sangat direkomendasikan untuk sekolah.',
@@ -156,7 +160,7 @@ export const testimonials = [
   {
     name: 'Siti Rahayu',
     role: 'HR Manager, PT Maju Sejahtera',
-    avatar: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200',
+    avatar: '/images/testimonials/siti-rahayu.jpg',
     rating: 5,
     review:
       'Tim Agus Collection sangat responsif dan membantu kami mendapat seragam perusahaan yang sesuai brand. Kualitas premium dengan harga pabrik. Pasti pesan ulang!',
@@ -164,7 +168,7 @@ export const testimonials = [
   {
     name: 'Andi Wijaya',
     role: 'Ketua Panitia Wisuda, Universitas Brawijaya',
-    avatar: 'https://images.pexels.com/photos/6975099/pexels-photo-6975099.jpeg?auto=compress&cs=tinysrgb&w=200',
+    avatar: '/images/testimonials/andi-wijaya.jpg',
     rating: 5,
     review:
       'Pesan 2000 pcs almamater wisuda dalam waktu singkat. Hasilnya rapi, warna konsisten, dan harga sangat bersaing. Quality control-nya benar-benar ketat.',
@@ -172,10 +176,74 @@ export const testimonials = [
   {
     name: 'Dewi Lestari',
     role: 'Owner, Resto Nusantara',
-    avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200',
+    avatar: '/images/testimonials/dewi-lestari.jpg',
     rating: 5,
     review:
       'Kaos dan polo shirt untuk seragam staff resto kami jadi lebih profesional. Bahan adem, jahitan rapi, dan desainnya keren. Terima kasih Agus Collection!',
+  },
+  {
+    name: 'Ahmad Fauzi',
+    role: 'Ketua OSIS, SMP Negeri 1 Jetis',
+    avatar: '/images/testimonials/ahmad-fauzi.jpg',
+    rating: 5,
+    review:
+      'Kaos event sekolah kami pesan di sini, hasilnya memuaskan! Sablon tajam, bahan tebal, dan harganya ramah di kantong siswa. Recommended!',
+  },
+  {
+    name: 'Rina Kusumawati',
+    role: 'Direktur, PT Sinar Nusantara',
+    avatar: '/images/testimonials/rina-kusumawati.jpg',
+    rating: 5,
+    review:
+      'Order seragam kerja untuk 500 karyawan, semua selesai tepat waktu. Kualitas jahitan excellent, tidak ada yang cacat. Agus Collection memang terpercaya!',
+  },
+  {
+    name: 'Hendra Gunawan',
+    role: 'Founder, Komunitas Sepeda Mojokerto',
+    avatar: '/images/testimonials/hendra-gunawan.jpg',
+    rating: 5,
+    review:
+      'Jersey sepeda custom untuk komunitas kami hasilnya keren banget! Bahan drifit adem, sablon tidak mudah luntur. Harga grosir pula!',
+  },
+  {
+    name: 'Fitri Handayani',
+    role: 'Bendahara, PKK Kelurahan Jetis',
+    avatar: '/images/testimonials/fitri-handayani.jpg',
+    rating: 5,
+    review:
+      'Kaos seragam PKK kami dipesan di sini, bahannya nyaman dipakai seharian. Ibu-ibu pada senang! Pelayanan juga ramah dan sabar.',
+  },
+  {
+    name: 'Rudi Hartono',
+    role: 'Manager Operasional, PT Garuda Nusantara',
+    avatar: '/images/testimonials/rudi-hartono.jpg',
+    rating: 5,
+    review:
+      'Wearpack untuk tim lapangan kami order di sini, bahannya kuat dan tahan lama. Sudah 6 bulan dipakai masih bagus. Worth the price!',
+  },
+  {
+    name: 'Nurul Aini',
+    role: 'Ketua Panitia, SMA Negeri 2 Jombang',
+    avatar: '/images/testimonials/nurul-aini.jpg',
+    rating: 5,
+    review:
+      'Jaket almamater untuk wisuda kami pesan 800 pcs, hasilnya premium! Bordir rapi, bahan wool hangat. Wisudawan pada puas!',
+  },
+  {
+    name: 'Yusuf Ibrahim',
+    role: 'Owner, Barbershop Modern Cut',
+    avatar: '/images/testimonials/yusuf-ibrahim.jpg',
+    rating: 5,
+    review:
+      'Kaos custom untuk barber shop saya hasilnya kece! Desain sesuai request, bahan cotton bamboo lembut. Customer pada puji!',
+  },
+  {
+    name: 'Lina Marlina',
+    role: 'Sekretaris, Yayasan Pendidikan Islam',
+    avatar: '/images/testimonials/lina-marlina.jpg',
+    rating: 5,
+    review:
+      'Seragam untuk guru dan staff kami order di sini, kualitasnya konsisten. Warna tidak luntur, jahitan rapi. Sudah order 3x tetap puas!',
   },
 ] as const;
 

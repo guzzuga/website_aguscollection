@@ -31,19 +31,20 @@ const values = [
 ];
 
 const team = [
-  { name: 'Agus Santoso', role: 'Founder & CEO', avatar: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Rina Wulandari', role: 'Head of Production', avatar: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Doni Prasetyo', role: 'Head of Design', avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Sari Indah', role: 'Customer Success', avatar: 'https://images.pexels.com/photos/3760854/pexels-photo-3760854.jpeg?auto=compress&cs=tinysrgb&w=400' },
+  { name: 'Wahyudi', role: 'Founder & Owner', avatar: '/images/team/wahyudi.jpg' },
+  { name: 'Umbar Wati', role: 'Head of Production', avatar: '/images/team/umbar-wati.jpg' },
+  { name: 'Agus Efendi', role: 'Head of Design', avatar: '/images/team/agus-efendi.jpg' },
+  { name: 'Siti Wiwik Susanti', role: 'Customer Success', avatar: '/images/team/siti-wiwik.jpg' },
 ];
 
 const galleryImages = [
-  'https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/6809657/pexels-photo-6809657.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/8617715/pexels-photo-8617715.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=800',
-  'https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=800',
+  '/images/gallery/galeri-1.jpg',
+  '/images/gallery/galeri-2.jpg',
+  '/images/gallery/galeri-3.jpg',
+  '/images/gallery/galeri-4.jpg',
+  '/images/gallery/galeri-5.jpg',
+  '/images/gallery/galeri-6.jpg',
+  '/images/gallery/galeri-7.jpg',
 ];
 
 export function AboutClient() {
@@ -102,7 +103,7 @@ export function AboutClient() {
               className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 shadow-soft-lg"
             >
               <Image
-                src="https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="/images/hero.jpg"
                 alt="Workshop produksi Agus Collection"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

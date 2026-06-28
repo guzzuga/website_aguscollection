@@ -134,10 +134,10 @@ export function HeroSection() {
             >
               <div className="flex -space-x-3">
                 {[
-                  'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=80',
-                  'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=80',
-                  'https://images.pexels.com/photos/6975099/pexels-photo-6975099.jpeg?auto=compress&cs=tinysrgb&w=80',
-                  'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=80',
+                  '/images/testimonials/budi-santoso.jpg',
+                  '/images/testimonials/siti-rahayu.jpg',
+                  '/images/testimonials/andi-wijaya.jpg',
+                  '/images/testimonials/dewi-lestari.jpg',
                 ].map((src, i) => (
                   <span
                     key={i}
@@ -173,7 +173,7 @@ export function HeroSection() {
               className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 shadow-2xl"
             >
               <Image
-                src="https://images.pexels.com/photos/6311387/pexels-photo-6311387.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="/images/hero.jpg"
                 alt="Produksi seragam premium Agus Collection"
                 fill
                 priority

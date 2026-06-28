@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, Scissors, MessageCircle } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
+import Image from 'next/image';
 import { navLinks, siteConfig } from '@/constants/site';
 import { buildWhatsAppLink } from '@/utils/format';
 import { cn } from '@/lib/utils';
@@ -35,10 +36,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-500',
+        'fixed inset-x-0 top-0 z-50 transition-all duration-500 border-b',
         scrolled
-          ? 'glass-nav border-b border-slate-200/60 bg-white/80 shadow-soft'
-          : 'border-b border-transparent bg-transparent',
+          ? 'glass-nav border-slate-200/60 bg-white/90 shadow-soft'
+          : 'border-transparent bg-navy/95 backdrop-blur',
       )}
     >
       <nav className="container-page flex h-16 items-center justify-between lg:h-20">
@@ -50,15 +51,21 @@ export function Navbar() {
         >
           <span
             className={cn(
-              'flex h-9 w-9 items-center justify-center rounded-xl bg-gold-gradient shadow-gold-glow transition-transform duration-300 group-hover:scale-110',
+              'relative flex h-9 w-9 items-center justify-center rounded-xl border-2 border-gold/40 bg-white/90 shadow-gold-glow transition-transform duration-300 group-hover:scale-110',
             )}
           >
-            <Scissors className="h-5 w-5 text-navy" strokeWidth={2.5} />
+            <Image
+              src="/images/logo.jpg"
+              alt="Agus Collection Logo"
+              fill
+              className="object-contain p-0.5"
+              sizes="36px"
+            />
           </span>
           <span
             className={cn(
               'text-lg font-extrabold tracking-tight transition-colors',
-              scrolled ? 'text-navy' : 'text-navy',
+              scrolled ? 'text-navy' : 'text-white',
             )}
           >
             Agus
@@ -81,7 +88,7 @@ export function Navbar() {
                   'group relative px-4 py-2 text-sm font-medium transition-colors',
                   scrolled
                     ? 'text-slate-700 hover:text-navy'
-                    : 'text-slate-700 hover:text-navy',
+                    : 'text-slate-200 hover:text-white',
                 )}
               >
                 {link.label}
@@ -136,9 +143,15 @@ export function Navbar() {
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
                   <span className="flex items-center gap-2 text-lg font-extrabold">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold-gradient">
-                      <Scissors className="h-4 w-4 text-navy" strokeWidth={2.5} />
-                    </span>
+                    <span className="relative flex h-8 w-8 items-center justify-center rounded-lg border-2 border-gold/40 bg-white/90">
+                                        <Image
+                                          src="/images/logo.jpg"
+                                          alt="Agus Collection Logo"
+                                          fill
+                                          className="object-contain p-0.5"
+                                          sizes="32px"
+                                        />
+                                      </span>
                     Agus <span className="text-gold-400">Collection</span>
                   </span>
                   <SheetClose asChild>

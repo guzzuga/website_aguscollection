@@ -81,7 +81,18 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
             <div>
               <span className="block text-xs text-slate-400">Mulai dari</span>
               <span className="text-xl font-extrabold text-navy">
-                {formatRupiah(product.priceTiers[product.priceTiers.length - 1].price)}
+                {(() => {
+                  // Calculate lowest price (highest discount tier)
+                  const lowestTier = product.priceTiers[product.priceTiers.length - 1];
+                  const basePrice = product.educationPricing 
+                    ? product.educationPricing[0].basePrice 
+                    : product.basePrice;
+                  const discount = lowestTier.discount ?? 0;
+                  const lowestPrice = product.priceTiers[0].price 
+                    ? lowestTier.price! 
+                    : basePrice - discount;
+                  return formatRupiah(lowestPrice);
+                })()}
               </span>
             </div>
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-white transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-navy">

@@ -9,10 +9,11 @@ import { cn } from '@/lib/utils';
 type PriceTierListProps = {
   tiers: PriceTier[];
   selectedQty: number;
+  basePrice?: number;
   className?: string;
 };
 
-export function PriceTierList({ tiers, selectedQty, className }: PriceTierListProps) {
+export function PriceTierList({ tiers, selectedQty, basePrice = 0, className }: PriceTierListProps) {
   const activeTier = tiers.find(
     (t) => selectedQty >= t.minQty && (t.maxQty === null || selectedQty <= t.maxQty),
   );
@@ -23,6 +24,8 @@ export function PriceTierList({ tiers, selectedQty, className }: PriceTierListPr
       <div className="space-y-2">
         {tiers.map((tier, i) => {
           const isActive = activeTier === tier;
+          const discount = tier.discount ?? 0;
+          const displayPrice = tier.price ?? (basePrice - discount);
           return (
             <motion.div
               key={i}
@@ -54,7 +57,7 @@ export function PriceTierList({ tiers, selectedQty, className }: PriceTierListPr
                   isActive ? 'text-gold-700' : 'text-navy',
                 )}
               >
-                {formatRupiah(tier.price)}
+                {formatRupiah(displayPrice)}
                 <span className="text-xs font-normal text-slate-400">/pcs</span>
               </span>
             </motion.div>

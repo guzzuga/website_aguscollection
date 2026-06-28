@@ -18,7 +18,7 @@ const productLinks = [
   { label: 'Seragam Sekolah', href: '/produk/seragam-sekolah-standar' },
   { label: 'Seragam Perusahaan', href: '/produk/seragam-perusahaan-polo' },
   { label: 'Kaos Custom', href: '/produk/kaos-custom-combed' },
-  { label: 'Jaket & Almamater', href: '/produk/jaket-varsity-premium' },
+  { label: 'Almamater & Jaz', href: '/produk/jaket-varsity-premium' },
   { label: 'Polo Shirt', href: '/#kategori' },
   { label: 'Wearpack', href: '/#kategori' },
   { label: 'Bahan Kain', href: '/#kategori' },
@@ -87,7 +87,7 @@ export function Footer() {
             <h3 className="label-eyebrow text-gold-300">Produk</h3>
             <ul className="mt-5 space-y-3">
               {productLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-slate-400 transition-colors hover:text-white"

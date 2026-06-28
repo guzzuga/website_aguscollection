@@ -15,7 +15,7 @@ import {
   Truck,
   Palette,
 } from 'lucide-react';
-import type { Product } from '@/types';
+import type { Product, EducationLevel } from '@/types';
 import { ProductGallery } from '@/components/product/product-gallery';
 import { PriceTierList } from '@/components/product/price-tier';
 import { Button } from '@/components/ui/button';
@@ -31,7 +31,11 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
   const [qty, setQty] = useState(10);
   const [size, setSize] = useState<string>(product.sizes[0]);
   const [color, setColor] = useState(product.colors[0].name);
+  const [educationLevel, setEducationLevel] = useState<EducationLevel | null>(
+    product.educationPricing ? product.educationPricing[0].level : null
+  );
 
+  // Calculate active tier based on quantity
   const activeTier = useMemo(() => {
     return (
       product.priceTiers.find(
@@ -40,7 +44,21 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     );
   }, [qty, product.priceTiers]);
 
-  const total = activeTier.price * qty;
+  // Calculate base price based on education level or fallback to basePrice
+  const basePrice = useMemo(() => {
+    if (product.educationPricing && educationLevel) {
+      const eduPricing = product.educationPricing.find(ep => ep.level === educationLevel);
+      return eduPricing ? eduPricing.basePrice : product.basePrice;
+    }
+    return product.basePrice;
+  }, [product.educationPricing, product.basePrice, educationLevel]);
+
+  // Calculate final price with discount
+  const finalPrice = useMemo(() => {
+    return activeTier.price ?? (basePrice - (activeTier.discount ?? 0));
+  }, [basePrice, activeTier]);
+
+  const total = finalPrice * qty;
 
   return (
     <div className="pt-24 lg:pt-28">
@@ -105,8 +123,13 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 <div>
                   <span className="text-xs text-slate-500">Harga per pcs (qty {qty})</span>
                   <p className="text-3xl font-extrabold text-navy">
-                    {formatRupiah(activeTier.price)}
+                    {formatRupiah(finalPrice)}
                   </p>
+                  {educationLevel && (
+                    <span className="text-xs text-slate-500">
+                      Tingkat: {educationLevel} | Diskon: {formatRupiah(activeTier.discount || 0)}
+                    </span>
+                  )}
                 </div>
                 <div className="text-right">
                   <span className="text-xs text-slate-500">Estimasi Total</span>
@@ -121,6 +144,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             <PriceTierList
               tiers={product.priceTiers}
               selectedQty={qty}
+              basePrice={basePrice}
               className="mt-5"
             />
 
@@ -149,6 +173,33 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 ))}
               </div>
             </div>
+
+            {/* Education Level */}
+            {product.educationPricing && (
+              <div className="mt-6">
+                <p className="label-eyebrow text-slate-500">Tingkat Sekolah:</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {product.educationPricing.map((edu) => (
+                    <button
+                      key={edu.level}
+                      onClick={() => setEducationLevel(edu.level)}
+                      className={cn(
+                        'flex h-11 items-center gap-2 rounded-xl border-2 px-4 text-sm font-semibold transition-all',
+                        educationLevel === edu.level
+                          ? 'border-navy bg-navy text-white'
+                          : 'border-slate-200 text-slate-700 hover:border-slate-300',
+                      )}
+                    >
+                      <span className="font-bold">{edu.level}</span>
+                      <span className="text-xs opacity-80">({formatRupiah(edu.basePrice)})</span>
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs text-slate-500">
+                  Pilih tingkat sekolah untuk melihat harga yang sesuai
+                </p>
+              </div>
+            )}
 
             {/* Size */}
             <div className="mt-6">

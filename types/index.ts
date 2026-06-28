@@ -4,9 +4,10 @@ export type ProductCategory =
   | 'kaos-custom'
   | 'bahan-kain'
   | 'polo-shirt'
-  | 'jaket'
+  | 'almamater'
   | 'wearpack'
-  | 'atribut-sekolah';
+  | 'atribut-sekolah'
+  | 'fashion-stylish';
 
 export type ProductColor = {
   name: string;
@@ -15,10 +16,19 @@ export type ProductColor = {
 
 export type ProductSize = 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'All Size';
 
+export type EducationLevel = 'SD' | 'SMP' | 'SMA';
+
+export type EducationPricing = {
+  level: EducationLevel;
+  basePrice: number;
+  label: string;
+};
+
 export type PriceTier = {
   minQty: number;
   maxQty: number | null;
-  price: number;
+  price?: number;
+  discount?: number;
   label: string;
 };
 
@@ -40,6 +50,7 @@ export type Product = {
   features: string[];
   specifications: { label: string; value: string }[];
   shopeeUrl?: string;
+  educationPricing?: EducationPricing[];
 };
 
 export type Category = {

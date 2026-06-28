@@ -40,6 +40,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-48x48.png', type: 'image/png', sizes: '48x48' },
+    ],
+    apple: '/apple-touch-icon.png',
+    other: [
+      { rel: 'android-chrome-192x192', url: '/android-chrome-192x192.png' },
+      { rel: 'android-chrome-512x512', url: '/android-chrome-512x512.png' },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'id_ID',
@@ -74,10 +87,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  themeColor: '#0a0a2e',
   category: 'business',
 };
-
-export const themeColor = '#0a0a2e';
 
 export default function RootLayout({
   children,

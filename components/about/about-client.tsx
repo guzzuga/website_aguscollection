@@ -79,6 +79,14 @@ export function AboutClient() {
             >
               Tentang Agus Collection
             </motion.h1>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="mt-5 flex justify-center"
+            >
+              <div className="h-[4px] w-[100px] rounded-full bg-gradient-to-r from-gold-300 via-gold-400 to-gold-300 opacity-80" />
+            </motion.div>
             <motion.p
               variants={fadeUp}
               className="mx-auto mt-6 max-w-2xl text-base leading-[1.7] text-slate-300 text-pretty sm:text-lg"

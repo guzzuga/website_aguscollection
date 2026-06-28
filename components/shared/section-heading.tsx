@@ -64,19 +64,22 @@ export function SectionHeading({
         >
           {title}
         </h2>
-        {/* Animated underline */}
+        {/* Animated underline - Perfectly centered decorative line */}
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={viewportOnce}
           transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className={cn(
-            'absolute -bottom-2 left-1/2 h-0.5 -translate-x-1/2 origin-center',
-            'bg-gradient-to-r from-transparent via-gold-400 to-transparent',
-            'opacity-60',
-            'w-1/2 max-w-[192px]',
-          )}
-        />
+          className="mt-5 flex justify-center"
+        >
+          <div
+            className={cn(
+              'h-[4px] w-[100px] rounded-full',
+              'bg-gradient-to-r from-gold-300 via-gold-400 to-gold-300',
+              'opacity-80',
+            )}
+          />
+        </motion.div>
       </motion.div>
       {description && (
         <motion.p

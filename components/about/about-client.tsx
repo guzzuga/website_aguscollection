@@ -69,9 +69,9 @@ export function AboutClient() {
               variants={fadeUp}
               className="label-eyebrow inline-flex items-center gap-2 text-gold-300"
             >
-              <span className="h-px w-6 bg-current opacity-60" />
+              <span className="h-px w-4 sm:w-6 bg-current opacity-60" />
               Tentang Kami
-              <span className="h-px w-6 bg-current opacity-60" />
+              <span className="h-px w-4 sm:w-6 bg-current opacity-60" />
             </motion.span>
             <motion.h1
               variants={fadeUp}
@@ -113,10 +113,10 @@ export function AboutClient() {
 
             <div>
               <SectionHeading
-                eyebrow="Cerita Kami"
-                title="Dari Mojokerto untuk Seluruh Indonesia"
-                align="left"
-              />
+                            eyebrow="Cerita Kami"
+                            title="Dari Mojokerto untuk Seluruh Indonesia"
+                            align="center"
+                          />
               <div className="mt-6 space-y-4 text-base leading-[1.7] text-slate-600">
                 <p>
                   Agus Collection berawal dari workshop kecil di Mojokerto, Jawa Timur

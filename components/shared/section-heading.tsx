@@ -71,10 +71,10 @@ export function SectionHeading({
           viewport={viewportOnce}
           transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className={cn(
-            'absolute -bottom-2 left-1/2 h-0.5 -translate-x-1/2',
+            'absolute -bottom-2 left-1/2 h-0.5 -translate-x-1/2 origin-center',
             'bg-gradient-to-r from-transparent via-gold-400 to-transparent',
             'opacity-60',
-            'w-24 sm:w-32 md:w-40 lg:w-48',
+            'w-1/2 max-w-[192px]',
           )}
         />
       </motion.div>

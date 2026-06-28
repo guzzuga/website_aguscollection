@@ -102,7 +102,7 @@ export function HeroSection() {
               Seragam Berkualitas,
               <br />
               <span className="bg-gradient-to-r from-gold-300 via-gold-400 to-gold-600 bg-clip-text text-transparent">
-                Harga Pabrik Langsung
+                Harga Dari Konveksi Langsung
               </span>
             </motion.h1>
 

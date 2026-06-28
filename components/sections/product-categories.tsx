@@ -10,8 +10,8 @@ export function ProductCategories() {
       <div className="container-page">
         <SectionHeading
           eyebrow="Kategori Produk"
-          title="Solusi Konveksi untuk Setiap Kebutuhan"
-          description="Dari seragam sekolah hingga bahan kain grosir — semua dikerjakan dengan standar kualitas yang sama dan pengerjaan tepat waktu."
+          title="Produk Berkualitas untuk Berbagai Kebutuhan"
+          description="Dari seragam sekolah hingga Outfit Stylish — semua dikerjakan dengan standar kualitas yang sama dan pengerjaan tepat waktu."
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:gap-8">
           {categories.map((category, i) => (

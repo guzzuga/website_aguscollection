@@ -1,0 +1,160 @@
+'use client';
+
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MessageCircle, X, User, ArrowRight, Shield } from 'lucide-react';
+import { siteConfig } from '@/constants/site';
+
+interface AdminContact {
+  name: string;
+  number: string;
+  label: string;
+  badge: string;
+}
+
+export function WhatsAppAdminSelector() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const admins: AdminContact[] = [
+    {
+      name: 'Admin 1',
+      number: siteConfig.whatsappAdmin1,
+      label: 'Fast Response',
+      badge: 'Recommended',
+    },
+    {
+      name: 'Admin 2',
+      number: siteConfig.whatsappAdmin2,
+      label: 'Backup',
+      badge: 'Available',
+    },
+  ];
+
+  const getWhatsAppLink = (number: string) => {
+    const message = `Halo ${siteConfig.name}, saya ingin bertanya tentang produk.`;
+    const encoded = encodeURIComponent(message);
+    return `https://wa.me/${number}?text=${encoded}`;
+  };
+
+  return (
+    <>
+      {/* Main Button */}
+      <motion.button
+        onClick={() => setIsOpen(true)}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className="group relative mt-6 w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#25D366] to-[#128C7E] py-4 text-base font-semibold text-white shadow-lg shadow-[#25D366]/30 transition-all hover:shadow-xl hover:shadow-[#25D366]/40 sm:w-auto"
+      >
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#128C7E] to-[#25D366] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        
+        {/* Content */}
+        <span className="relative z-10 flex items-center justify-center gap-3">
+          <MessageCircle className="h-5 w-5" />
+          Chat via WhatsApp
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </span>
+
+        {/* Pulse effect */}
+        <span className="absolute -right-1 -top-1 h-20 w-20 animate-ping rounded-full bg-white/10" />
+      </motion.button>
+
+      {/* Modal Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+            />
+
+            {/* Modal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="fixed left-1/2 top-1/2 z-50 w-[90%] max-w-md -translate-x-1/2 -translate-y-1/2 rounded-3xl bg-white p-6 shadow-2xl"
+            >
+              {/* Header */}
+              <div className="mb-6 flex items-center justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-navy">Pilih Admin</h3>
+                  <p className="mt-1 text-sm text-slate-500">Silakan pilih admin yang ingin dihubungi</p>
+                </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-colors hover:bg-slate-200 hover:text-navy"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              {/* Admin Cards */}
+              <div className="space-y-3">
+                {admins.map((admin, index) => (
+                  <a
+                    key={admin.name}
+                    href={getWhatsAppLink(admin.number)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#25D366]/40 hover:shadow-lg hover:shadow-[#25D366]/10"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    {/* Hover gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#25D366]/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    
+                    <div className="relative z-10 flex items-center gap-4">
+                      {/* Avatar */}
+                      <div className="relative">
+                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#25D366] to-[#128C7E] shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
+                          <User className="h-7 w-7 text-white" />
+                        </div>
+                        {/* Online indicator */}
+                        <div className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-green-500 border-2 border-white">
+                          <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                        </div>
+                      </div>
+
+                      {/* Info */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <h4 className="font-bold text-navy group-hover:text-[#25D366] transition-colors">
+                            {admin.name}
+                          </h4>
+                          <span className="rounded-full bg-[#25D366]/10 px-2 py-0.5 text-[10px] font-semibold text-[#25D366]">
+                            {admin.badge}
+                          </span>
+                        </div>
+                        <p className="mt-0.5 text-sm text-slate-600">{admin.label}</p>
+                        <p className="mt-1 text-xs text-slate-400 font-mono">
+                          +{admin.number.replace(/^62/, '62 ')}
+                        </p>
+                      </div>
+
+                      {/* Arrow */}
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366]/10 text-[#25D366] opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+                        <ArrowRight className="h-5 w-5" />
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {/* Footer */}
+              <div className="mt-6 flex items-center justify-center gap-2 rounded-xl bg-slate-50 p-3">
+                <Shield className="h-4 w-4 text-[#25D366]" />
+                <p className="text-xs text-slate-500">
+                  Fast Response • Senin-Sabtu, 08.00-17.00 WIB
+                </p>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}

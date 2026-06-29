@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { siteConfig } from '@/constants/site';
 import { ContactForm } from '@/components/contact/contact-form';
-import { buildWhatsAppLink } from '@/utils/format';
-import { Button } from '@/components/ui/button';
+import { WhatsAppAdminSelector } from '@/components/contact/whatsapp-admin-selector';
 
 export const metadata: Metadata = {
   title: 'Kontak',
@@ -122,57 +121,10 @@ export default function ContactPage() {
                       </div>
                     </div>
                   ))}
-                  
-                  {/* WhatsApp Admins */}
-                  <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#25D366] text-white">
-                      <MessageCircle className="h-5 w-5" />
-                    </span>
-                    <div className="flex-1">
-                      <p className="label-eyebrow text-slate-500">WhatsApp</p>
-                      <div className="mt-2 space-y-2">
-                        <a
-                          href={`https://wa.me/${siteConfig.whatsappAdmin1}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 rounded-lg bg-[#25D366]/10 px-3 py-2.5 transition-all hover:bg-[#25D366]/20"
-                        >
-                          <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                          <span className="font-semibold text-navy">Admin 1</span>
-                          <span className="text-sm text-slate-600">+62 857-3031-6263</span>
-                          <span className="ml-auto text-xs text-[#25D366] font-medium">Fast Response</span>
-                        </a>
-                        <a
-                          href={`https://wa.me/${siteConfig.whatsappAdmin2}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 rounded-lg bg-[#25D366]/10 px-3 py-2.5 transition-all hover:bg-[#25D366]/20"
-                        >
-                          <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                          <span className="font-semibold text-navy">Admin 2</span>
-                          <span className="text-sm text-slate-600">+62 878-7472-2632</span>
-                          <span className="ml-auto text-xs text-[#25D366] font-medium">Backup</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
 
-                <Button
-                  asChild
-                  className="mt-6 w-full rounded-full bg-[#25D366] py-6 text-base text-white shadow-lg shadow-[#25D366]/30 hover:bg-[#1da851] sm:w-auto"
-                >
-                  <a
-                    href={buildWhatsAppLink(
-                      `Halo ${siteConfig.name}, saya ingin bertanya.`,
-                    )}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    Chat via WhatsApp
-                  </a>
-                </Button>
+                {/* WhatsApp Button with Admin Selector */}
+                <WhatsAppAdminSelector />
 
                 {/* Map */}
                 <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 shadow-soft">

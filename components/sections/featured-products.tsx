@@ -19,6 +19,7 @@ export function FeaturedProducts() {
     'kaos-custom-combed',
     'bahan-serge-drill',
     'celana-sekolah',
+    'jas-labschool',
     'dompet-sekolah',
     'tali-nama-sekolah',
     'sabuk-sekolah',

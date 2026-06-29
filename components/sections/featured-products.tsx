@@ -12,7 +12,6 @@ export function FeaturedProducts() {
   const HIDDEN_FROM_HOMEPAGE = [
     'polo-shirt-lacoste',
     'polo-shirt-drifit',
-    'wearpack-mekanik',
     'jaket-bomber',
     'bahan-katun-combed',
     'bahan-katun-combed-30s',

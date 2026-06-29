@@ -18,10 +18,8 @@ export function FeaturedProducts() {
     'bahan-katun-combed-30s',
     'kaos-custom-combed',
     'bahan-serge-drill',
-    // Produk baru (placeholder - tampil di /produk saja)
     'celana-sekolah',
-    'musolla-sekolah',
-    'jas-labschool',
+    'kaos-kaki-custom',
     'dompet-sekolah',
     'tali-nama-sekolah',
     'sabuk-sekolah',

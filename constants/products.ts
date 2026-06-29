@@ -264,7 +264,11 @@ export const products: Product[] = [
       '/images/products/kaos-kaki-custom/foto-1.jpg',
       '/images/products/kaos-kaki-custom/foto-2.jpg',
     ],
-    basePrice: 15000,
+    basePrice: 7500,
+    educationPricing: [
+      { level: 'Kecil', basePrice: 7500, label: 'Ukuran Kecil (SD)' },
+      { level: 'Dewasa', basePrice: 8500, label: 'Ukuran Dewasa (SMP-SMA)' },
+    ],
     priceTiers: [
       { minQty: 50, maxQty: 99, discount: 0, label: '50–99 pcs' },
       { minQty: 100, maxQty: 199, discount: 500, label: '100–199 pcs' },
@@ -278,7 +282,7 @@ export const products: Product[] = [
       { name: 'Abu', hex: '#64748b' },
       { name: 'Custom', hex: '#d4af37' },
     ],
-    sizes: ['S (35-37)', 'M (38-40)', 'L (41-43)', 'XL (44-46)'],
+    sizes: ['Kecil (SD)', 'Dewasa (SMP-SMA)'],
     rating: 4.8,
     reviewCount: 42,
     features: [

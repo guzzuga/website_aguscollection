@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MessageCircle, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { siteConfig } from '@/constants/site';
-import { buildWhatsAppLink } from '@/utils/format';
+import { WhatsAppButton } from '@/components/ui/whatsapp-button';
 import { Button } from '@/components/ui/button';
 import { fadeUp, staggerContainer } from '@/animations/variants';
 
@@ -69,22 +69,7 @@ export function CTASection() {
             variants={fadeUp}
             className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
-            <Button
-              asChild
-              size="lg"
-              className="w-full rounded-full bg-gold-gradient px-8 text-base text-navy shadow-gold-glow-lg transition-all hover:shadow-gold-glow sm:w-auto"
-            >
-              <a
-                href={buildWhatsAppLink(
-                  `Halo ${siteConfig.name}, saya ingin konsultasi gratis.`,
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Hubungi WhatsApp
-              </a>
-            </Button>
+            <WhatsAppButton variant="cta" message={`Halo ${siteConfig.name}, saya ingin konsultasi gratis.`} />
             <Button
               asChild
               size="lg"

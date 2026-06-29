@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageCircle, Star, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, Star, ShieldCheck, Sparkles } from 'lucide-react';
 import { siteConfig } from '@/constants/site';
-import { buildWhatsAppLink } from '@/utils/format';
+import { WhatsAppButton } from '@/components/ui/whatsapp-button';
 import { Button } from '@/components/ui/button';
 import { fadeUp, staggerContainer, viewportOnce } from '@/animations/variants';
 
@@ -141,22 +141,7 @@ export function HeroSection() {
               animate="visible"
               className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
             >
-              <Button
-                asChild
-                size="lg"
-                className="rounded-full bg-gold-gradient px-7 text-base text-navy shadow-gold-glow-lg transition-all hover:shadow-gold-glow"
-              >
-                <a
-                  href={buildWhatsAppLink(
-                    `Halo ${siteConfig.name}, saya ingin pesan sekarang.`,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Pesan Sekarang
-                </a>
-              </Button>
+              <WhatsAppButton variant="hero" message={`Halo ${siteConfig.name}, saya ingin pesan sekarang.`} />
               <Button
                 asChild
                 size="lg"

@@ -43,8 +43,8 @@ export function WhatsAppButton({ variant = 'hero', message, className = '' }: Wh
   }, [message]);
 
   const buttonVariants = {
-    hero: 'rounded-full bg-gold-gradient px-7 text-base text-navy shadow-gold-glow-lg transition-all hover:shadow-gold-glow',
-    cta: 'rounded-full bg-gold-gradient px-8 text-base text-navy shadow-gold-glow-lg transition-all hover:shadow-gold-glow sm:w-auto',
+    hero: 'rounded-full bg-gold-gradient px-7 py-3 text-base text-navy shadow-gold-glow-lg transition-all hover:shadow-gold-glow',
+    cta: 'rounded-full bg-gold-gradient px-8 py-3 text-base text-navy shadow-gold-glow-lg transition-all hover:shadow-gold-glow sm:w-auto',
     contact: 'group relative mt-6 w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#25D366] to-[#128C7E] py-4 text-base font-semibold text-white shadow-lg shadow-[#25D366]/30 transition-all hover:shadow-xl hover:shadow-[#25D366]/40 sm:w-auto',
   };
 

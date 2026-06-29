@@ -135,25 +135,25 @@ export function HeroSection() {
             </motion.ul>
 
             {/* CTAs */}
-            <motion.div
-              variants={fadeUp}
-              initial="visible"
-              animate="visible"
-              className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
-            >
-              <WhatsAppButton variant="hero" message={`Halo ${siteConfig.name}, saya ingin pesan sekarang.`} />
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="rounded-full border-white/20 bg-white/5 px-7 text-base text-white backdrop-blur hover:border-gold/40 hover:bg-white/10 hover:text-gold-300"
-              >
-                <a href="/produk">
-                  Lihat Katalog
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-            </motion.div>
+                        <motion.div
+                          variants={fadeUp}
+                          initial="visible"
+                          animate="visible"
+                          className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
+                        >
+                          <WhatsAppButton variant="hero" message={`Halo ${siteConfig.name}, saya ingin pesan sekarang.`} />
+                          <Button
+                            asChild
+                            size="lg"
+                            variant="outline"
+                            className="rounded-full border-white/20 bg-white/5 px-7 text-base text-white backdrop-blur hover:border-gold/40 hover:bg-white/10 hover:text-gold-300"
+                          >
+                            <a href="/produk">
+                              Lihat Katalog
+                              <ArrowRight className="ml-2 h-5 w-5" />
+                            </a>
+                          </Button>
+                        </motion.div>
 
             {/* Mini rating */}
             <motion.div

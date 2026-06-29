@@ -74,9 +74,9 @@ export function CTASection() {
               asChild
               size="lg"
               variant="outline"
-              className="w-full rounded-full border-white/20 bg-white/5 px-8 text-base text-white backdrop-blur hover:border-gold/40 hover:bg-white/10 hover:text-gold-300 sm:w-auto"
+              className="rounded-full border-white/20 bg-white/5 px-8 text-base text-white backdrop-blur hover:border-gold/40 hover:bg-white/10 hover:text-gold-300 sm:w-auto"
             >
-              <a href={`tel:${siteConfig.phone.replace(/\s/g, '')}`}>
+              <a href={`tel:+${siteConfig.whatsappAdmin1}`}>
                 <Phone className="mr-2 h-5 w-5" />
                 Telepon Kami
               </a>

@@ -7,7 +7,6 @@ import {
   Star,
   Minus,
   Plus,
-  MessageCircle,
   ShoppingBag,
   Check,
   ChevronRight,
@@ -16,11 +15,13 @@ import {
   Palette,
 } from 'lucide-react';
 import type { Product, EducationLevel } from '@/types';
+import { siteConfig } from '@/constants/site';
 import { ProductGallery } from '@/components/product/product-gallery';
 import { PriceTierList } from '@/components/product/price-tier';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { formatRupiah, buildWhatsAppOrderLink } from '@/utils/format';
+import { formatRupiah } from '@/utils/format';
+import { WhatsAppButton } from '@/components/ui/whatsapp-button';
 import { cn } from '@/lib/utils';
 
 type ProductDetailClientProps = {
@@ -257,26 +258,11 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
             {/* CTAs */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="flex-1 rounded-full bg-gold-gradient text-navy shadow-gold-glow hover:shadow-gold-glow-lg"
-              >
-                <a
-                  href={buildWhatsAppOrderLink({
-                    productName: product.name,
-                    quantity: qty,
-                    size,
-                    color,
-                    total,
-                  })}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="mr-2 h-5 w-5" />
-                  Pesan via WhatsApp
-                </a>
-              </Button>
+              <WhatsAppButton 
+                variant="cta" 
+                message={`Halo ${siteConfig.name}, saya ingin memesan ${product.name} sebanyak ${qty} pcs. Mohon info lebih lanjut. Total: ${formatRupiah(total)}`}
+                className="!flex-1 !rounded-full !bg-gold-gradient !px-8 !text-base !text-navy !shadow-gold-glow hover:!shadow-gold-glow-lg sm:!w-auto"
+              />
               {product.shopeeUrl && (
                 <Button
                   asChild

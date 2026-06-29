@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import { navLinks, siteConfig } from '@/constants/site';
-import { buildWhatsAppLink } from '@/utils/format';
+import { WhatsAppButton } from '@/components/ui/whatsapp-button';
 import { cn } from '@/lib/utils';
 import {
   Sheet,
@@ -126,22 +126,11 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:block">
-          <Button
-            asChild
-            size="sm"
-            className="rounded-full bg-gold-gradient text-navy shadow-gold-glow hover:shadow-gold-glow-lg"
-          >
-            <a
-              href={buildWhatsAppLink(
-                `Halo ${siteConfig.name}, saya ingin konsultasi pemesanan.`,
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <MessageCircle className="mr-1.5 h-4 w-4" />
-              Pesan Sekarang
-            </a>
-          </Button>
+          <WhatsAppButton 
+            variant="hero" 
+            message={`Halo ${siteConfig.name}, saya ingin konsultasi pemesanan.`}
+            className="!rounded-full !bg-gold-gradient !px-4 !py-2 !text-sm !text-navy !shadow-gold-glow hover:!shadow-gold-glow-lg"
+          />
         </div>
 
         {/* Mobile Menu */}
@@ -203,21 +192,11 @@ export function Navbar() {
                 </div>
 
                 <div className="border-t border-white/10 p-6">
-                  <Button
-                    asChild
-                    className="w-full rounded-full bg-gold-gradient text-navy shadow-gold-glow"
-                  >
-                    <a
-                      href={buildWhatsAppLink(
-                        `Halo ${siteConfig.name}, saya ingin konsultasi pemesanan.`,
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <MessageCircle className="mr-2 h-4 w-4" />
-                      Pesan Sekarang
-                    </a>
-                  </Button>
+                  <WhatsAppButton 
+                    variant="hero" 
+                    message={`Halo ${siteConfig.name}, saya ingin konsultasi pemesanan.`}
+                    className="!w-full !rounded-full !bg-gold-gradient !text-navy !shadow-gold-glow"
+                  />
                   <p className="mt-4 text-center text-xs text-slate-400">
                     {siteConfig.hours}
                   </p>

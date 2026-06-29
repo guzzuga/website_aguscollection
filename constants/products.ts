@@ -802,11 +802,11 @@ export const products: Product[] = [
       '/images/products/jazz-almamater/foto-3.jpg',
       '/images/products/jazz-almamater/foto-4.jpg',
     ],
-    basePrice: 175000,
+    basePrice: 105000,
     priceTiers: [
-      { minQty: 10, maxQty: 49, price: 175000, label: '10–49 pcs' },
-      { minQty: 50, maxQty: 199, price: 155000, label: '50–199 pcs' },
-      { minQty: 200, maxQty: null, price: 135000, label: '200+ pcs' },
+      { minQty: 10, maxQty: 49, price: 105000, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 199, price: 95000, label: '50–199 pcs' },
+      { minQty: 200, maxQty: null, price: 85000, label: '200+ pcs' },
     ],
     colors: [
       { name: 'Navy', hex: '#0a0a2e' },

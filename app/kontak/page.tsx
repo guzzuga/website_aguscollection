@@ -21,8 +21,8 @@ export default function ContactPage() {
     {
       icon: Phone,
       label: 'Telepon',
-      value: siteConfig.phone,
-      href: `tel:${siteConfig.phone.replace(/\s/g, '')}`,
+      value: `+${siteConfig.whatsappAdmin1}`.replace(/^(\d{2})(\d{3,4})(\d{3,4})(\d{3,4})$/, '+$1 $2 $3 $4'),
+      href: `tel:+${siteConfig.whatsappAdmin1}`,
     },
     {
       icon: Mail,

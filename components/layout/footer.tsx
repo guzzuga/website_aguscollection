@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import {
-  Scissors,
   Instagram,
   Facebook,
   Youtube,
@@ -35,9 +35,14 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-gradient shadow-gold-glow">
-                <Scissors className="h-5 w-5 text-navy" strokeWidth={2.5} />
-              </span>
+              <div className="relative h-10 w-10 overflow-hidden rounded-xl bg-white shadow-gold-glow">
+                <Image
+                  src="/logo-loading.png"
+                  alt="AGUS COLLECTION Logo"
+                  fill
+                  className="object-contain p-1"
+                />
+              </div>
               <span className="text-xl font-extrabold text-white">
                 Agus <span className="text-gold-400">Collection</span>
               </span>

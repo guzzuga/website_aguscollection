@@ -34,7 +34,6 @@ const team = [
   { name: 'Wahyudi', role: 'Founder & Owner', avatar: '/images/team/wahyudi.jpg' },
   { name: 'Umbar Wati', role: 'Head of Production', avatar: '/images/team/umbar-wati.jpg' },
   { name: 'Agus Efendi', role: 'Head of Design', avatar: '/images/team/agus-efendi.jpg' },
-  { name: 'Siti Wiwik Susanti', role: 'Customer Success', avatar: '/images/team/siti-wiwik.jpg' },
 ];
 
 const galleryImages = [

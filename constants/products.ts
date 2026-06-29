@@ -707,7 +707,6 @@ export const products: Product[] = [
       '/images/products/wearpack-industri-ripstop/foto-1.jpg',
       '/images/products/wearpack-industri-ripstop/foto-2.jpg',
       '/images/products/wearpack-industri-ripstop/foto-3.jpg',
-      '/images/products/wearpack-industri-ripstop/foto-4.jpg',
     ],
     basePrice: 170000,
     priceTiers: [

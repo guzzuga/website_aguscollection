@@ -89,16 +89,13 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
                   if (product.priceRange) {
                     return `${formatRupiah(product.priceRange.min)} - ${formatRupiah(product.priceRange.max)}`;
                   }
-                  // Calculate lowest price (highest discount tier)
-                  const lowestTier = product.priceTiers[product.priceTiers.length - 1];
+                  // Display first tier price (base price for minimum quantity)
+                  const firstTier = product.priceTiers[0];
                   const basePrice = product.educationPricing 
                     ? product.educationPricing[0].basePrice 
                     : product.basePrice;
-                  const discount = lowestTier.discount ?? 0;
-                  const lowestPrice = product.priceTiers[0].price 
-                    ? lowestTier.price! 
-                    : basePrice - discount;
-                  return formatRupiah(lowestPrice);
+                  const displayPrice = firstTier.price ?? basePrice - (firstTier.discount ?? 0);
+                  return formatRupiah(displayPrice);
                 })()}
               </span>
             </div>

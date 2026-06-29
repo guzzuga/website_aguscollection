@@ -8,6 +8,8 @@ export const siteConfig = {
   email: 'aguscollectionmjk@gmail.com',
   phone: '087874722632',
   whatsapp: '6287874722632',
+  whatsappAdmin1: '6285730316263',
+  whatsappAdmin2: '6287874722632',
   address: 'Dusun Bulu, RT.019/RW.005, Bulu, Sawo, Kec. Jetis, Kabupaten Mojokerto, Jawa Timur 61352',
   mapsQuery: '-7.4063689,112.4104139',
   hours: 'Senin–Sabtu, 08.00–17.00 WIB',

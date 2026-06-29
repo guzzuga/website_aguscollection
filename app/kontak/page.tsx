@@ -122,6 +122,40 @@ export default function ContactPage() {
                       </div>
                     </div>
                   ))}
+                  
+                  {/* WhatsApp Admins */}
+                  <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#25D366] text-white">
+                      <MessageCircle className="h-5 w-5" />
+                    </span>
+                    <div className="flex-1">
+                      <p className="label-eyebrow text-slate-500">WhatsApp</p>
+                      <div className="mt-2 space-y-2">
+                        <a
+                          href={`https://wa.me/${siteConfig.whatsappAdmin1}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 rounded-lg bg-[#25D366]/10 px-3 py-2.5 transition-all hover:bg-[#25D366]/20"
+                        >
+                          <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                          <span className="font-semibold text-navy">Admin 1</span>
+                          <span className="text-sm text-slate-600">+62 857-3031-6263</span>
+                          <span className="ml-auto text-xs text-[#25D366] font-medium">Fast Response</span>
+                        </a>
+                        <a
+                          href={`https://wa.me/${siteConfig.whatsappAdmin2}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 rounded-lg bg-[#25D366]/10 px-3 py-2.5 transition-all hover:bg-[#25D366]/20"
+                        >
+                          <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+                          <span className="font-semibold text-navy">Admin 2</span>
+                          <span className="text-sm text-slate-600">+62 878-7472-2632</span>
+                          <span className="ml-auto text-xs text-[#25D366] font-medium">Backup</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <Button

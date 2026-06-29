@@ -697,23 +697,23 @@ export const products: Product[] = [
   // ─── WEARPACK ─────────────────────────────────────────────────────────────
   {
     slug: 'wearpack-industri',
-    name: 'Wearpack Industri Ripstop',
+    name: 'Wearpack Coverall Industri',
     category: 'wearpack',
     categoryLabel: 'Wearpack',
-    shortDescription: 'Wearpack industri bahan ripstop kuat dan tahan abrasi untuk kerja lapangan.',
+    shortDescription: 'Wearpack coverall industri untuk kerja lapangan dengan proteksi maksimal.',
     description:
-      'Wearpack industri dengan bahan ripstop yang kuat, tahan abrasi, dan nyaman dipakai di lingkungan kerja berat. Jahitan dobel di area tekanan tinggi. Dilengkapi banyak kantong fungsional. Cocok untuk industri manufaktur, tambang, dan konstruksi.',
+      'Wearpack model coverall industri dengan proteksi maksimal untuk kerja lapangan. Bahan kuat dan tahan lama, jahitan presisi di semua area, dilengkapi banyak kantong fungsional untuk peralatan. Cocok untuk industri manufaktur, tambang, konstruksi, dan teknisi lapangan.',
     images: [
       '/images/products/wearpack-industri-ripstop/foto-1.jpg',
       '/images/products/wearpack-industri-ripstop/foto-2.jpg',
       '/images/products/wearpack-industri-ripstop/foto-3.jpg',
       '/images/products/wearpack-industri-ripstop/foto-4.jpg',
     ],
-    basePrice: 185000,
+    basePrice: 170000,
     priceTiers: [
-      { minQty: 10, maxQty: 49, price: 185000, label: '10–49 pcs' },
-      { minQty: 50, maxQty: 199, price: 165000, label: '50–199 pcs' },
-      { minQty: 200, maxQty: null, price: 148000, label: '200+ pcs' },
+      { minQty: 10, maxQty: 49, price: 170000, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 199, price: 155000, label: '50–199 pcs' },
+      { minQty: 200, maxQty: null, price: 140000, label: '200+ pcs' },
     ],
     colors: [
       { name: 'Navy', hex: '#0a0a2e' },
@@ -726,15 +726,15 @@ export const products: Product[] = [
     reviewCount: 52,
     badge: 'Premium',
     features: [
-      'Bahan ripstop, kuat dan tahan abrasi',
-      'Jahitan dobel di area tekanan tinggi',
-      'Multi kantong fungsional',
+      'Bahan kuat dan tahan lama untuk kerja lapangan',
+      'Jahitan presisi di semua area',
+      'Multi kantong fungsional untuk peralatan',
       'Bordir nama/logo perusahaan',
       'Quality control ketat sebelum pengiriman',
     ],
     specifications: [
-      { label: 'Bahan', value: 'Ripstop 240 gsm' },
-      { label: 'Jahitan', value: 'Double Stitch' },
+      { label: 'Bahan', value: 'Coverall Industrial Grade' },
+      { label: 'Jahitan', value: 'Precision Stitch' },
       { label: 'Teknik Logo', value: 'Computerized Embroidery' },
       { label: 'MOQ', value: '10 pcs' },
       { label: 'Estimasi Produksi', value: '10–14 hari kerja' },

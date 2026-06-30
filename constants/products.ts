@@ -39,7 +39,7 @@ export const categories: Category[] = [
     image:
       '/images/categories/fashion-stylish.jpg',
     icon: 'Sparkles',
-    productCount: 1,
+    productCount: 5,
   },
 
   {
@@ -91,26 +91,6 @@ export const categories: Category[] = [
       '/images/categories/atribut-sekolah.jpg',
     icon: 'Star',
     productCount: 18,
-  },
-  {
-    slug: 'rok-mermaid',
-    name: 'Rok Mermaid',
-    description:
-      'Rok mermaid trendy dengan potongan highwaist yang membalut lekuk tubuh. Bahan premium stretch, anti kusut, cocok untuk kantor & kondangan.',
-    image:
-      '/images/categories/rok-mermaid.jpg',
-    icon: 'CircleDot',
-    productCount: 2,
-  },
-  {
-    slug: 'celana-cutbray',
-    name: 'Celana Cutbray',
-    description:
-      'Celana cutbray Korean style dengan potongan highwaist & flare dari lutut. Efek kaki jenjang, bahan stretch premium, nyaman seharian.',
-    image:
-      '/images/categories/celana-cutbray.jpg',
-    icon: 'CircleSlash2',
-    productCount: 2,
   },
 ];
 
@@ -1282,8 +1262,8 @@ export const products: Product[] = [
   {
     slug: 'rok-mermaid-highwaist-premium',
     name: 'Rok Mermaid Highwaist Premium',
-    category: 'rok-mermaid',
-    categoryLabel: 'Rok Mermaid',
+    category: 'fashion-stylish',
+    categoryLabel: 'Fashion Stylish',
     shortDescription: 'Rok mermaid highwaist dengan potongan feminine yang membalut lekuk tubuh.',
     description:
       'Rok mermaid dengan potongan highwaist yang membalut lekuk tubuh dengan elegan. Desain fitted di bagian pinggul dan melebar di bagian bawah (mermaid cut) memberikan siluet feminine yang menawan. Cocok untuk berbagai occasion dari kantor, kondangan, hingga dinner romantis. Bahan premium Bayadine dengan stretch yang nyaman dan tidak mudah kusut.',
@@ -1295,10 +1275,10 @@ export const products: Product[] = [
     ],
     basePrice: 69000,
     priceTiers: [
-      { minQty: 1, maxQty: 9, price: 69000, label: '1–9 pcs', badge: 'Retail' },
-      { minQty: 10, maxQty: 49, price: 60000, label: '10–49 pcs', badge: 'Grosir' },
-      { minQty: 50, maxQty: 99, price: 55000, label: '50–99 pcs', badge: 'Grosir Besar' },
-      { minQty: 100, maxQty: null, price: 45000, label: '100+ pcs', badge: 'BEST DEAL 🔥' },
+      { minQty: 1, maxQty: 9, price: 69000, label: '1–9 pcs' },
+      { minQty: 10, maxQty: 49, price: 60000, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 99, price: 55000, label: '50–99 pcs' },
+      { minQty: 100, maxQty: null, price: 45000, label: '100+ pcs' },
     ],
     colors: [
       { name: 'Hitam', hex: '#0a0a0a' },
@@ -1309,12 +1289,7 @@ export const products: Product[] = [
       { name: 'Cream', hex: '#fef3c7' },
       { name: 'Brown', hex: '#78350f' },
     ],
-    sizes: [
-      'S (Pinggang 60-64cm, Pinggul 84-88cm, Panjang 70cm)',
-      'M (Pinggang 65-69cm, Pinggul 89-93cm, Panjang 71cm)',
-      'L (Pinggang 70-74cm, Pinggul 94-98cm, Panjang 72cm)',
-      'XL (Pinggang 75-79cm, Pinggul 99-103cm, Panjang 73cm)',
-    ],
+    sizes: ['S', 'M', 'L', 'XL'],
     rating: 5.0,
     reviewCount: 0,
     badge: 'NEW ARRIVAL 🆕',
@@ -1335,21 +1310,12 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '3–5 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    trendingReason: 'Viral #RokMermaid - 100K+ konten TikTok/IG',
-    targetMarket: 'Wanita modern, usia 20-40 tahun',
-    occasions: ['Kantor / Kerja', 'Kondangan / Wedding', 'Date Night', 'Photoshoot', 'Formal Events'],
-    styling: [
-      'Pair dengan kemeja tucked in',
-      'Crop top untuk tampilan casual',
-      'Blazer untuk look profesional',
-      'Heels untuk kesan lebih tinggi',
-    ],
   },
   {
     slug: 'rok-mermaid-satin-premium-luxury',
     name: 'Rok Mermaid Satin Premium (Luxury Edition)',
-    category: 'rok-mermaid',
-    categoryLabel: 'Rok Mermaid',
+    category: 'fashion-stylish',
+    categoryLabel: 'Fashion Stylish',
     shortDescription: 'Rok mermaid luxury dengan bahan satin premium dan shimmer effect elegan.',
     description:
       'Rok mermaid edisi luxury dengan bahan satin premium yang memberikan efek shimmer elegan. Potongan mermaid yang sempurna dengan detail slit belakang untuk kemudahan bergerak. Pilihan tepat untuk acara formal, wedding, dan gala dinner. Lapisan dalam berkualitas tinggi yang tidak menerawang.',
@@ -1361,10 +1327,10 @@ export const products: Product[] = [
     ],
     basePrice: 125000,
     priceTiers: [
-      { minQty: 1, maxQty: 9, price: 125000, label: '1–9 pcs', badge: 'Premium' },
-      { minQty: 10, maxQty: 49, price: 110000, label: '10–49 pcs', badge: 'Grosir' },
-      { minQty: 50, maxQty: 99, price: 95000, label: '50–99 pcs', badge: 'Grosir Besar' },
-      { minQty: 100, maxQty: null, price: 85000, label: '100+ pcs', badge: 'BEST DEAL 🔥' },
+      { minQty: 1, maxQty: 9, price: 125000, label: '1–9 pcs' },
+      { minQty: 10, maxQty: 49, price: 110000, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 99, price: 95000, label: '50–99 pcs' },
+      { minQty: 100, maxQty: null, price: 85000, label: '100+ pcs' },
     ],
     colors: [
       { name: 'Black (Classic)', hex: '#0a0a0a' },
@@ -1375,13 +1341,7 @@ export const products: Product[] = [
       { name: 'Silver Grey', hex: '#9ca3af' },
       { name: 'Dusty Purple', hex: '#7c3aed' },
     ],
-    sizes: [
-      'S (Pinggang 60-64cm, Pinggul 84-88cm, Panjang 75cm)',
-      'M (Pinggang 65-69cm, Pinggul 89-93cm, Panjang 76cm)',
-      'L (Pinggang 70-74cm, Pinggul 94-98cm, Panjang 77cm)',
-      'XL (Pinggang 75-79cm, Pinggul 99-103cm, Panjang 78cm)',
-      'XXL (Pinggang 80-84cm, Pinggul 104-108cm, Panjang 79cm)',
-    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     rating: 5.0,
     reviewCount: 0,
     badge: 'LUXURY ✨',
@@ -1402,22 +1362,13 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '3–5 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    trendingReason: 'Favorit wedding guest - 50K+ terjual',
-    targetMarket: 'Wanita dewasa, usia 25-45 tahun, segmen premium',
-    occasions: ['Wedding / Kondangan', 'Gala Dinner', 'Formal Events', 'Photoshoot Pre-wedding', 'Graduation'],
-    styling: [
-      'Kebaya modern',
-      'Elegant blouse',
-      'Statement jewelry',
-      'High heels 7-10cm',
-    ],
   },
   // ─── CELANA CUTBRAY ────────────────────────────────────────────────────────
   {
     slug: 'celana-cutbray-highwaist-korean',
     name: 'Celana Cutbray Highwaist Korean Style',
-    category: 'celana-cutbray',
-    categoryLabel: 'Celana Cutbray',
+    category: 'fashion-stylish',
+    categoryLabel: 'Fashion Stylish',
     shortDescription: 'Celana cutbray Korean style dengan potongan highwaist & flare dari lutut.',
     description:
       'Celana cutbray (flared pants) dengan potongan highwaist ala Korean fashion yang sedang hits. Potongan fitted di paha dan melebar dari lutut ke bawah memberikan efek kaki jenjang. Bahan Cotton Twill premium dengan stretch yang nyaman untuk aktivitas seharian. Cocok untuk tampilan casual chic maupun semi-formal.',
@@ -1429,10 +1380,10 @@ export const products: Product[] = [
     ],
     basePrice: 99000,
     priceTiers: [
-      { minQty: 1, maxQty: 9, price: 99000, label: '1–9 pcs', badge: 'Retail' },
-      { minQty: 10, maxQty: 49, price: 89000, label: '10–49 pcs', badge: 'Grosir' },
-      { minQty: 50, maxQty: 99, price: 82000, label: '50–99 pcs', badge: 'Grosir Besar' },
-      { minQty: 100, maxQty: null, price: 75000, label: '100+ pcs', badge: 'BEST DEAL 🔥' },
+      { minQty: 1, maxQty: 9, price: 99000, label: '1–9 pcs' },
+      { minQty: 10, maxQty: 49, price: 89000, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 99, price: 82000, label: '50–99 pcs' },
+      { minQty: 100, maxQty: null, price: 75000, label: '100+ pcs' },
     ],
     colors: [
       { name: 'Hitam', hex: '#0a0a0a' },
@@ -1444,15 +1395,7 @@ export const products: Product[] = [
       { name: 'Brown', hex: '#78350f' },
       { name: 'Grey', hex: '#6b7280' },
     ],
-    sizes: [
-      '26 (Pinggang 66cm, Pinggul 88cm, Panjang 98cm)',
-      '27 (Pinggang 68cm, Pinggul 90cm, Panjang 99cm)',
-      '28 (Pinggang 70cm, Pinggul 92cm, Panjang 100cm)',
-      '29 (Pinggang 72cm, Pinggul 94cm, Panjang 101cm)',
-      '30 (Pinggang 74cm, Pinggul 96cm, Panjang 102cm)',
-      '31 (Pinggang 76cm, Pinggul 98cm, Panjang 103cm)',
-      '32 (Pinggang 78cm, Pinggul 100cm, Panjang 104cm)',
-    ],
+    sizes: ['26', '27', '28', '29', '30', '31', '32'],
     rating: 5.0,
     reviewCount: 0,
     badge: 'TRENDING 2026 🔥',
@@ -1473,21 +1416,12 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '3–5 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
-    trendingReason: 'Trending #1 celana wanita 2026 - 200K+ terjual',
-    targetMarket: 'Wanita & remaja putri, usia 17-35 tahun',
-    occasions: ['Kuliah / Sekolah', 'Hangout / Cafe', 'Kantor (casual Friday)', 'Photoshoot', 'Date Night'],
-    styling: [
-      'Crop top atau baby tee',
-      'Oversized shirt tucked in',
-      'Platform shoes untuk efek maksimal',
-      'Heels untuk look elegan',
-    ],
   },
   {
     slug: 'celana-cutbray-denim-premium',
     name: 'Celana Cutbray Denim Premium',
-    category: 'celana-cutbray',
-    categoryLabel: 'Celana Cutbray',
+    category: 'fashion-stylish',
+    categoryLabel: 'Fashion Stylish',
     shortDescription: 'Celana cutbray denim premium dengan wash trendy dan potongan highwaist.',
     description:
       'Celana cutbray dari bahan denim premium dengan wash yang trendy. Potongan highwaist dengan cutbray dari lutut memberikan silhouette yang flattering. Detail jahitan kontras dan hardware berkualitas tinggi. Cocok untuk tampilan casual everyday yang stylish.',
@@ -1499,10 +1433,10 @@ export const products: Product[] = [
     ],
     basePrice: 135000,
     priceTiers: [
-      { minQty: 1, maxQty: 9, price: 135000, label: '1–9 pcs', badge: 'Premium Denim' },
-      { minQty: 10, maxQty: 49, price: 115000, label: '10–49 pcs', badge: 'Grosir' },
-      { minQty: 50, maxQty: 99, price: 100000, label: '50–99 pcs', badge: 'Grosir Besar' },
-      { minQty: 100, maxQty: null, price: 89000, label: '100+ pcs', badge: 'BEST DEAL 🔥' },
+      { minQty: 1, maxQty: 9, price: 135000, label: '1–9 pcs' },
+      { minQty: 10, maxQty: 49, price: 115000, label: '10–49 pcs' },
+      { minQty: 50, maxQty: 99, price: 100000, label: '50–99 pcs' },
+      { minQty: 100, maxQty: null, price: 89000, label: '100+ pcs' },
     ],
     colors: [
       { name: 'Light Blue (Light Wash)', hex: '#93c5fd' },
@@ -1511,16 +1445,7 @@ export const products: Product[] = [
       { name: 'Black (Black Denim)', hex: '#0a0a0a' },
       { name: 'White (White Denim)', hex: '#f8fafc' },
     ],
-    sizes: [
-      '26 (Pinggang 66cm, Pinggul 86cm, Panjang 98cm)',
-      '27 (Pinggang 68cm, Pinggul 88cm, Panjang 99cm)',
-      '28 (Pinggang 70cm, Pinggul 90cm, Panjang 100cm)',
-      '29 (Pinggang 72cm, Pinggul 92cm, Panjang 101cm)',
-      '30 (Pinggang 74cm, Pinggul 94cm, Panjang 102cm)',
-      '31 (Pinggang 76cm, Pinggul 96cm, Panjang 103cm)',
-      '32 (Pinggang 78cm, Pinggul 98cm, Panjang 104cm)',
-      '33 (Pinggang 80cm, Pinggul 100cm, Panjang 105cm)',
-    ],
+    sizes: ['26', '27', '28', '29', '30', '31', '32', '33'],
     rating: 5.0,
     reviewCount: 0,
     badge: 'PREMIUM DENIM 💎',
@@ -1541,15 +1466,6 @@ export const products: Product[] = [
       { label: 'MOQ', value: '1 pcs' },
       { label: 'Estimasi Produksi', value: '3–5 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
-    ],
-    trendingReason: 'Best seller denim category - 150K+ terjual',
-    targetMarket: 'Remaja & wanita muda, usia 16-30 tahun',
-    occasions: ['Casual Daily', 'Kuliah', 'Hangout', 'Travel', 'Weekend Outing'],
-    styling: [
-      'Basic tee atau tank top',
-      'Cropped sweater',
-      'Denim jacket (double denim)',
-      'Sneakers atau ankle boots',
     ],
   },
 ];

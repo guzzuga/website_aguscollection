@@ -131,28 +131,22 @@ export async function POST(req: NextRequest) {
     }
 
     // Send email via Resend
-    let emailResult: string = 'skipped';
     if (resend) {
       try {
-        const result = await resend.emails.send({
+        await resend.emails.send({
           from: 'AGUS Collection <no-reply@aguscollection.web.id>',
           to: [RECIPIENT],
           subject: `Pesanan Baru — ${body.nama} | ${body.produk} (${body.jumlah} pcs)`,
           html: formatOrderEmail(body),
           replyTo: body.email || undefined,
         });
-        emailResult = result.id || 'sent';
-        console.log(`✅ Order email sent to ${RECIPIENT}, ID: ${emailResult}`);
+        console.log(`✅ Order email sent to ${RECIPIENT}`);
       } catch (emailErr: any) {
         console.error('Resend email error:', emailErr);
-        emailResult = `error: ${emailErr?.message || emailErr}`;
       }
-    } else {
-      console.warn('RESEND_API_KEY not set — email not sent');
-      emailResult = 'no_api_key';
     }
 
-    return NextResponse.json({ success: true, email: emailResult }, { status: 200 });
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
     console.error('Inquiry API error:', err);
     return NextResponse.json(

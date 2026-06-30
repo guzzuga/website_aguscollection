@@ -135,7 +135,7 @@ export async function POST(req: NextRequest) {
     if (resend) {
       try {
         const result = await resend.emails.send({
-          from: 'AGUS Collection <onboarding@resend.dev>',
+          from: 'AGUS Collection <no-reply@aguscollection.web.id>',
           to: [RECIPIENT],
           subject: `Pesanan Baru — ${body.nama} | ${body.produk} (${body.jumlah} pcs)`,
           html: formatOrderEmail(body),

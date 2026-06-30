@@ -1,0 +1,325 @@
+{
+  "draftProducts": [
+    {
+      "id": "trend-007",
+      "name": "Rok Mermaid Highwaist Premium",
+      "category": "Rok & Skirt",
+      "slug": "rok-mermaid-highwaist-premium",
+      "description": "Rok mermaid dengan potongan highwaist yang membalut lekuk tubuh dengan elegan. Desain fitted di bagian pinggul dan melebar di bagian bawah (mermaid cut) memberikan siluet feminine yang menawan. Cocok untuk berbagai occasion dari kantor, kondangan, hingga dinner romantis. Bahan premium dengan stretch yang nyaman dan tidak mudah kusut.",
+      "trendingReason": "Viral di TikTok & Instagram dengan hashtag #RokMermaid #MermaidSkirt - 100K+ konten",
+      "targetMarket": "Wanita modern, usia 20-40 tahun",
+      "estimatedPrice": "Rp 45.000 - Rp 69.000",
+      "priceRange": {
+        "1-9 pcs": "Rp 69.000",
+        "10-49 pcs": "Rp 60.000",
+        "50-99 pcs": "Rp 55.000",
+        "100+ pcs": "Rp 45.000"
+      },
+      "pricingStrategy": "PENETRASI PASAR - Harga kompetitif untuk akuisisi pelanggan. Margin tipis, volume tinggi. Target: jadi alternatif berkualitas dengan harga marketplace.",
+      "competitorAnalysis": {
+        "shopee": {
+          "lowestPrice": "Rp 34.835",
+          "averagePrice": "Rp 58.000 - Rp 77.000",
+          "topSeller": "Lunar Mermaid Skirt - 5rb+ terjual",
+          "bestDeal": "NOENA ID - Rp 58.999 (diskon 53% dari Rp 125.000)"
+        },
+        "tokopedia": {
+          "priceRange": "Rp 57.915 - Rp 169.000",
+          "premiumOption": "Jia Mermaid Skirt - Rp 169.000 (Scuba Premium)"
+        },
+        "lazada": {
+          "averagePrice": "Rp 72.000",
+          "topSeller": "Rok Duyung Scuba Premium - 638 sold, rating 4.9"
+        },
+        "instagram": {
+          "satinPremium": "Rp 85.000 - Rp 125.000"
+        }
+      },
+      "marketPositioning": "Premium quality di atas rata-rata marketplace (bahan lebih tebal, finishing lebih rapi, ukuran lebih akurat). Target: segmen menengah yang mau kualitas lebih baik dari produk Rp 35K-60K.",
+      "colors": [
+        "Hitam",
+        "Navy",
+        "Maroon",
+        "Emerald Green",
+        "Dusty Pink",
+        "Cream",
+        "Brown"
+      ],
+      "sizes": [
+        "S (Pinggang 60-64cm, Pinggul 84-88cm, Panjang 70cm)",
+        "M (Pinggang 65-69cm, Pinggul 89-93cm, Panjang 71cm)",
+        "L (Pinggang 70-74cm, Pinggul 94-98cm, Panjang 72cm)",
+        "XL (Pinggang 75-79cm, Pinggul 99-103cm, Panjang 73cm)"
+      ],
+      "material": "Bayadine Premium + Stretch",
+      "features": [
+        "Highwaist fit menutupi perut",
+        "Mermaid cut feminine",
+        "Bahan stretch nyaman",
+        "Tidak mudah kusut",
+        "Lapisan dalam tidak menerawang",
+        "Resleting samping halus",
+        "Sabuk luar included"
+      ],
+      "occasions": [
+        "Kantor / Kerja",
+        "Kondangan / Wedding",
+        "Date Night",
+        "Photoshoot",
+        "Formal Events"
+      ],
+      "styling": [
+        "Pair dengan kemeja tucked in",
+        "Crop top untuk tampilan casual",
+        "Blazer untuk look profesional",
+        "Heels untuk kesan lebih tinggi"
+      ],
+      "shopeeReference": "Search: 'rok mermaid highwaist premium wanita'",
+      "tokopediaReference": "Search: 'rok mermaid kondangan kantor'",
+      "status": "draft"
+    },
+    {
+      "id": "trend-008",
+      "name": "Celana Cutbray Highwaist Korean Style",
+      "category": "Celana Panjang",
+      "slug": "celana-cutbray-highwaist-korean",
+      "description": "Celana cutbray (flared pants) dengan potongan highwaist ala Korean fashion yang sedang hits. Potongan fitted di paha dan melebar dari lutut ke bawah memberikan efek kaki jenjang. Bahan premium dengan stretch yang nyaman untuk aktivitas seharian. Cocok untuk tampilan casual chic maupun semi-formal.",
+      "trendingReason": "Trending #1 di kategori celana wanita Shopee & Tokopedia 2026 - 200K+ terjual",
+      "targetMarket": "Wanita & remaja putri, usia 17-35 tahun",
+      "estimatedPrice": "Rp 75.000 - Rp 99.000",
+      "priceRange": {
+        "1-9 pcs": "Rp 99.000",
+        "10-49 pcs": "Rp 89.000",
+        "50-99 pcs": "Rp 82.000",
+        "100+ pcs": "Rp 75.000"
+      },
+      "pricingStrategy": "PENETRASI PASAR - Harga kompetitif untuk akuisisi pelanggan. Margin tipis, volume tinggi. Target: jadi alternatif berkualitas dengan harga marketplace.",
+      "competitorAnalysis": {
+        "shopee": {
+          "priceRange": "Rp 82.900 - Rp 244.500",
+          "topSeller": "Cutbray Jeans Highwaist - 5rb+ terjual, rating 4.7",
+          "popular": "JINISO Ultra Highwaist Cutbray - Rp 244.500"
+        },
+        "tokopedia": {
+          "priceRange": "Rp 82.900 - Rp 169.000",
+          "topSeller": "High Waist Jeans Stretch - 5rb+ terjual",
+          "premiumOption": "FOLADY P795 - Celana jeans flare high waist premium"
+        },
+        "lazada": {
+          "lowestPrice": "Rp 91.500",
+          "category": "Celana Cutbray Jeans Jumbo Big Size"
+        },
+        "blibli": {
+          "premiumBrand": "AMARAVE - Rp 149.900 (Highwaist Flared Cutbray)"
+        },
+        "tiktok_shop": {
+          "trending": "High-Waisted Flared Jeans Korean Style - viral 2026"
+        }
+      },
+      "marketPositioning": "Premium quality dengan bahan denim stretch import. Target: segmen menengah yang mencari kualitas di atas produk Rp 80K-120K marketplace.",
+      "colors": [
+        "Hitam",
+        "Navy",
+        "Dark Blue (Denim Look)",
+        "Cream",
+        "Sage Green",
+        "Dusty Pink",
+        "Brown",
+        "Grey"
+      ],
+      "sizes": [
+        "26 (Pinggang 66cm, Pinggul 88cm, Panjang 98cm)",
+        "27 (Pinggang 68cm, Pinggul 90cm, Panjang 99cm)",
+        "28 (Pinggang 70cm, Pinggul 92cm, Panjang 100cm)",
+        "29 (Pinggang 72cm, Pinggul 94cm, Panjang 101cm)",
+        "30 (Pinggang 74cm, Pinggul 96cm, Panjang 102cm)",
+        "31 (Pinggang 76cm, Pinggul 98cm, Panjang 103cm)",
+        "32 (Pinggang 78cm, Pinggul 100cm, Panjang 104cm)"
+      ],
+      "material": "Cotton Twill Premium + 2% Spandex",
+      "features": [
+        "Highwaist fit",
+        "Cutbray/flared dari lutut",
+        "Bahan stretch 4 arah",
+        "Tidak mudah kusut",
+        "Saku depan & belakang fungsional",
+        "Resleting & kancing premium",
+        "Efek kaki jenjang"
+      ],
+      "occasions": [
+        "Kuliah / Sekolah",
+        "Hangout / Cafe",
+        "Kantor (casual Friday)",
+        "Photoshoot",
+        "Date Night"
+      ],
+      "styling": [
+        "Crop top atau baby tee",
+        "Oversized shirt tucked in",
+        "Platform shoes untuk efek maksimal",
+        "Heels untuk look elegan"
+      ],
+      "shopeeReference": "Search: 'celana cutbray highwaist korean'",
+      "tokopediaReference": "Search: 'celana cutbray wanita flared pants'",
+      "status": "draft"
+    },
+    {
+      "id": "trend-009",
+      "name": "Rok Mermaid Satin Premium (Luxury Edition)",
+      "category": "Rok & Skirt - Premium",
+      "slug": "rok-mermaid-satin-premium-luxury",
+      "description": "Rok mermaid edisi luxury dengan bahan satin premium yang memberikan efek shimmer elegan. Potongan mermaid yang sempurna dengan detail slit belakang untuk kemudahan bergerak. Pilihan tepat untuk acara formal, wedding, dan gala dinner. Lapisan dalam berkualitas tinggi yang tidak menerawang.",
+      "trendingReason": "Pilihan favorit untuk kondangan & wedding guest - 50K+ terjual",
+      "targetMarket": "Wanita dewasa, usia 25-45 tahun, segmen premium",
+      "estimatedPrice": "Rp 85.000 - Rp 125.000",
+      "priceRange": {
+        "1-9 pcs": "Rp 125.000",
+        "10-49 pcs": "Rp 110.000",
+        "50-99 pcs": "Rp 95.000",
+        "100+ pcs": "Rp 85.000"
+      },
+      "pricingStrategy": "PENETRASI PASAR - Harga kompetitif untuk akuisisi pelanggan. Margin tipis, volume tinggi. Target: jadi alternatif berkualitas dengan harga marketplace.",
+      "colors": [
+        "Black (Classic)",
+        "Navy Royal",
+        "Maroon Wine",
+        "Emerald Green",
+        "Gold Champagne",
+        "Silver Grey",
+        "Dusty Purple"
+      ],
+      "sizes": [
+        "S (Pinggang 60-64cm, Pinggul 84-88cm, Panjang 75cm)",
+        "M (Pinggang 65-69cm, Pinggul 89-93cm, Panjang 76cm)",
+        "L (Pinggang 70-74cm, Pinggul 94-98cm, Panjang 77cm)",
+        "XL (Pinggang 75-79cm, Pinggul 99-103cm, Panjang 78cm)",
+        "XXL (Pinggang 80-84cm, Pinggul 104-108cm, Panjang 79cm)"
+      ],
+      "material": "Satin Silk Premium + Full Lining",
+      "features": [
+        "Satin silk dengan shimmer effect",
+        "Full lining tidak menerawang",
+        "Back slit untuk mobility",
+        "Hidden zipper",
+        "Elastic waistband nyaman",
+        "Premium finish",
+        "Mermaid cut sempurna"
+      ],
+      "occasions": [
+        "Wedding / Kondangan",
+        "Gala Dinner",
+        "Formal Events",
+        "Photoshoot Pre-wedding",
+        "Graduation"
+      ],
+      "styling": [
+        "Kebaya modern",
+        "Elegant blouse",
+        "Statement jewelry",
+        "High heels 7-10cm"
+      ],
+      "shopeeReference": "Search: 'rok mermaid satin premium kondangan'",
+      "tokopediaReference": "Search: 'rok mermaid luxury wedding guest'",
+      "status": "draft"
+    },
+    {
+      "id": "trend-010",
+      "name": "Celana Cutbray Denim Premium",
+      "category": "Celana Panjang - Denim",
+      "slug": "celana-cutbray-denim-premium",
+      "description": "Celana cutbray dari bahan denim premium dengan wash yang trendy. Potongan highwaist dengan cutbray dari lutut memberikan silhouette yang flattering. Detail jahitan kontras dan hardware berkualitas tinggi. Cocok untuk tampilan casual everyday yang stylish.",
+      "trendingReason": "Best seller denim category - 150K+ terjual di marketplace",
+      "targetMarket": "Remaja & wanita muda, usia 16-30 tahun",
+      "estimatedPrice": "Rp 89.000 - Rp 135.000",
+      "priceRange": {
+        "1-9 pcs": "Rp 135.000",
+        "10-49 pcs": "Rp 115.000",
+        "50-99 pcs": "Rp 100.000",
+        "100+ pcs": "Rp 89.000"
+      },
+      "pricingStrategy": "PENETRASI PASAR - Harga kompetitif untuk akuisisi pelanggan. Margin tipis, volume tinggi. Target: jadi alternatif berkualitas dengan harga marketplace.",
+      "colors": [
+        "Light Blue (Light Wash)",
+        "Medium Blue (Classic)",
+        "Dark Blue (Rinse)",
+        "Black (Black Denim)",
+        "White (White Denim)"
+      ],
+      "sizes": [
+        "26 (Pinggang 66cm, Pinggul 86cm, Panjang 98cm)",
+        "27 (Pinggang 68cm, Pinggul 88cm, Panjang 99cm)",
+        "28 (Pinggang 70cm, Pinggul 90cm, Panjang 100cm)",
+        "29 (Pinggang 72cm, Pinggul 92cm, Panjang 101cm)",
+        "30 (Pinggang 74cm, Pinggul 94cm, Panjang 102cm)",
+        "31 (Pinggang 76cm, Pinggul 96cm, Panjang 103cm)",
+        "32 (Pinggang 78cm, Pinggul 98cm, Panjang 104cm)",
+        "33 (Pinggang 80cm, Pinggul 100cm, Panjang 105cm)"
+      ],
+      "material": "Denim Cotton 98% + Spandex 2%",
+      "features": [
+        "Premium denim 12oz",
+        "Stretch nyaman",
+        "Highwaist fit",
+        "Cutbray flare dari lutut",
+        "5 pocket design",
+        "Zipper & button fly",
+        "Belt loops",
+        "Tidak mudah fade"
+      ],
+      "occasions": [
+        "Casual Daily",
+        "Kuliah",
+        "Hangout",
+        "Travel",
+        "Weekend Outing"
+      ],
+      "styling": [
+        "Basic tee atau tank top",
+        "Cropped sweater",
+        "Denim jacket (double denim)",
+        "Sneakers atau ankle boots"
+      ],
+      "shopeeReference": "Search: 'celana cutbray denim jeans wanita'",
+      "tokopediaReference": "Search: 'jeans cutbray highwaist flared'",
+      "status": "draft"
+    }
+  ],
+  "comparisonTable": {
+    "headers": ["Produk", "Harga Retail", "Target Market", "Best For", "Trending Level"],
+    "rows": [
+      ["Rok Mermaid Highwaist", "Rp 45K - 69K", "20-40 th", "Kantor & Kondangan", "⭐⭐⭐⭐⭐"],
+      ["Celana Cutbray Korean", "Rp 75K - 99K", "17-35 th", "Casual & Kuliah", "⭐⭐⭐⭐⭐"],
+      ["Rok Mermaid Satin Luxury", "Rp 85K - 125K", "25-45 th", "Wedding & Formal", "⭐⭐⭐⭐"],
+      ["Celana Cutbray Denim", "Rp 89K - 135K", "16-30 th", "Daily Casual", "⭐⭐⭐⭐⭐"]
+    ]
+  },
+  "metadata": {
+    "createdAt": "2026-06-30",
+    "requestedBy": "User - Agus Collection",
+    "source": "Market research - Shopee, Tokopedia, TikTok, Instagram trends",
+    "note": "Produk draft ini BELUM ditambahkan ke website. Menunggu review dari owner sebelum diimplementasikan.",
+    "pricingStrategy": "PENETRASI PASAR - Harga kompetitif untuk akuisisi pelanggan. Margin tipis, volume tinggi.",
+    "categories": ["Rok Mermaid", "Celana Cutbray"],
+    "nextSteps": [
+      "Review daftar produk ini",
+      "Pilih produk yang ingin diproduksi",
+      "Siapkan sample & foto produk asli",
+      "Tentukan harga jual final",
+      "Tambahkan ke database produk website"
+    ],
+    "productionNotes": {
+      "rokMermaid": [
+        "Perhatikan ukuran pinggang & pinggul yang akurat",
+        "Pastikan mermaid cut tidak terlalu ketat di bawah",
+        "Kualitas resleting samping harus premium",
+        "Stretch fabric penting untuk kenyamanan"
+      ],
+      "celanaCutbray": [
+        "Panjang celana harus pas untuk efek maksimal",
+        "Highwaist fit harus nyaman tidak melilit",
+        "Stretch denim penting untuk mobility",
+        "Quality control untuk jahitan flare"
+      ]
+    }
+  }
+}

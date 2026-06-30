@@ -23,6 +23,10 @@ export function FeaturedProducts() {
     'tali-nama-sekolah',
     'sabuk-sekolah',
     'jilbab-sekolah',
+    'rok-mermaid-highwaist-premium',
+    'rok-mermaid-satin-premium-luxury',
+    'celana-cutbray-highwaist-korean',
+    'celana-cutbray-denim-premium',
   ];
   
   const featuredProducts = products.filter(

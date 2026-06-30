@@ -1,0 +1,148 @@
+{
+  "draftProducts": [
+    {
+      "id": "trend-001",
+      "name": "Blazer Oversized Premium Korean Style",
+      "category": "Outer & Blazer",
+      "slug": "blazer-oversized-premium-korean",
+      "description": "Blazer oversized dengan potongan modern Korean style yang sedang viral di kalangan wanita karier dan mahasiswa. Terbuat dari bahan premium wolfis yang tidak mudah kusut, cocok untuk tampilan formal maupun casual. Detail kancing double-breasted dan shoulder pad yang pas memberikan siluet sempurna.",
+      "trendingReason": "Viral di TikTok & Instagram dengan hashtag #KoreanFashion #BlazerOversized",
+      "targetMarket": "Wanita karier, mahasiswa, usia 20-35 tahun",
+      "estimatedPrice": "Rp 185.000 - Rp 245.000",
+      "colors": ["Hitam", "Navy", "Cream", "Sage Green", "Brown"],
+      "sizes": ["S", "M", "L", "XL"],
+      "material": "Wolfis Premium (Wool Finesse)",
+      "features": [
+        "Tidak mudah kusut",
+        "Lapisan furing nyaman",
+        "Kancing premium",
+        "Saku fungsional",
+        "Shoulder pad proporsional"
+      ],
+      "shopeeReference": "Search: 'blazer oversized wanita korean premium'",
+      "status": "draft"
+    },
+    {
+      "id": "trend-002",
+      "name": "Cardine Rajut Crop Top Aesthetic",
+      "category": "Atasan & Cardigan",
+      "slug": "cardine-rajut-crop-top-aesthetic",
+      "description": "Cardigan rajut crop top dengan desain aesthetic yang sedang trend di kalangan Gen-Z. Bahan rajut halus dengan texture unik, cocok dipadukan dengan high-waist pants atau skirt. Detail kancing mutiara dan trim ribbon memberikan sentuhan feminine yang manis.",
+      "trendingReason": "Trending di Shopee Fashion dengan 10K+ terjual bulan ini",
+      "targetMarket": "Gen-Z, mahasiswa, usia 17-25 tahun",
+      "estimatedPrice": "Rp 89.000 - Rp 135.000",
+      "colors": ["Cream", "Pink Baby", "Lavender", "Sage", "White"],
+      "sizes": ["All Size (fit to L)"],
+      "material": "Rajut Cotton Blend",
+      "features": [
+        "Bahan adem tidak panas",
+        "Kancing mutiara premium",
+        "Trim ribbon detail",
+        "Stretch nyaman",
+        "Tidak mudah melar"
+      ],
+      "shopeeReference": "Search: 'cardigan rajut crop aesthetic korean'",
+      "status": "draft"
+    },
+    {
+      "id": "trend-003",
+      "name": "Rok Plisket Midi Satin Premium",
+      "category": "Rok & Skirt",
+      "slug": "rok-plisket-midi-satin-premium",
+      "description": "Rok plisket midi dengan bahan satin premium yang memberikan efek shimmer elegan. Panjang midi yang sopan cocok untuk berbagai occasion dari kantor hingga acara formal. Karet pinggang yang nyaman dan lapisan dalam yang tidak menerawang.",
+      "trendingReason": "Best seller di kategori rok dengan 50K+ terjual",
+      "targetMarket": "Wanita semua usia, 20-45 tahun",
+      "estimatedPrice": "Rp 125.000 - Rp 175.000",
+      "colors": ["Hitam", "Navy", "Maroon", "Emerald", "Gold", "Silver"],
+      "sizes": ["All Size (pinggang 60-90cm)"],
+      "material": "Satin Premium + Lining",
+      "features": [
+        "Plisket rapi tahan lama",
+        "Efek shimmer elegan",
+        "Karet pinggang nyaman",
+        "Lapisan dalam tidak menerawang",
+        "Mudah dirawat"
+      ],
+      "shopeeReference": "Search: 'rok plisket midi satin premium'",
+      "status": "draft"
+    },
+    {
+      "id": "trend-004",
+      "name": "Kemeja Oversized Shirt Linen Look",
+      "category": "Kemeja & Shirt",
+      "slug": "kemeja-oversized-linen-look",
+      "description": "Kemeja oversized dengan bahan linen look yang breathable dan nyaman seharian. Desain oversized yang trendy cocok untuk tampilan casual chic. Detail pocket di dada dan back pleat memberikan dimensi yang menarik.",
+      "trendingReason": "Viral dengan hashtag #LinenLook #OversizedShirt di media sosial",
+      "targetMarket": "Wanita modern, usia 18-35 tahun",
+      "estimatedPrice": "Rp 145.000 - Rp 195.000",
+      "colors": ["White", "Cream", "Light Blue", "Sage Green", "Dusty Pink"],
+      "sizes": ["All Size (fit to XL)"],
+      "material": "Linen Look Premium",
+      "features": [
+        "Bahan breathable",
+        "Tidak mudah kusut",
+        "Oversized fit trendy",
+        "Pocket fungsional",
+        "Back pleat detail"
+      ],
+      "shopeeReference": "Search: 'kemeja oversized linen look wanita'",
+      "status": "draft"
+    },
+    {
+      "id": "trend-005",
+      "name": "Vest Wanita Korean Style Premium",
+      "category": "Outer & Vest",
+      "slug": "vest-wanita-korean-premium",
+      "description": "Vest wanita dengan potongan Korean style yang sedang hits. Cocok untuk layering atas basic tee atau dress. Bahan premium dengan lapisan furing, detail belt di pinggang untuk siluet yang lebih defined.",
+      "trendingReason": "Trending di TikTok Fashion dengan 5M+ views",
+      "targetMarket": "Wanita karier & fashion enthusiast, 20-35 tahun",
+      "estimatedPrice": "Rp 165.000 - Rp 225.000",
+      "colors": ["Black", "Cream", "Navy", "Brown", "Grey"],
+      "sizes": ["S", "M", "L"],
+      "material": "Wolfis + Furing",
+      "features": [
+        "Belt included",
+        "Furing nyaman",
+        "Potongan Korean fit",
+        "Multi occasion",
+        "Premium finish"
+      ],
+      "shopeeReference": "Search: 'vest wanita korean style premium'",
+      "status": "draft"
+    },
+    {
+      "id": "trend-006",
+      "name": "Cargo Pants Wanita Highwaist",
+      "category": "Celana Panjang",
+      "slug": "cargo-pants-wanita-highwaist",
+      "description": "Celana cargo highwaist dengan multiple pockets yang fungsional dan trendy. Potongan loose fit yang nyaman dengan karet di pergelangan kaki. Bahan canvas tebal yang tidak mudah sobek, cocok untuk tampilan streetwear aesthetic.",
+      "trendingReason": "Top search di Shopee kategori celana wanita 2026",
+      "targetMarket": "Gen-Z & Millennial, usia 17-30 tahun",
+      "estimatedPrice": "Rp 155.000 - Rp 215.000",
+      "colors": ["Army Green", "Black", "Khaki", "Navy", "Grey"],
+      "sizes": ["26", "27", "28", "29", "30", "31"],
+      "material": "Canvas Cotton Thick",
+      "features": [
+        "Multiple pockets",
+        "Highwaist fit",
+        "Ankle elastic",
+        "Bahan tebal premium",
+        "Streetwear style"
+      ],
+      "shopeeReference": "Search: 'cargo pants wanita highwaist korean'",
+      "status": "draft"
+    }
+  ],
+  "metadata": {
+    "createdAt": "2026-06-30",
+    "source": "Market research - Shopee & social media trends",
+    "note": "Produk draft ini BELUM ditambahkan ke website. Menunggu review dari owner sebelum diimplementasikan.",
+    "nextSteps": [
+      "Review daftar produk trend ini",
+      "Pilih produk yang ingin ditambahkan",
+      "Siapkan foto produk asli",
+      "Tentukan harga jual final",
+      "Tambahkan ke database produk website"
+    ]
+  }
+}

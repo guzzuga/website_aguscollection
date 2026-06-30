@@ -1310,6 +1310,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '3–5 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
     slug: 'rok-mermaid-satin-premium-luxury',
@@ -1362,6 +1363,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '3–5 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   // ─── CELANA CUTBRAY ────────────────────────────────────────────────────────
   {
@@ -1416,6 +1418,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '3–5 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
   {
     slug: 'celana-cutbray-denim-premium',
@@ -1467,6 +1470,7 @@ export const products: Product[] = [
       { label: 'Estimasi Produksi', value: '3–5 hari kerja' },
       { label: 'Pengiriman', value: 'Seluruh Indonesia' },
     ],
+    shopeeUrl: 'https://s.shopee.co.id/20tQvxOu1S',
   },
 ];
 

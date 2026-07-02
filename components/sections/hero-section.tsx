@@ -97,7 +97,7 @@ export function HeroSection() {
               variants={fadeUp}
               initial="visible"
               animate="visible"
-              className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-white text-balance sm:text-5xl lg:text-6xl xl:text-7xl"
+              className="mt-6 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white text-balance sm:text-5xl lg:text-6xl xl:text-7xl"
             >
               Seragam Berkualitas,
               <br />

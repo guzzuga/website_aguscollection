@@ -57,7 +57,7 @@ export function CategoryCard({ category, index = 0, className }: CategoryCardPro
                 <span className="label-eyebrow text-gold-300">
                   {category.productCount} Produk
                 </span>
-                <h3 className="mt-1.5 text-xl font-bold tracking-tight text-white">
+                <h3 className="mt-1.5 font-display text-xl font-bold tracking-tight text-white">
                   {category.name}
                 </h3>
               </div>

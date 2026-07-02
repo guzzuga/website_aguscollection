@@ -99,7 +99,7 @@ export function ContactForm() {
             >
               <Check className="h-10 w-10 text-navy" strokeWidth={3} />
             </motion.div>
-            <h3 className="mt-6 text-2xl font-bold text-navy">Pesan Terkirim!</h3>
+            <h3 className="mt-6 font-display text-2xl font-bold text-navy">Pesan Terkirim!</h3>
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-600">
               Terima kasih telah menghubungi kami. Tim kami akan menghubungi Anda
               via WhatsApp dalam 1×24 jam.

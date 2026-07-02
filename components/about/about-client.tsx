@@ -74,7 +74,7 @@ export function AboutClient() {
             </motion.span>
             <motion.h1
               variants={fadeUp}
-              className="mt-5 text-4xl font-extrabold tracking-tight text-white text-balance sm:text-5xl lg:text-6xl"
+              className="mt-5 font-display text-4xl font-extrabold tracking-tight text-white text-balance sm:text-5xl lg:text-6xl"
             >
               Tentang Agus Collection
             </motion.h1>
@@ -152,7 +152,7 @@ export function AboutClient() {
                 ].map((s) => (
                   <div key={s.label} className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-soft">
                     <s.icon className="mx-auto h-6 w-6 text-gold-600" />
-                    <p className="mt-2 text-xl font-extrabold text-navy">{s.value}</p>
+                    <p className="mt-2 font-display text-xl font-extrabold text-navy">{s.value}</p>
                     <p className="text-xs text-slate-500">{s.label}</p>
                   </div>
                 ))}
@@ -189,7 +189,7 @@ export function AboutClient() {
                 <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-gold-300 transition-all group-hover:bg-gold-gradient group-hover:text-navy">
                   <v.icon className="h-7 w-7" />
                 </span>
-                <h3 className="mt-5 text-xl font-bold tracking-tight text-navy">{v.title}</h3>
+                <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-navy">{v.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">{v.description}</p>
               </motion.div>
             ))}

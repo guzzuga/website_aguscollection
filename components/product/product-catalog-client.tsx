@@ -86,7 +86,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
               <span className="label-eyebrow text-gold-300">
                 {active === ALL_SLUG ? 'Semua Produk' : activeCategoryData?.name}
               </span>
-              <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+              <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
                 {active === ALL_SLUG
                   ? 'Katalog Lengkap'
                   : activeCategoryData?.name ?? 'Produk'}
@@ -219,7 +219,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
       {active === ALL_SLUG && !query && (
         <section className="border-t border-slate-200 bg-slate-50/50 py-16 lg:py-20">
           <div className="container-page">
-            <h2 className="mb-10 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
+            <h2 className="mb-10 font-display text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
               Jelajahi per Kategori
             </h2>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-6">

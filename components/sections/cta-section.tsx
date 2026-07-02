@@ -48,7 +48,7 @@ export function CTASection() {
 
           <motion.h2
             variants={fadeUp}
-            className="mt-5 text-3xl font-extrabold tracking-tight text-white text-balance sm:text-4xl lg:text-5xl"
+            className="mt-5 font-display text-3xl font-extrabold tracking-tight text-white text-balance sm:text-4xl lg:text-5xl"
           >
             Siap Membantu Membuat
             <br />

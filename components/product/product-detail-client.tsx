@@ -90,7 +90,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
               )}
             </div>
 
-            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
+            <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
               {product.name}
             </h1>
 
@@ -123,7 +123,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
               <div className="flex items-end justify-between">
                 <div>
                   <span className="text-xs text-slate-500">Harga per pcs (qty {qty})</span>
-                  <p className="text-3xl font-extrabold text-navy">
+                  <p className="font-display text-3xl font-extrabold text-navy">
                     {formatRupiah(finalPrice)}
                   </p>
                   {educationLevel && (
@@ -134,7 +134,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 </div>
                 <div className="text-right">
                   <span className="text-xs text-slate-500">Estimasi Total</span>
-                  <p className="text-2xl font-extrabold text-gold-700">
+                  <p className="font-display text-2xl font-extrabold text-gold-700">
                     {formatRupiah(total)}
                   </p>
                 </div>
@@ -299,7 +299,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
         {/* Features + Specs */}
         <div className="mt-16 grid gap-8 lg:grid-cols-2 lg:gap-12">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-navy">Keunggulan Produk</h2>
+            <h2 className="font-display text-2xl font-bold tracking-tight text-navy">Keunggulan Produk</h2>
             <ul className="mt-5 space-y-3">
               {product.features.map((f, i) => (
                 <motion.li

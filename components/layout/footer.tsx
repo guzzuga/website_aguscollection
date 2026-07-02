@@ -43,7 +43,7 @@ export function Footer() {
                   className="object-contain p-1"
                 />
               </div>
-              <span className="text-xl font-extrabold text-white">
+              <span className="font-display text-xl font-extrabold text-white">
                 Agus <span className="text-gold-400">Collection</span>
               </span>
             </Link>

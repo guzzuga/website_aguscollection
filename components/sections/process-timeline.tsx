@@ -49,7 +49,7 @@ export function ProcessTimeline() {
                     </span>
                   </div>
 
-                  <h3 className="mt-5 text-lg font-bold tracking-tight text-navy">
+                  <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-navy">
                     {step.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-500">

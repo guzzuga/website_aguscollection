@@ -62,6 +62,16 @@
     font-feature-settings: 'cv11', 'ss01';
     font-variation-settings: normal;
   }
+  /* Luxury serif typography — Playfair Display */
+  .font-display {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+  .font-display.text-balance {
+    text-wrap: balance;
+  }
   ::selection {
     @apply bg-gold/20 text-navy;
   }

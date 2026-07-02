@@ -103,7 +103,7 @@ export function LoadingScreen({ onFinish }: LoadingScreenProps) {
 
         {/* Brand Name */}
         <h1 
-          className="mb-2 text-3xl font-extrabold tracking-wide text-white text-balance opacity-0 animate-fade-in-up"
+          className="mb-2 font-display text-3xl font-extrabold tracking-wide text-white text-balance opacity-0 animate-fade-in-up"
           style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
         >
           AGUS COLLECTION

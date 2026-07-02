@@ -78,7 +78,7 @@ export function Navbar() {
           </span>
           <span
             className={cn(
-              'text-lg font-extrabold tracking-tight transition-colors',
+              'font-display text-lg font-extrabold tracking-tight transition-colors',
               scrolled ? 'text-navy' : 'text-white',
             )}
           >

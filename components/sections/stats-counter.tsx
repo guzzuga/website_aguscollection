@@ -58,7 +58,7 @@ export function StatsCounter() {
           className="mx-auto mb-14 max-w-2xl text-center"
         >
           <span className="label-eyebrow text-gold-300">Dipercaya &amp; Diandalkan</span>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             Angka yang Tidak Berbohong
           </h2>
         </motion.div>
@@ -74,7 +74,7 @@ export function StatsCounter() {
               className="relative text-center"
             >
               <div className="relative inline-block">
-                <span className="block bg-gradient-to-b from-white to-gold-200 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl lg:text-6xl">
+                <span className="block font-display bg-gradient-to-b from-white to-gold-200 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl lg:text-6xl">
                   <Counter
                     value={stat.value}
                     decimals={'decimals' in stat ? stat.decimals : 0}

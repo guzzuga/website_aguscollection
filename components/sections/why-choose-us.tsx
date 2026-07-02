@@ -38,7 +38,7 @@ export function WhyChooseUs() {
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-gold-300 transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-navy">
                     <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
                   </span>
-                  <h3 className="mt-5 text-lg font-bold tracking-tight text-navy">
+                  <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-navy">
                     {feature.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-500">

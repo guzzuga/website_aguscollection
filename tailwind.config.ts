@@ -119,7 +119,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-playfair)', 'Playfair Display', 'serif'],
       },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '1rem' }],

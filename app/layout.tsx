@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Playfair_Display } from 'next/font/google';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { WhatsAppFloatingButton } from '@/components/layout/whatsapp-floating-button';
@@ -10,6 +10,12 @@ import { cn } from '@/lib/utils';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
   display: 'swap',
 });
 
@@ -98,7 +104,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={cn(inter.variable)} suppressHydrationWarning>
+    <html lang="id" className={cn(inter.variable, playfair.variable)} suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#0a0a2e" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />

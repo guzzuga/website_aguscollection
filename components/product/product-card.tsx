@@ -52,7 +52,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
         {/* Content */}
         <div className="flex flex-1 flex-col p-5">
           <span className="label-eyebrow text-gold-600">{product.categoryLabel}</span>
-          <h3 className="mt-2 text-lg font-bold tracking-tight text-navy transition-colors group-hover:text-gold-700">
+          <h3 className="mt-2 font-display text-lg font-bold tracking-tight text-navy transition-colors group-hover:text-gold-700">
             {product.name}
           </h3>
           <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-500">
@@ -83,7 +83,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
           <div className="mt-auto flex items-end justify-between pt-5">
             <div>
               <span className="block text-xs text-slate-400">Mulai dari</span>
-              <span className="text-xl font-extrabold text-navy">
+              <span className="font-display text-xl font-extrabold text-navy">
                 {(() => {
                   // If priceRange is defined, display it
                   if (product.priceRange) {

@@ -140,7 +140,7 @@ export function Navbar() {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-600 bg-white/80 dark:bg-slate-800/80 text-navy dark:text-white backdrop-blur transition-colors hover:bg-slate-50 dark:hover:bg-slate-700"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-600 bg-white/80 dark:bg-black/80 text-navy dark:text-white backdrop-blur transition-colors hover:bg-slate-50 dark:hover:bg-neutral-900"
                 aria-label="Buka menu"
               >
                 <Menu className="h-5 w-5" />
@@ -148,7 +148,7 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-full max-w-sm border-l-0 bg-navy p-0 text-white"
+              className="w-full max-w-sm border-l-0 bg-navy dark:bg-black p-0 text-white"
             >
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">

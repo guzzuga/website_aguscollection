@@ -124,7 +124,7 @@ export function AboutClient() {
                             title="Dari Mojokerto untuk Seluruh Indonesia"
                             align="center"
                           />
-              <div className="mt-6 space-y-4 text-base leading-[1.7] text-slate-600 dark:text-slate-400">
+              <div className="mt-6 space-y-4 text-base leading-[1.7] text-slate-600 dark:text-neutral-400">
                 <p>
                   Agus Collection berawal dari workshop kecil di Mojokerto, Jawa Timur
                   dengan tekad kuat untuk melayani kebutuhan seragam berkualitas. Berbekal

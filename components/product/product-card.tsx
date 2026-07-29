@@ -55,7 +55,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
           <h3 className="mt-2 font-display text-lg font-bold tracking-tight text-navy transition-colors group-hover:text-gold-700">
             {product.name}
           </h3>
-          <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+          <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-500 dark:text-neutral-400">
             {product.shortDescription}
           </p>
 
@@ -74,7 +74,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
                 />
               ))}
             </div>
-            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+            <span className="text-xs font-medium text-slate-500 dark:text-neutral-400">
               {product.rating} ({product.reviewCount})
             </span>
           </div>
@@ -86,7 +86,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
                 <div>
                   {product.educationPricing.map((ep) => (
                     <div key={ep.level} className="flex justify-between items-center">
-                      <span className="text-xs text-slate-500 dark:text-slate-400">{ep.label}</span>
+                      <span className="text-xs text-slate-500 dark:text-neutral-400">{ep.label}</span>
                       <span className="text-sm font-bold text-navy dark:text-white">{formatRupiah(ep.basePrice)}</span>
                     </div>
                   ))}

@@ -153,7 +153,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
         <div className="container-page">
           {/* Result count + active filter info */}
           <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
-            <p className="text-sm text-slate-500 dark:text-slate-400">
+            <p className="text-sm text-slate-500 dark:text-neutral-400">
               Menampilkan{' '}
               <span className="font-semibold text-navy dark:text-white">{filtered.length}</span>{' '}
               produk
@@ -188,7 +188,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
                   <SlidersHorizontal className="h-10 w-10" />
                 </span>
                 <h3 className="mt-6 text-xl font-bold text-navy dark:text-white">Produk Tidak Ditemukan</h3>
-                <p className="mt-2 max-w-sm text-sm text-slate-500 dark:text-slate-400">
+                <p className="mt-2 max-w-sm text-sm text-slate-500 dark:text-neutral-400">
                   Tidak ada produk yang cocok dengan pencarian Anda. Coba kata kunci lain atau hapus filter.
                 </p>
                 <button
@@ -240,7 +240,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
                       <Icon className="h-6 w-6" />
                     </span>
                     <h3 className="mt-4 text-sm font-bold leading-tight text-navy dark:text-white">{cat.name}</h3>
-                    <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{cat.productCount}+ produk</p>
+                    <p className="mt-1 text-xs text-slate-500 dark:text-neutral-400">{cat.productCount}+ produk</p>
                   </motion.button>
                 );
               })}

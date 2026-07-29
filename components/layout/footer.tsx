@@ -47,7 +47,7 @@ export function Footer() {
                 Agus <span className="text-gold-400">Collection</span>
               </span>
             </Link>
-            <p className="mt-5 max-w-xs text-sm leading-[1.7] text-slate-400 dark:text-slate-500">
+            <p className="mt-5 max-w-xs text-sm leading-[1.7] text-slate-400 dark:text-neutral-500">
               {siteConfig.description}
             </p>
             <div className="mt-6 flex items-center gap-3">
@@ -78,7 +78,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 dark:text-slate-500 transition-colors hover:text-white"
+                    className="text-sm text-slate-400 dark:text-neutral-500 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -95,7 +95,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 dark:text-slate-500 transition-colors hover:text-white"
+                    className="text-sm text-slate-400 dark:text-neutral-500 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -108,11 +108,11 @@ export function Footer() {
           <div className="lg:col-span-3">
             <h3 className="label-eyebrow text-gold-300">Kontak</h3>
             <ul className="mt-5 space-y-4">
-              <li className="flex items-start gap-3 text-sm text-slate-400 dark:text-slate-500">
+              <li className="flex items-start gap-3 text-sm text-slate-400 dark:text-neutral-500">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
                 <span>{siteConfig.address}</span>
               </li>
-              <li className="flex items-start gap-3 text-sm text-slate-400 dark:text-slate-500">
+              <li className="flex items-start gap-3 text-sm text-slate-400 dark:text-neutral-500">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
                 <a
                   href={`tel:${siteConfig.phone.replace(/\s/g, '')}`}
@@ -121,7 +121,7 @@ export function Footer() {
                   {siteConfig.phone}
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-sm text-slate-400 dark:text-slate-500">
+              <li className="flex items-start gap-3 text-sm text-slate-400 dark:text-neutral-500">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
                 <a
                   href={`mailto:${siteConfig.email}`}
@@ -130,7 +130,7 @@ export function Footer() {
                   {siteConfig.email}
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-sm text-slate-400 dark:text-slate-500">
+              <li className="flex items-start gap-3 text-sm text-slate-400 dark:text-neutral-500">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
                 <span>{siteConfig.hours}</span>
               </li>

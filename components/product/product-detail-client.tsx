@@ -122,7 +122,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             </p>
 
             {/* Price */}
-            <div className="mt-6 rounded-2xl border border-slate-200 dark:border-slate-600 bg-slate-50/50 dark:bg-slate-900/50 p-5">
+            <div className="mt-6 rounded-2xl border border-slate-200 dark:border-neutral-800 bg-slate-50/50 dark:bg-black p-5">
               <div className="flex items-end justify-between">
                 <div>
                   <span className="text-xs text-slate-500">Harga per pcs (qty {qty})</span>
@@ -157,7 +157,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                       'flex items-center gap-2 rounded-full border-2 px-3 py-1.5 text-sm font-medium transition-all',
                       color === c.name
                         ? 'border-gold bg-gold/5 dark:bg-gold/10 text-navy'
-                        : 'border-slate-200 dark:border-slate-600 text-slate-600 dark:hover:border-slate-400 hover:border-slate-300',
+                        : 'border-slate-200 dark:border-neutral-800 text-slate-600 dark:hover:border-neutral-600 hover:border-slate-300',
                     )}
                   >
                     <span
@@ -273,7 +273,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 <div className="flex items-center rounded-xl border border-slate-200">
                   <button
                     onClick={() => setQty((q) => Math.max(1, q - 1))}
-                    className="flex h-11 w-11 items-center justify-center text-slate-600 dark:text-slate-300 transition-colors hover:text-navy dark:hover:text-gold"
+                    className="flex h-11 w-11 items-center justify-center text-slate-600 dark:text-neutral-300 transition-colors hover:text-navy dark:hover:text-gold"
                     aria-label="Kurangi"
                   >
                     <Minus className="h-4 w-4" />
@@ -283,11 +283,11 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     value={qty}
                     min={1}
                     onChange={(e) => setQty(Math.max(1, Number(e.target.value) || 1))}
-                    className="h-11 w-16 border-x border-slate-200 dark:border-slate-600 text-center text-sm font-semibold text-navy dark:text-gold outline-none"
+                    className="h-11 w-16 border-x border-slate-200 dark:border-neutral-800 text-center text-sm font-semibold text-navy dark:text-gold outline-none"
                   />
                   <button
                     onClick={() => setQty((q) => q + 1)}
-                    className="flex h-11 w-11 items-center justify-center text-slate-600 dark:text-slate-300 transition-colors hover:text-navy dark:hover:text-gold"
+                    className="flex h-11 w-11 items-center justify-center text-slate-600 dark:text-neutral-300 transition-colors hover:text-navy dark:hover:text-gold"
                     aria-label="Tambah"
                   >
                     <Plus className="h-4 w-4" />
@@ -375,7 +375,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                       <td className="border-b border-slate-100 px-5 py-3.5 font-medium text-slate-500">
                         {spec.label}
                       </td>
-                      <td className="border-b border-slate-100 dark:border-slate-700 px-5 py-3.5 font-semibold text-navy dark:text-gold">
+                      <td className="border-b border-slate-100 dark:border-neutral-800 px-5 py-3.5 font-semibold text-navy dark:text-gold">
                         {spec.value}
                       </td>
                     </tr>

@@ -17,7 +17,6 @@ import {
 import type { Product, EducationLevel } from '@/types';
 import { siteConfig } from '@/constants/site';
 import { ProductGallery } from '@/components/product/product-gallery';
-import { PriceTierList } from '@/components/product/price-tier';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { formatRupiah } from '@/utils/format';
@@ -144,14 +143,6 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 </div>
               </div>
             </div>
-
-            {/* Price tiers */}
-            <PriceTierList
-              tiers={product.priceTiers}
-              selectedQty={qty}
-              basePrice={basePrice}
-              className="mt-5"
-            />
 
             {/* Color */}
             <div className="mt-6">

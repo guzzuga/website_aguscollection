@@ -14,9 +14,9 @@ export type ProductColor = {
   hex: string;
 };
 
-export type ProductSize = 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'All Size';
+export type ProductSize = 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'All Size' | string;
 
-export type EducationLevel = 'SD' | 'SMP' | 'SMA';
+export type EducationLevel = 'SD' | 'SMP' | 'SMA' | string;
 
 export type EducationPricing = {
   level: EducationLevel;

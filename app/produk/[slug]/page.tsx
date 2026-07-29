@@ -1,13 +1,50 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { products, getProductBySlug } from '@/constants/products';
+import { products as staticProducts, getProductBySlug } from '@/constants/products';
 import { siteConfig } from '@/constants/site';
 import { ProductDetailClient } from '@/components/product/product-detail-client';
+import { createSupabaseClient } from '@/lib/supabase';
+import type { Product } from '@/types';
 
-export const dynamicParams = false;
+export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
 
-export function generateStaticParams() {
-  return products.map((p) => ({ slug: p.slug }));
+async function fetchProduct(slug: string): Promise<Product | undefined> {
+  try {
+    const sb = createSupabaseClient();
+    const { data, error } = await sb
+      .from('products')
+      .select('*')
+      .eq('slug', slug)
+      .eq('is_active', true)
+      .single();
+
+    if (error || !data) return getProductBySlug(slug);
+
+    return {
+      slug: data.slug,
+      name: data.name,
+      category: data.category,
+      categoryLabel: data.category_label,
+      shortDescription: data.short_description,
+      description: data.description,
+      images: data.images,
+      basePrice: data.base_price,
+      priceTiers: data.price_tiers,
+      colors: data.colors,
+      sizes: data.sizes,
+      educationPricing: data.education_pricing,
+      features: data.features,
+      specifications: data.specifications,
+      badge: data.badge || undefined,
+      shopeeUrl: data.shopee_url || undefined,
+      rating: data.rating,
+      reviewCount: data.review_count,
+      priceRange: undefined,
+    };
+  } catch {
+    return getProductBySlug(slug);
+  }
 }
 
 export async function generateMetadata({
@@ -15,7 +52,7 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const product = getProductBySlug(params.slug);
+  const product = await fetchProduct(params.slug);
   if (!product) return {};
 
   const title = `${product.name} — ${product.categoryLabel}`;
@@ -40,8 +77,8 @@ export async function generateMetadata({
   };
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = getProductBySlug(params.slug);
+export default async function ProductPage({ params }: { params: { slug: string } }) {
+  const product = await fetchProduct(params.slug);
   if (!product) notFound();
 
   const jsonLd = {

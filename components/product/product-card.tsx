@@ -81,23 +81,29 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
 
           {/* Price + CTA */}
           <div className="mt-auto flex items-end justify-between pt-5">
-            <div>
-              <span className="block text-xs text-slate-400">Mulai dari</span>
-              <span className="font-display text-xl font-extrabold text-navy">
-                {(() => {
-                  // If priceRange is defined, display it
-                  if (product.priceRange) {
-                    return `${formatRupiah(product.priceRange.min)} - ${formatRupiah(product.priceRange.max)}`;
-                  }
-                  // Display first tier price (base price for minimum quantity)
-                  const firstTier = product.priceTiers[0];
-                  const basePrice = product.educationPricing 
-                    ? product.educationPricing[0].basePrice 
-                    : product.basePrice;
-                  const displayPrice = firstTier.price ?? basePrice - (firstTier.discount ?? 0);
-                  return formatRupiah(displayPrice);
-                })()}
-              </span>
+            <div className="flex-1">
+              {product.educationPricing && product.educationPricing.length > 0 ? (
+                <div>
+                  {product.educationPricing.map((ep) => (
+                    <div key={ep.level} className="flex justify-between items-center">
+                      <span className="text-xs text-slate-500">{ep.label}</span>
+                      <span className="text-sm font-bold text-navy">{formatRupiah(ep.basePrice)}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div>
+                  <span className="block text-xs text-slate-400">Mulai dari</span>
+                  <span className="font-display text-xl font-extrabold text-navy">
+                    {(() => {
+                      const firstTier = product.priceTiers[0];
+                      const basePrice = product.basePrice;
+                      const displayPrice = firstTier?.price ?? basePrice - (firstTier?.discount ?? 0);
+                      return formatRupiah(displayPrice);
+                    })()}
+                  </span>
+                </div>
+              )}
             </div>
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-white transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-navy">
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

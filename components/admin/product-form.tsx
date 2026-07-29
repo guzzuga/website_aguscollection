@@ -519,6 +519,65 @@ export function ProductForm({ mode, initialData }: ProductFormProps) {
           </div>
         </section>
 
+        {/* Education Pricing — for seragam sekolah */}
+        <section className="bg-slate-900/50 rounded-xl border border-slate-800 p-6">
+          <h3 className="text-sm font-semibold text-gold uppercase tracking-wider mb-4">Harga Per Level Pendidikan</h3>
+          <p className="text-xs text-slate-500 mb-4">Untuk produk seragam sekolah — harga berbeda tiap level SD/SMP/SMA</p>
+          <div className="space-y-3">
+            {['SD', 'SMP', 'SMA'].map((level) => {
+              const existing = product.educationPricing?.find(ep => ep.level === level);
+              const label = existing?.label || level;
+              const price = existing?.basePrice || 0;
+              return (
+                <div key={level} className="grid grid-cols-2 md:grid-cols-4 gap-3 items-center bg-slate-800/50 p-3 rounded-lg">
+                  <div className="bg-navy px-3 py-2 rounded text-sm font-semibold text-gold text-center">
+                    {level}
+                  </div>
+                  <input
+                    type="text"
+                    value={label}
+                    onChange={(e) => {
+                      const ep = (product.educationPricing || []).map(ep =>
+                        ep.level === level ? { ...ep, label: e.target.value } : ep
+                      );
+                      const found = ep.find(x => x.level === level);
+                      if (!found) ep.push({ level, label: e.target.value, basePrice: price });
+                      setProduct({ ...product, educationPricing: ep });
+                    }}
+                    className={inputClass}
+                    placeholder="Label (misal: Seragam SD)"
+                  />
+                  <input
+                    type="number"
+                    value={price}
+                    onChange={(e) => {
+                      const ep = (product.educationPricing || []).map(ep =>
+                        ep.level === level ? { ...ep, basePrice: Number(e.target.value) } : ep
+                      );
+                      const found = ep.find(x => x.level === level);
+                      if (!found) ep.push({ level, label, basePrice: Number(e.target.value) });
+                      setProduct({ ...product, educationPricing: ep });
+                    }}
+                    className={inputClass}
+                    placeholder="Harga (misal: 105000)"
+                  />
+                  <button
+                    onClick={() => {
+                      setProduct({
+                        ...product,
+                        educationPricing: product.educationPricing?.filter(ep => ep.level !== level) || [],
+                      });
+                    }}
+                    className="text-xs text-red-400 hover:text-red-300 px-2"
+                  >
+                    {product.educationPricing?.find(ep => ep.level === level) ? 'Hapus' : 'Kosong'}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
         {/* Additional */}
         <section className="bg-slate-900/50 rounded-xl border border-slate-800 p-6">
           <h3 className="text-sm font-semibold text-gold uppercase tracking-wider mb-4">Pengaturan Tambahan</h3>

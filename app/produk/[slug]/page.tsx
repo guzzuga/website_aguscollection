@@ -88,6 +88,10 @@ export default async function ProductPage({ params }: { params: { slug: string }
   const product = await fetchProduct(params.slug);
   if (!product) notFound();
 
+  const ep = product.educationPricing && product.educationPricing.length > 0
+    ? product.educationPricing
+    : null;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -103,11 +107,21 @@ export default async function ProductPage({ params }: { params: { slug: string }
       reviewCount: product.reviewCount,
     },
     offers: {
-      '@type': 'AggregateOffer',
-      lowPrice: product.priceTiers[product.priceTiers.length - 1].price,
-      highPrice: product.priceTiers[0].price,
+      '@type': 'Offer',
       priceCurrency: 'IDR',
       availability: 'https://schema.org/InStock',
+      ...(ep
+        ? {
+            priceSpecification: ep.map(e => ({
+              '@type': 'PriceSpecification',
+              price: e.basePrice,
+              name: e.label,
+            })),
+          }
+        : {
+            lowPrice: product.priceTiers[product.priceTiers.length - 1]?.price,
+            highPrice: product.priceTiers[0]?.price,
+          }),
     },
   };
 

@@ -3,6 +3,13 @@ import { createSupabaseAdmin } from '@/lib/supabase';
 import { ProductForm } from '@/components/admin/product-form';
 import type { Product } from '@/types';
 
+function parseJSONField<T>(val: T): T {
+  if (typeof val === 'string') {
+    try { return JSON.parse(val) as T; } catch { return val; }
+  }
+  return val;
+}
+
 export default async function EditProductPage({ params }: { params: { slug: string } }) {
   const sb = createSupabaseAdmin();
   const { data, error } = await sb
@@ -20,14 +27,14 @@ export default async function EditProductPage({ params }: { params: { slug: stri
     categoryLabel: data.category_label,
     shortDescription: data.short_description,
     description: data.description,
-    images: data.images,
+    images: parseJSONField(data.images) || [],
     basePrice: data.base_price,
-    priceTiers: data.price_tiers,
-    colors: data.colors,
-    sizes: data.sizes,
-    educationPricing: data.education_pricing,
-    features: data.features,
-    specifications: data.specifications,
+    priceTiers: parseJSONField(data.price_tiers) || [],
+    colors: parseJSONField(data.colors) || [],
+    sizes: parseJSONField(data.sizes) || [],
+    educationPricing: parseJSONField(data.education_pricing),
+    features: parseJSONField(data.features) || [],
+    specifications: parseJSONField(data.specifications) || [],
     badge: data.badge || undefined,
     shopeeUrl: data.shopee_url || undefined,
     rating: data.rating,

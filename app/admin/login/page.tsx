@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { createBrowserClient } from '@/lib/supabase';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -17,24 +16,28 @@ export default function AdminLoginPage() {
     setError('');
     setLoading(true);
 
-    const sb = createBrowserClient();
-    const { error: authError } = await sb.auth.signInWithPassword({ email, password });
+    try {
+      const res = await fetch('/api/admin/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
 
-    if (authError) {
-      setError('Email atau password salah');
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || 'Email atau password salah');
+        setLoading(false);
+        return;
+      }
+
+      const redirect = searchParams.get('redirect') || '/admin';
+      router.push(redirect);
+      router.refresh();
+    } catch {
+      setError('Terjadi kesalahan. Coba lagi.');
       setLoading(false);
-      return;
     }
-
-    // Store token in cookie for middleware to read
-    const { data } = await sb.auth.getSession();
-    if (data.session) {
-      document.cookie = `sb-access-token=${data.session.access_token}; path=/; max-age=3600; SameSite=Lax`;
-    }
-
-    const redirect = searchParams.get('redirect') || '/admin';
-    router.push(redirect);
-    router.refresh();
   }
 
   return (

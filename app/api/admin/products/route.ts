@@ -14,7 +14,6 @@ export async function GET() {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  // Map DB rows back to Product type (snake_case → camelCase)
   const products: Product[] = (data || []).map(rowToProduct);
   return NextResponse.json({ products });
 }
@@ -40,6 +39,13 @@ export async function POST(request: NextRequest) {
 }
 
 // Helper: DB row → Product type
+function parseJSON<T>(val: T): T {
+  if (typeof val === 'string') {
+    try { return JSON.parse(val) as T; } catch { return val; }
+  }
+  return val;
+}
+
 function rowToProduct(row: Record<string, unknown>): Product {
   return {
     slug: row.slug as string,
@@ -48,14 +54,14 @@ function rowToProduct(row: Record<string, unknown>): Product {
     categoryLabel: row.category_label as string,
     shortDescription: row.short_description as string,
     description: row.description as string,
-    images: row.images as string[],
+    images: parseJSON(row.images) || [],
     basePrice: row.base_price as number,
-    priceTiers: row.price_tiers as Product['priceTiers'],
-    colors: row.colors as Product['colors'],
-    sizes: row.sizes as Product['sizes'],
-    educationPricing: row.education_pricing as Product['educationPricing'],
-    features: row.features as string[],
-    specifications: row.specifications as Product['specifications'],
+    priceTiers: parseJSON(row.price_tiers) || [],
+    colors: parseJSON(row.colors) || [],
+    sizes: parseJSON(row.sizes) || [],
+    educationPricing: parseJSON(row.education_pricing),
+    features: parseJSON(row.features) || [],
+    specifications: parseJSON(row.specifications) || [],
     badge: (row.badge as string) || undefined,
     shopeeUrl: (row.shopee_url as string) || undefined,
     rating: row.rating as number,
@@ -64,7 +70,7 @@ function rowToProduct(row: Record<string, unknown>): Product {
   };
 }
 
-// Helper: Product → DB row (snake_case, JSONB fields stringified)
+// Helper: Product → DB row (snake_case, JSONB fields sent as arrays)
 function productToRow(p: Partial<Product>) {
   const row: Record<string, unknown> = {};
 
@@ -74,16 +80,16 @@ function productToRow(p: Partial<Product>) {
   if (p.categoryLabel !== undefined) row.category_label = p.categoryLabel;
   if (p.shortDescription !== undefined) row.short_description = p.shortDescription;
   if (p.description !== undefined) row.description = p.description;
-  if (p.images !== undefined) row.images = JSON.stringify(p.images);
+  if (p.images !== undefined) row.images = p.images;       // JSONB — array directly
   if (p.basePrice !== undefined) row.base_price = p.basePrice;
-  if (p.priceTiers !== undefined) row.price_tiers = JSON.stringify(p.priceTiers);
-  if (p.colors !== undefined) row.colors = JSON.stringify(p.colors);
-  if (p.sizes !== undefined) row.sizes = JSON.stringify(p.sizes);
+  if (p.priceTiers !== undefined) row.price_tiers = p.priceTiers;
+  if (p.colors !== undefined) row.colors = p.colors;
+  if (p.sizes !== undefined) row.sizes = p.sizes;
   if (p.educationPricing !== undefined) {
-    row.education_pricing = p.educationPricing ? JSON.stringify(p.educationPricing) : null;
+    row.education_pricing = p.educationPricing || null;
   }
-  if (p.features !== undefined) row.features = JSON.stringify(p.features);
-  if (p.specifications !== undefined) row.specifications = JSON.stringify(p.specifications);
+  if (p.features !== undefined) row.features = p.features;
+  if (p.specifications !== undefined) row.specifications = p.specifications;
   if (p.badge !== undefined) row.badge = p.badge || null;
   if (p.shopeeUrl !== undefined) row.shopee_url = p.shopeeUrl || null;
   if (p.rating !== undefined) row.rating = p.rating;

@@ -9,6 +9,13 @@ import type { Product } from '@/types';
 export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
 
+function parseJSONField<T>(val: T): T {
+  if (typeof val === 'string') {
+    try { return JSON.parse(val) as T; } catch { return val; }
+  }
+  return val;
+}
+
 async function fetchProduct(slug: string): Promise<Product | undefined> {
   try {
     const sb = createSupabaseClient();
@@ -28,14 +35,14 @@ async function fetchProduct(slug: string): Promise<Product | undefined> {
       categoryLabel: data.category_label,
       shortDescription: data.short_description,
       description: data.description,
-      images: data.images,
+      images: parseJSONField(data.images) || [],
       basePrice: data.base_price,
-      priceTiers: data.price_tiers,
-      colors: data.colors,
-      sizes: data.sizes,
-      educationPricing: data.education_pricing,
-      features: data.features,
-      specifications: data.specifications,
+      priceTiers: parseJSONField(data.price_tiers) || [],
+      colors: parseJSONField(data.colors) || [],
+      sizes: parseJSONField(data.sizes) || [],
+      educationPricing: parseJSONField(data.education_pricing),
+      features: parseJSONField(data.features) || [],
+      specifications: parseJSONField(data.specifications) || [],
       badge: data.badge || undefined,
       shopeeUrl: data.shopee_url || undefined,
       rating: data.rating,

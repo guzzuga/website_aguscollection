@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import type { Product, ProductCategory, PriceTier, ProductColor } from '@/types';
 
@@ -45,7 +45,22 @@ interface ProductFormProps {
 
 export function ProductForm({ mode, initialData }: ProductFormProps) {
   const router = useRouter();
-  const [product, setProduct] = useState<Product>(initialData || EMPTY_PRODUCT);
+  const initialized = useRef(false);
+  const [product, setProduct] = useState<Product>(() => {
+    if (initialData) {
+      // Ensure all arrays exist on initialData
+      return {
+        ...initialData,
+        features: initialData.features || [],
+        specifications: initialData.specifications || [],
+        colors: initialData.colors || [],
+        sizes: initialData.sizes || [],
+        images: initialData.images || [],
+        priceTiers: initialData.priceTiers || EMPTY_PRODUCT.priceTiers,
+      };
+    }
+    return EMPTY_PRODUCT;
+  });
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [newFeature, setNewFeature] = useState('');
@@ -55,24 +70,19 @@ export function ProductForm({ mode, initialData }: ProductFormProps) {
   const [newColorHex, setNewColorHex] = useState('#1e3a5f');
   const [newSize, setNewSize] = useState('');
 
-  // Auto-generate slug from name
+  // Auto-generate slug from name (create mode only)
   useEffect(() => {
-    if (mode === 'create' && product.name) {
-      const slug = product.name
-        .toLowerCase()
-        .replace(/[^a-z0-9\s-]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
-        .trim();
-      setProduct(prev => ({ ...prev, slug }));
-    }
+    if (mode !== 'create' || !product.name) return;
+    if (initialized.current) return;
+    initialized.current = true;
+    const slug = product.name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
+    setProduct(prev => ({ ...prev, slug }));
   }, [product.name, mode]);
-
-  // Auto-set category label
-  useEffect(() => {
-    const cat = CATEGORY_OPTIONS.find(c => c.value === product.category);
-    if (cat) setProduct(prev => ({ ...prev, categoryLabel: cat.label }));
-  }, [product.category]);
 
   // Image upload
   const uploadImage = useCallback(async (file: File, index: number) => {
@@ -271,7 +281,11 @@ export function ProductForm({ mode, initialData }: ProductFormProps) {
               <label className={labelClass}>Kategori *</label>
               <select
                 value={product.category}
-                onChange={(e) => setProduct({ ...product, category: e.target.value as ProductCategory })}
+                onChange={(e) => {
+                  const val = e.target.value as ProductCategory;
+                  const cat = CATEGORY_OPTIONS.find(c => c.value === val);
+                  setProduct({ ...product, category: val, categoryLabel: cat?.label || '' });
+                }}
                 className={inputClass}
               >
                 {CATEGORY_OPTIONS.map(c => (

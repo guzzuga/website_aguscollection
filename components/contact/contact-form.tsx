@@ -97,17 +97,17 @@ export function ContactForm() {
               transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.1 }}
               className="flex h-20 w-20 items-center justify-center rounded-full bg-gold-gradient shadow-gold-glow-lg"
             >
-              <Check className="h-10 w-10 text-navy" strokeWidth={3} />
+              <Check className="h-10 w-10 text-navy dark:text-white" strokeWidth={3} />
             </motion.div>
-            <h3 className="mt-6 font-display text-2xl font-bold text-navy">Pesan Terkirim!</h3>
-            <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-600">
+            <h3 className="mt-6 font-display text-2xl font-bold text-navy dark:text-white">Pesan Terkirim!</h3>
+            <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
               Terima kasih telah menghubungi kami. Tim kami akan menghubungi Anda
               via WhatsApp dalam 1×24 jam.
             </p>
             <Button
               onClick={() => setStatus('idle')}
               variant="outline"
-              className="mt-6 rounded-full border-navy/20 text-navy hover:border-gold/40 hover:bg-gold/5"
+              className="mt-6 rounded-full border-navy/20 text-navy dark:text-white hover:border-gold/40 hover:bg-gold/5"
             >
               Kirim Pesan Lain
             </Button>
@@ -123,7 +123,7 @@ export function ContactForm() {
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="nama" className="text-sm font-semibold text-navy">
+                <Label htmlFor="nama" className="text-sm font-semibold text-navy dark:text-white">
                   Nama Lengkap <span className="text-error">*</span>
                 </Label>
                 <Input
@@ -136,7 +136,7 @@ export function ContactForm() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="whatsapp" className="text-sm font-semibold text-navy">
+                <Label htmlFor="whatsapp" className="text-sm font-semibold text-navy dark:text-white">
                   WhatsApp <span className="text-error">*</span>
                 </Label>
                 <Input
@@ -152,7 +152,7 @@ export function ContactForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-semibold text-navy">
+              <Label htmlFor="email" className="text-sm font-semibold text-navy dark:text-white">
                 Email
               </Label>
               <Input
@@ -167,7 +167,7 @@ export function ContactForm() {
 
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-2">
-                <Label htmlFor="produk" className="text-sm font-semibold text-navy">
+                <Label htmlFor="produk" className="text-sm font-semibold text-navy dark:text-white">
                   Produk <span className="text-error">*</span>
                 </Label>
                 <Select
@@ -188,7 +188,7 @@ export function ContactForm() {
                 </Select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="jumlah" className="text-sm font-semibold text-navy">
+                <Label htmlFor="jumlah" className="text-sm font-semibold text-navy dark:text-white">
                   Jumlah (pcs) <span className="text-error">*</span>
                 </Label>
                 <Input
@@ -205,7 +205,7 @@ export function ContactForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="pesan" className="text-sm font-semibold text-navy">
+              <Label htmlFor="pesan" className="text-sm font-semibold text-navy dark:text-white">
                 Pesan
               </Label>
               <Textarea
@@ -235,7 +235,7 @@ export function ContactForm() {
             <Button
               type="submit"
               disabled={status === 'loading'}
-              className="w-full rounded-full bg-gold-gradient py-6 text-base text-navy shadow-gold-glow hover:shadow-gold-glow-lg disabled:opacity-70"
+              className="w-full rounded-full bg-gold-gradient py-6 text-base text-navy dark:text-white shadow-gold-glow hover:shadow-gold-glow-lg disabled:opacity-70"
             >
               {status === 'loading' ? (
                 <>

@@ -43,13 +43,13 @@ export function ProcessTimeline() {
                 >
                   {/* Node */}
                   <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-slate-200 bg-white shadow-soft transition-all duration-300 hover:border-gold hover:shadow-gold-glow">
-                    <Icon className="h-6 w-6 text-navy" />
-                    <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-gold-gradient text-[10px] font-bold text-navy shadow-gold-glow">
+                    <Icon className="h-6 w-6 text-navy dark:text-white" />
+                    <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-gold-gradient text-[10px] font-bold text-navy dark:text-white shadow-gold-glow">
                       {step.no}
                     </span>
                   </div>
 
-                  <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-navy">
+                  <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-navy dark:text-white">
                     {step.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-500">

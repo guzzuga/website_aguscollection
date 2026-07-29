@@ -69,11 +69,11 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
       <div className="container-page py-10 lg:py-16">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-1.5 text-sm text-slate-500">
-          <a href="/" className="transition-colors hover:text-navy">Home</a>
+          <a href="/" className="transition-colors hover:text-navy dark:hover:text-gold">Home</a>
           <ChevronRight className="h-3.5 w-3.5" />
-          <a href="/#produk" className="transition-colors hover:text-navy">Produk</a>
+          <a href="/#produk" className="transition-colors hover:text-navy dark:hover:text-gold">Produk</a>
           <ChevronRight className="h-3.5 w-3.5" />
-          <span className="text-navy">{product.name}</span>
+          <span className="text-navy dark:text-gold">{product.name}</span>
         </nav>
 
         <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-14">
@@ -93,7 +93,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
               )}
             </div>
 
-            <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-navy sm:text-4xl">
+            <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-navy dark:text-white sm:text-4xl">
               {product.name}
             </h1>
 
@@ -122,11 +122,11 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             </p>
 
             {/* Price */}
-            <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50/50 p-5">
+            <div className="mt-6 rounded-2xl border border-slate-200 dark:border-slate-600 bg-slate-50/50 dark:bg-slate-900/50 p-5">
               <div className="flex items-end justify-between">
                 <div>
                   <span className="text-xs text-slate-500">Harga per pcs (qty {qty})</span>
-                  <p className="font-display text-3xl font-extrabold text-navy">
+                  <p className="font-display text-3xl font-extrabold text-navy dark:text-gold">
                     {formatRupiah(finalPrice)}
                   </p>
                   {educationLevel && (activeTier?.discount ?? 0) > 0 && (
@@ -146,7 +146,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
             {/* Color */}
             <div className="mt-6">
-              <p className="label-eyebrow text-slate-500">Warna: <span className="text-navy normal-case tracking-normal">{color}</span></p>
+              <p className="label-eyebrow text-slate-500">Warna: <span className="text-navy dark:text-gold normal-case tracking-normal">{color}</span></p>
               <div className="mt-3 flex flex-wrap gap-3">
                 {product.colors.map((c) => (
                   <button
@@ -156,8 +156,8 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     className={cn(
                       'flex items-center gap-2 rounded-full border-2 px-3 py-1.5 text-sm font-medium transition-all',
                       color === c.name
-                        ? 'border-gold bg-gold/5 text-navy'
-                        : 'border-slate-200 text-slate-600 hover:border-slate-300',
+                        ? 'border-gold bg-gold/5 dark:bg-gold/10 text-navy'
+                        : 'border-slate-200 dark:border-slate-600 text-slate-600 dark:hover:border-slate-400 hover:border-slate-300',
                     )}
                   >
                     <span
@@ -223,12 +223,12 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                             : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50',
                         )}
                       >
-                        <span className="text-sm font-semibold text-navy">{tier.label}</span>
+                        <span className="text-sm font-semibold text-navy dark:text-gold">{tier.label}</span>
                         <span className="text-xs text-slate-500">
                           {tier.minQty}–{tier.maxQty ?? '+'} pcs
                         </span>
                         <div className="mt-1 flex items-center gap-2">
-                          <span className="text-lg font-extrabold text-navy">{formatRupiah(tierPrice)}</span>
+                          <span className="text-lg font-extrabold text-navy dark:text-gold">{formatRupiah(tierPrice)}</span>
                           {discount > 0 && (
                             <span className="inline-block rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">
                               Hemat {formatRupiah(discount)}/pcs
@@ -247,7 +247,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
             {/* Size */}
             <div className="mt-6">
-              <p className="label-eyebrow text-slate-500">Ukuran: <span className="text-navy normal-case tracking-normal">{size}</span></p>
+              <p className="label-eyebrow text-slate-500">Ukuran: <span className="text-navy dark:text-gold normal-case tracking-normal">{size}</span></p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {product.sizes.map((s) => (
                   <button
@@ -273,7 +273,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 <div className="flex items-center rounded-xl border border-slate-200">
                   <button
                     onClick={() => setQty((q) => Math.max(1, q - 1))}
-                    className="flex h-11 w-11 items-center justify-center text-slate-600 transition-colors hover:text-navy"
+                    className="flex h-11 w-11 items-center justify-center text-slate-600 dark:text-slate-300 transition-colors hover:text-navy dark:hover:text-gold"
                     aria-label="Kurangi"
                   >
                     <Minus className="h-4 w-4" />
@@ -283,18 +283,18 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     value={qty}
                     min={1}
                     onChange={(e) => setQty(Math.max(1, Number(e.target.value) || 1))}
-                    className="h-11 w-16 border-x border-slate-200 text-center text-sm font-semibold text-navy outline-none"
+                    className="h-11 w-16 border-x border-slate-200 dark:border-slate-600 text-center text-sm font-semibold text-navy dark:text-gold outline-none"
                   />
                   <button
                     onClick={() => setQty((q) => q + 1)}
-                    className="flex h-11 w-11 items-center justify-center text-slate-600 transition-colors hover:text-navy"
+                    className="flex h-11 w-11 items-center justify-center text-slate-600 dark:text-slate-300 transition-colors hover:text-navy dark:hover:text-gold"
                     aria-label="Tambah"
                   >
                     <Plus className="h-4 w-4" />
                   </button>
                 </div>
                 <span className="text-sm text-slate-500">
-                  Total: <span className="font-bold text-navy">{formatRupiah(total)}</span>
+                  Total: <span className="font-bold text-navy dark:text-gold">{formatRupiah(total)}</span>
                 </span>
               </div>
             </div>
@@ -311,7 +311,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="flex-1 rounded-full border-navy/20 text-navy hover:border-gold/40 hover:bg-gold/5 hover:text-gold-700"
+                  className="flex-1 rounded-full border-navy/20 dark:border-gold/40 text-navy dark:text-gold hover:border-gold/40 hover:bg-gold/5 dark:hover:bg-gold/10 hover:text-gold-700 dark:hover:text-gold"
                 >
                   <a href={product.shopeeUrl} target="_blank" rel="noopener noreferrer">
                     <ShoppingBag className="mr-2 h-5 w-5" />
@@ -329,7 +329,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                 { icon: Truck, label: 'Kirim Nasional' },
               ].map((b) => (
                 <div key={b.label} className="flex flex-col items-center gap-2 text-center">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy text-gold-300">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy dark:bg-gold/20 text-gold-300 dark:text-navy">
                     <b.icon className="h-5 w-5" />
                   </span>
                   <span className="text-xs font-medium text-slate-600">{b.label}</span>
@@ -342,7 +342,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
         {/* Features + Specs */}
         <div className="mt-16 grid gap-8 lg:grid-cols-2 lg:gap-12">
           <div>
-            <h2 className="font-display text-2xl font-bold tracking-tight text-navy">Keunggulan Produk</h2>
+            <h2 className="font-display text-2xl font-bold tracking-tight text-navy dark:text-white">Keunggulan Produk</h2>
             <ul className="mt-5 space-y-3">
               {product.features.map((f, i) => (
                 <motion.li
@@ -363,7 +363,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold tracking-tight text-navy">Spesifikasi</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-navy dark:text-white">Spesifikasi</h2>
             <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200">
               <table className="w-full text-sm">
                 <tbody>
@@ -375,7 +375,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                       <td className="border-b border-slate-100 px-5 py-3.5 font-medium text-slate-500">
                         {spec.label}
                       </td>
-                      <td className="border-b border-slate-100 px-5 py-3.5 font-semibold text-navy">
+                      <td className="border-b border-slate-100 dark:border-slate-700 px-5 py-3.5 font-semibold text-navy dark:text-gold">
                         {spec.value}
                       </td>
                     </tr>

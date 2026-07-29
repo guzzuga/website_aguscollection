@@ -124,7 +124,7 @@ export function AboutClient() {
                             title="Dari Mojokerto untuk Seluruh Indonesia"
                             align="center"
                           />
-              <div className="mt-6 space-y-4 text-base leading-[1.7] text-slate-600">
+              <div className="mt-6 space-y-4 text-base leading-[1.7] text-slate-600 dark:text-slate-400">
                 <p>
                   Agus Collection berawal dari workshop kecil di Mojokerto, Jawa Timur
                   dengan tekad kuat untuk melayani kebutuhan seragam berkualitas. Berbekal
@@ -152,7 +152,7 @@ export function AboutClient() {
                 ].map((s) => (
                   <div key={s.label} className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-soft">
                     <s.icon className="mx-auto h-6 w-6 text-gold-600" />
-                    <p className="mt-2 font-display text-xl font-extrabold text-navy">{s.value}</p>
+                    <p className="mt-2 font-display text-xl font-extrabold text-navy dark:text-white">{s.value}</p>
                     <p className="text-xs text-slate-500">{s.label}</p>
                   </div>
                 ))}
@@ -186,10 +186,10 @@ export function AboutClient() {
                 whileHover={{ y: -6 }}
                 className="group rounded-2xl border border-slate-200 bg-white p-8 shadow-soft transition-all hover:border-gold/40 hover:shadow-soft-xl"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-gold-300 transition-all group-hover:bg-gold-gradient group-hover:text-navy">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-gold-300 transition-all group-hover:bg-gold-gradient group-hover:text-navy dark:text-white">
                   <v.icon className="h-7 w-7" />
                 </span>
-                <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-navy">{v.title}</h3>
+                <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-navy dark:text-white">{v.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">{v.description}</p>
               </motion.div>
             ))}
@@ -218,14 +218,14 @@ export function AboutClient() {
                   className={`relative flex items-start gap-6 sm:w-1/2 ${i % 2 === 0 ? 'sm:pr-12' : 'sm:ml-auto sm:pl-12'}`}
                 >
                   <span
-                    className="absolute left-0 top-1.5 flex h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-gold-gradient text-xs font-bold text-navy shadow-gold-glow sm:left-auto sm:-right-4 sm:top-2"
+                    className="absolute left-0 top-1.5 flex h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-gold-gradient text-xs font-bold text-navy dark:text-white shadow-gold-glow sm:left-auto sm:-right-4 sm:top-2"
                     style={i % 2 === 0 ? {} : { right: 'auto', left: '-1rem' }}
                   >
                     {i + 1}
                   </span>
                   <div className="ml-12 rounded-2xl border border-slate-200 bg-white p-6 shadow-soft sm:ml-0">
                     <span className="label-eyebrow text-gold-600">{m.year}</span>
-                    <h3 className="mt-2 text-lg font-bold text-navy">{m.title}</h3>
+                    <h3 className="mt-2 text-lg font-bold text-navy dark:text-white">{m.title}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{m.description}</p>
                   </div>
                 </motion.div>
@@ -298,7 +298,7 @@ export function AboutClient() {
                   />
                 </div>
                 <div className="p-5 text-center">
-                  <h3 className="font-bold text-navy">{member.name}</h3>
+                  <h3 className="font-bold text-navy dark:text-white">{member.name}</h3>
                   <p className="mt-0.5 text-sm text-gold-700">{member.role}</p>
                 </div>
               </motion.div>

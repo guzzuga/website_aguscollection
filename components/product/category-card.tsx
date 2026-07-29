@@ -69,7 +69,7 @@ export function CategoryCard({ category, index = 0, className }: CategoryCardPro
         </div>
 
         {/* Description */}
-        <p className="p-5 text-sm leading-relaxed text-slate-500">
+        <p className="p-5 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
           {category.description}
         </p>
       </Link>

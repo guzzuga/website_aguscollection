@@ -5,6 +5,7 @@ import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { WhatsAppFloatingButton } from '@/components/layout/whatsapp-floating-button';
 import { LoadingProvider } from '@/components/loading-provider';
+import { ThemeProvider } from '@/components/theme/theme-provider';
 import { cn } from '@/lib/utils';
 
 const inter = Inter({
@@ -104,18 +105,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={cn(inter.variable, playfair.variable)} suppressHydrationWarning>
+    <html lang="id" className={cn(inter.variable, playfair.variable, 'transition-colors duration-500')} suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#0a0a2e" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
-      <body className="min-h-screen bg-background font-sans antialiased">
-        <LoadingProvider>
-          <Navbar />
-          <main className="relative">{children}</main>
-          <Footer />
-          <WhatsAppFloatingButton />
-        </LoadingProvider>
+      <body className="min-h-screen bg-background font-sans antialiased transition-colors duration-500">
+        <ThemeProvider>
+          <LoadingProvider>
+            <Navbar />
+            <main className="relative">{children}</main>
+            <Footer />
+            <WhatsAppFloatingButton />
+          </LoadingProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

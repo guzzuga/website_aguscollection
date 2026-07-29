@@ -55,7 +55,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
           <h3 className="mt-2 font-display text-lg font-bold tracking-tight text-navy transition-colors group-hover:text-gold-700">
             {product.name}
           </h3>
-          <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-500">
+          <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
             {product.shortDescription}
           </p>
 
@@ -74,7 +74,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
                 />
               ))}
             </div>
-            <span className="text-xs font-medium text-slate-500">
+            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
               {product.rating} ({product.reviewCount})
             </span>
           </div>
@@ -86,21 +86,21 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
                 <div>
                   {product.educationPricing.map((ep) => (
                     <div key={ep.level} className="flex justify-between items-center">
-                      <span className="text-xs text-slate-500">{ep.label}</span>
-                      <span className="text-sm font-bold text-navy">{formatRupiah(ep.basePrice)}</span>
+                      <span className="text-xs text-slate-500 dark:text-slate-400">{ep.label}</span>
+                      <span className="text-sm font-bold text-navy dark:text-white">{formatRupiah(ep.basePrice)}</span>
                     </div>
                   ))}
                 </div>
               ) : (
                 <div>
                   <span className="block text-xs text-slate-400">Mulai dari</span>
-                  <span className="font-display text-xl font-extrabold text-navy">
+                  <span className="font-display text-xl font-extrabold text-navy dark:text-white">
                     {formatRupiah(product.basePrice)}
                   </span>
                 </div>
               )}
             </div>
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-white transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-navy">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-white transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-navy dark:text-white">
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </span>
           </div>

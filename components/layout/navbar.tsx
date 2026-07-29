@@ -16,6 +16,7 @@ import {
   SheetClose,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/theme/theme-toggle';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -125,7 +126,8 @@ export function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <ThemeToggle />
           <WhatsAppButton 
             variant="hero" 
             message={`Halo ${siteConfig.name}, saya ingin konsultasi pemesanan.`}
@@ -138,7 +140,7 @@ export function Navbar() {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white/80 text-navy backdrop-blur transition-colors hover:bg-slate-50"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-600 bg-white/80 dark:bg-slate-800/80 text-navy dark:text-white backdrop-blur transition-colors hover:bg-slate-50 dark:hover:bg-slate-700"
                 aria-label="Buka menu"
               >
                 <Menu className="h-5 w-5" />
@@ -162,14 +164,17 @@ export function Navbar() {
                                       </span>
                     Agus <span className="text-gold-400">Collection</span>
                   </span>
-                  <SheetClose asChild>
-                    <button
-                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white/80 transition-colors hover:bg-white/10"
-                      aria-label="Tutup menu"
-                    >
-                      <X className="h-5 w-5" />
-                    </button>
-                  </SheetClose>
+                  <div className="flex items-center gap-2">
+                    <ThemeToggle />
+                    <SheetClose asChild>
+                      <button
+                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white/80 transition-colors hover:bg-white/10"
+                        aria-label="Tutup menu"
+                      >
+                        <X className="h-5 w-5" />
+                      </button>
+                    </SheetClose>
+                  </div>
                 </div>
 
                 <div className="flex flex-1 flex-col gap-1 px-4 py-6">

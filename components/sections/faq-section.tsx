@@ -27,7 +27,7 @@ export function FaqSection() {
                 value={`item-${i}`}
                 className="overflow-hidden rounded-2xl border border-slate-200 bg-white px-5 shadow-soft data-[state=open]:border-gold/40"
               >
-                <AccordionTrigger className="py-5 text-left text-base font-semibold text-navy hover:no-underline">
+                <AccordionTrigger className="py-5 text-left text-base font-semibold text-navy dark:text-white hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="pb-5 text-sm leading-[1.7] text-slate-600">

@@ -251,7 +251,7 @@ export function HeroSection() {
             >
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-gradient">
-                  <ShieldCheck className="h-5 w-5 text-navy" />
+                  <ShieldCheck className="h-5 w-5 text-navy dark:text-white" />
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-white">Gratis Konsultasi</p>
@@ -267,7 +267,7 @@ export function HeroSection() {
             >
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-gradient">
-                  <Sparkles className="h-5 w-5 text-navy" />
+                  <Sparkles className="h-5 w-5 text-navy dark:text-white" />
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-white">Tepat Waktu</p>

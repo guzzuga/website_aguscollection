@@ -202,6 +202,53 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
               </div>
             )}
 
+            {/* Tier Harga Grosir — Semakin banyak semakin hemat */}
+            {product.priceTiers && product.priceTiers.length > 0 && (
+              <div className="mt-6">
+                <p className="label-eyebrow text-slate-500">Semakin Banyak, Semakin Hemat:</p>
+                <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                  {product.priceTiers.map((tier, i) => {
+                    // Calculate discount price for current education level
+                    const currentBase = product.educationPricing && educationLevel
+                      ? (product.educationPricing.find(ep => ep.level === educationLevel)?.basePrice ?? product.basePrice)
+                      : product.basePrice;
+                    const discount = tier.discount ?? 0;
+                    const tierPrice = Math.max(0, currentBase - discount);
+                    const isActive = qty >= tier.minQty && (tier.maxQty === null || qty <= tier.maxQty);
+
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => setQty(tier.minQty)}
+                        className={cn(
+                          'flex flex-col items-start rounded-xl border-2 px-4 py-3 text-left transition-all',
+                          isActive
+                            ? 'border-gold bg-gold/5'
+                            : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50',
+                        )}
+                      >
+                        <span className="text-sm font-semibold text-navy">{tier.label}</span>
+                        <span className="text-xs text-slate-500">
+                          {tier.minQty}–{tier.maxQty ?? '+'} pcs
+                        </span>
+                        <div className="mt-1 flex items-center gap-2">
+                          <span className="text-lg font-extrabold text-navy">{formatRupiah(tierPrice)}</span>
+                          {discount > 0 && (
+                            <span className="inline-block rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">
+                              Hemat {formatRupiah(discount)}/pcs
+                            </span>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="mt-2 text-xs text-slate-500">
+                  Klik tier untuk langsung set jumlah pesanan
+                </p>
+              </div>
+            )}
+
             {/* Size */}
             <div className="mt-6">
               <p className="label-eyebrow text-slate-500">Ukuran: <span className="text-navy normal-case tracking-normal">{size}</span></p>

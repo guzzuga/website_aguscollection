@@ -36,7 +36,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     product.educationPricing ? product.educationPricing[0].level : null
   );
 
-  // Calculate active tier based on quantity
+  // Calculate active tier discount
   const activeTier = useMemo(() => {
     return (
       product.priceTiers.find(
@@ -45,7 +45,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     );
   }, [qty, product.priceTiers]);
 
-  // Calculate base price based on education level or fallback to basePrice
+  // Calculate final price based on education level minus tier discount
   const basePrice = useMemo(() => {
     if (product.educationPricing && educationLevel) {
       const eduPricing = product.educationPricing.find(ep => ep.level === educationLevel);
@@ -54,9 +54,9 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     return product.basePrice;
   }, [product.educationPricing, product.basePrice, educationLevel]);
 
-  // Calculate final price with discount
   const finalPrice = useMemo(() => {
-    return activeTier.price ?? (basePrice - (activeTier.discount ?? 0));
+    const discount = activeTier?.discount ?? 0;
+    return Math.max(0, basePrice - discount);
   }, [basePrice, activeTier]);
 
   const total = finalPrice * qty;
@@ -126,9 +126,9 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   <p className="font-display text-3xl font-extrabold text-navy">
                     {formatRupiah(finalPrice)}
                   </p>
-                  {educationLevel && (
-                    <span className="text-xs text-slate-500">
-                      Tingkat: {educationLevel} | Diskon: {formatRupiah(activeTier.discount || 0)}
+                  {educationLevel && (activeTier?.discount ?? 0) > 0 && (
+                    <span className="text-xs text-green-500">
+                      Tier {activeTier?.label} | Hemat {formatRupiah(activeTier.discount || 0)}/pcs
                     </span>
                   )}
                 </div>

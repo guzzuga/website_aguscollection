@@ -95,12 +95,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
                 <div>
                   <span className="block text-xs text-slate-400">Mulai dari</span>
                   <span className="font-display text-xl font-extrabold text-navy">
-                    {(() => {
-                      const firstTier = product.priceTiers[0];
-                      const basePrice = product.basePrice;
-                      const displayPrice = firstTier?.price ?? basePrice - (firstTier?.discount ?? 0);
-                      return formatRupiah(displayPrice);
-                    })()}
+                    {formatRupiah(product.basePrice)}
                   </span>
                 </div>
               )}

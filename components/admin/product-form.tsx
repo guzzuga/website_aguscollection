@@ -318,17 +318,8 @@ export function ProductForm({ mode, initialData }: ProductFormProps) {
 
         {/* Pricing */}
         <section className="bg-slate-900/50 rounded-xl border border-slate-800 p-6">
-          <h3 className="text-sm font-semibold text-gold uppercase tracking-wider mb-4">Harga</h3>
-          <div className="mb-4">
-            <label className={labelClass}>Harga Dasar (per pcs, Rp) *</label>
-            <input
-              type="number"
-              value={product.basePrice}
-              onChange={(e) => setProduct({ ...product, basePrice: Number(e.target.value) })}
-              className={inputClass}
-              placeholder="50000"
-            />
-          </div>
+          <h3 className="text-sm font-semibold text-gold uppercase tracking-wider mb-4">Harga & Diskon Grosir</h3>
+          <p className="text-xs text-slate-500 mb-4">Isi jumlah diskon per tier — otomatis dikurangkan dari harga per level (SD/SMP/SMA)</p>
 
           <div className="space-y-3">
             <div className="flex items-center justify-between">
@@ -358,13 +349,16 @@ export function ProductForm({ mode, initialData }: ProductFormProps) {
                   className={inputClass}
                   placeholder="Max Qty"
                 />
-                <input
-                  type="number"
-                  value={tier.price ?? 0}
-                  onChange={(e) => updateTier(i, 'price', e.target.value)}
-                  className={inputClass}
-                  placeholder="Harga"
-                />
+                <div className="relative">
+                  <input
+                    type="number"
+                    value={tier.discount ?? 0}
+                    onChange={(e) => updateTier(i, 'discount', e.target.value)}
+                    className={inputClass}
+                    placeholder="Diskon"
+                  />
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500">/pcs</span>
+                </div>
                 <button
                   onClick={() => removeTier(i)}
                   className="text-xs text-red-400 hover:text-red-300 px-2"
@@ -374,6 +368,33 @@ export function ProductForm({ mode, initialData }: ProductFormProps) {
               </div>
             ))}
           </div>
+
+          {/* Auto-calc preview */}
+          {product.educationPricing && product.educationPricing.length > 0 && product.priceTiers.length > 0 && (
+            <div className="mt-4 bg-slate-800/30 rounded-lg p-4">
+              <p className="text-xs text-slate-400 mb-2 font-semibold">CONTOH HARGA SETELAH DISKON:</p>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-2 text-xs">
+                <div className="text-slate-500">Tier:</div>
+                <div className="text-slate-500">Level:</div>
+                <div className="text-slate-500">Harga Awal:</div>
+                <div className="text-slate-500">Setelah Diskon:</div>
+                {product.priceTiers.filter(t => t.discount > 0).map((tier, i) => (
+                  <div key={i} className="grid grid-cols-4 gap-2 py-1 border-t border-slate-700">
+                    <span className="text-gold">{tier.label}</span>
+                    {product.educationPricing.map(ep => {
+                      const original = ep.basePrice;
+                      const discounted = Math.max(0, original - (tier.discount ?? 0));
+                      return (
+                        <span key={ep.level} className="text-slate-300">
+                          {original} → {discounted}
+                        </span>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Images */}

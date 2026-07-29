@@ -15,13 +15,13 @@ import { siteConfig, navLinks } from '@/constants/site';
 import { cn } from '@/lib/utils';
 
 const productLinks = [
-  { label: 'Seragam Sekolah', href: '/produk/seragam-sekolah-standar' },
-  { label: 'Seragam Perusahaan', href: '/produk/seragam-perusahaan-polo' },
-  { label: 'Kaos Custom', href: '/produk/kaos-custom-combed' },
-  { label: 'Almamater & Jaz', href: '/produk/jaket-varsity-premium' },
-  { label: 'Polo Shirt', href: '/#kategori' },
-  { label: 'Wearpack', href: '/#kategori' },
-  { label: 'Bahan Kain', href: '/#kategori' },
+  { label: 'Seragam Sekolah', href: '/produk?kategori=seragam-sekolah' },
+  { label: 'Seragam Perusahaan', href: '/produk?kategori=seragam-perusahaan' },
+  { label: 'Kaos Custom', href: '/produk?kategori=kaos-custom' },
+  { label: 'Almamater & Jaz', href: '/produk?kategori=almamater' },
+  { label: 'Polo Shirt', href: '/produk?kategori=polo-shirt' },
+  { label: 'Wearpack', href: '/produk?kategori=wearpack' },
+  { label: 'Bahan Kain', href: '/produk?kategori=bahan-kain' },
 ];
 
 export function Footer() {

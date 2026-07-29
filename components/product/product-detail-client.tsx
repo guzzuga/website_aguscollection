@@ -33,22 +33,26 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
   const [size, setSize] = useState<string>(product.sizes[0]);
   const [color, setColor] = useState(product.colors[0].name);
   const [educationLevel, setEducationLevel] = useState<EducationLevel | null>(
-    product.educationPricing ? product.educationPricing[0].level : null
+    product.educationPricing && Array.isArray(product.educationPricing) && product.educationPricing.length > 0
+      ? product.educationPricing[0].level
+      : null
   );
 
   // Calculate active tier discount
   const activeTier = useMemo(() => {
+    const tiers = Array.isArray(product.priceTiers) ? product.priceTiers : [];
     return (
-      product.priceTiers.find(
+      tiers.find(
         (t) => qty >= t.minQty && (t.maxQty === null || qty <= t.maxQty),
-      ) ?? product.priceTiers[0]
+      ) ?? tiers[0]
     );
   }, [qty, product.priceTiers]);
 
   // Calculate final price based on education level minus tier discount
   const basePrice = useMemo(() => {
-    if (product.educationPricing && educationLevel) {
-      const eduPricing = product.educationPricing.find(ep => ep.level === educationLevel);
+    const ep = Array.isArray(product.educationPricing) ? product.educationPricing : [];
+    if (ep.length > 0 && educationLevel) {
+      const eduPricing = ep.find(e => e.level === educationLevel);
       return eduPricing ? eduPricing.basePrice : product.basePrice;
     }
     return product.basePrice;
@@ -176,7 +180,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             </div>
 
             {/* Education Level */}
-            {product.educationPricing && (
+            {product.educationPricing && Array.isArray(product.educationPricing) && product.educationPricing.length > 0 && (
               <div className="mt-6">
                 <p className="label-eyebrow text-slate-500">Tingkat Sekolah:</p>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -203,14 +207,15 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             )}
 
             {/* Tier Harga Grosir — Semakin banyak semakin hemat */}
-            {product.priceTiers && product.priceTiers.length > 0 && (
+            {product.priceTiers && Array.isArray(product.priceTiers) && product.priceTiers.length > 0 && (
               <div className="mt-6">
                 <p className="label-eyebrow text-slate-500">Semakin Banyak, Semakin Hemat:</p>
                 <div className="mt-3 grid gap-2 sm:grid-cols-2">
                   {product.priceTiers.map((tier, i) => {
                     // Calculate discount price for current education level
-                    const currentBase = product.educationPricing && educationLevel
-                      ? (product.educationPricing.find(ep => ep.level === educationLevel)?.basePrice ?? product.basePrice)
+                    const ep = Array.isArray(product.educationPricing) ? product.educationPricing : [];
+                    const currentBase = ep.length > 0 && educationLevel
+                      ? (ep.find(e => e.level === educationLevel)?.basePrice ?? product.basePrice)
                       : product.basePrice;
                     const discount = tier.discount ?? 0;
                     const tierPrice = Math.max(0, currentBase - discount);

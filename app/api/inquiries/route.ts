@@ -140,15 +140,13 @@ export async function POST(req: NextRequest) {
           html: formatOrderEmail(body),
           replyTo: body.email || undefined,
         });
-        console.log(`✅ Order email sent to ${RECIPIENT}`);
-      } catch (emailErr: any) {
-        console.error('Resend email error:', emailErr);
+      } catch {
+        // Email send failure is non-critical; proceed without it
       }
     }
 
     return NextResponse.json({ success: true }, { status: 200 });
-  } catch (err) {
-    console.error('Inquiry API error:', err);
+  } catch {
     return NextResponse.json(
       { error: 'Terjadi kesalahan server. Silakan coba lagi.' },
       { status: 500 },

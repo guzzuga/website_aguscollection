@@ -82,7 +82,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
           {/* Price + CTA */}
           <div className="mt-auto flex items-end justify-between pt-5">
             <div className="flex-1">
-              {product.educationPricing && product.educationPricing.length > 0 ? (
+              {product.educationPricing && Array.isArray(product.educationPricing) && product.educationPricing.length > 0 ? (
                 <div>
                   {product.educationPricing.map((ep) => (
                     <div key={ep.level} className="flex justify-between items-center">

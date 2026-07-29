@@ -14,7 +14,8 @@ type PriceTierListProps = {
 };
 
 export function PriceTierList({ tiers, selectedQty, basePrice = 0, className }: PriceTierListProps) {
-  const activeTier = tiers.find(
+  const tierList = Array.isArray(tiers) ? tiers : [];
+  const activeTier = tierList.find(
     (t) => selectedQty >= t.minQty && (t.maxQty === null || selectedQty <= t.maxQty),
   );
 
@@ -22,7 +23,7 @@ export function PriceTierList({ tiers, selectedQty, basePrice = 0, className }: 
     <div className={cn('space-y-2', className)}>
       <p className="label-eyebrow text-slate-500">Tier Harga (semakin banyak, semakin hemat)</p>
       <div className="space-y-2">
-        {tiers.map((tier, i) => {
+        {tierList.map((tier, i) => {
           const isActive = activeTier === tier;
           const discount = tier.discount ?? 0;
           const displayPrice = tier.price ?? (basePrice - discount);

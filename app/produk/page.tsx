@@ -56,6 +56,17 @@ async function fetchProducts(): Promise<{ products: Product[]; categories: Categ
       priceRange: undefined,
     }));
 
+    // Ensure all array fields are actual arrays
+    products.forEach(p => {
+      if (!Array.isArray(p.priceTiers)) p.priceTiers = [];
+      if (!Array.isArray(p.educationPricing)) p.educationPricing = [];
+      if (!Array.isArray(p.features)) p.features = [];
+      if (!Array.isArray(p.specifications)) p.specifications = [];
+      if (!Array.isArray(p.colors)) p.colors = [];
+      if (!Array.isArray(p.sizes)) p.sizes = [];
+      if (!Array.isArray(p.images)) p.images = [];
+    });
+
     return { products, categories: staticCategories };
   } catch {
     return { products: staticProducts, categories: staticCategories };

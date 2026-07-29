@@ -63,11 +63,11 @@ export async function DELETE(
   return NextResponse.json({ success: true });
 }
 
-function parseJSON<T>(val: T): T {
+function safeArray<T>(val: unknown): T[] {
   if (typeof val === 'string') {
-    try { return JSON.parse(val) as T; } catch { return val; }
+    try { const parsed = JSON.parse(val); return Array.isArray(parsed) ? parsed : []; } catch { return []; }
   }
-  return val;
+  return Array.isArray(val) ? val : [];
 }
 
 function rowToProduct(row: Record<string, unknown>): Product {
@@ -78,14 +78,14 @@ function rowToProduct(row: Record<string, unknown>): Product {
     categoryLabel: row.category_label as string,
     shortDescription: row.short_description as string,
     description: row.description as string,
-    images: parseJSON(row.images) || [],
+    images: safeArray<string>(row.images) as string[],
     basePrice: row.base_price as number,
-    priceTiers: parseJSON(row.price_tiers) || [],
-    colors: parseJSON(row.colors) || [],
-    sizes: parseJSON(row.sizes) || [],
-    educationPricing: parseJSON(row.education_pricing),
-    features: parseJSON(row.features) || [],
-    specifications: parseJSON(row.specifications) || [],
+    priceTiers: safeArray(row.price_tiers) as Product['priceTiers'],
+    colors: safeArray(row.colors) as Product['colors'],
+    sizes: safeArray<string>(row.sizes) as string[],
+    educationPricing: safeArray(row.education_pricing) as Product['educationPricing'],
+    features: safeArray<string>(row.features) as string[],
+    specifications: safeArray(row.specifications) as Product['specifications'],
     badge: (row.badge as string) || undefined,
     shopeeUrl: (row.shopee_url as string) || undefined,
     rating: row.rating as number,

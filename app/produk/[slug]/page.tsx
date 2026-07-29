@@ -4,16 +4,30 @@ import { products as staticProducts, getProductBySlug } from '@/constants/produc
 import { siteConfig } from '@/constants/site';
 import { ProductDetailClient } from '@/components/product/product-detail-client';
 import { createSupabaseClient } from '@/lib/supabase';
-import type { Product } from '@/types';
+import type { Product, EducationPricing, PriceTier, ProductColor, ProductSize } from '@/types';
 
 export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
-
-function parseJSONField<T>(val: T): T {
+// Safe JSON parse that always returns an array (or undefined)
+function safeArrayField<T>(val: unknown): T[] | undefined {
+  if (val === null || val === undefined) return undefined;
   if (typeof val === 'string') {
-    try { return JSON.parse(val) as T; } catch { return val; }
+    try {
+      const parsed = JSON.parse(val);
+      return Array.isArray(parsed) ? parsed : undefined;
+    } catch {
+      return undefined;
+    }
   }
-  return val;
+  return Array.isArray(val) ? val : undefined;
+}
+
+function parseJSONField<T>(val: unknown): T | undefined {
+  if (val === null || val === undefined) return undefined;
+  if (typeof val === 'string') {
+    try { return JSON.parse(val) as T; } catch { return val as T; }
+  }
+  return val as T;
 }
 
 async function fetchProduct(slug: string): Promise<Product | undefined> {
@@ -28,27 +42,38 @@ async function fetchProduct(slug: string): Promise<Product | undefined> {
 
     if (error || !data) return getProductBySlug(slug);
 
-    return {
+    const product: Product = {
       slug: data.slug,
       name: data.name,
       category: data.category,
       categoryLabel: data.category_label,
       shortDescription: data.short_description,
       description: data.description,
-      images: parseJSONField(data.images) || [],
+      images: safeArrayField<string>(data.images) || [],
       basePrice: data.base_price,
-      priceTiers: parseJSONField(data.price_tiers) || [],
-      colors: parseJSONField(data.colors) || [],
-      sizes: parseJSONField(data.sizes) || [],
-      educationPricing: parseJSONField(data.education_pricing),
-      features: parseJSONField(data.features) || [],
-      specifications: parseJSONField(data.specifications) || [],
+      priceTiers: safeArrayField<PriceTier>(data.price_tiers) || [],
+      colors: safeArrayField<ProductColor>(data.colors) || [],
+      sizes: safeArrayField<ProductSize>(data.sizes) || [],
+      educationPricing: safeArrayField<EducationPricing>(data.education_pricing),
+      features: safeArrayField<string>(data.features) || [],
+      specifications: safeArrayField<{ label: string; value: string }>(data.specifications) || [],
       badge: data.badge || undefined,
       shopeeUrl: data.shopee_url || undefined,
       rating: data.rating,
       reviewCount: data.review_count,
       priceRange: undefined,
     };
+
+    // Ensure all array fields are actual arrays
+    if (!Array.isArray(product.priceTiers)) product.priceTiers = [];
+    if (!Array.isArray(product.educationPricing)) product.educationPricing = [];
+    if (!Array.isArray(product.features)) product.features = [];
+    if (!Array.isArray(product.specifications)) product.specifications = [];
+    if (!Array.isArray(product.colors)) product.colors = [];
+    if (!Array.isArray(product.sizes)) product.sizes = [];
+    if (!Array.isArray(product.images)) product.images = [];
+
+    return product;
   } catch {
     return getProductBySlug(slug);
   }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -11,8 +11,23 @@ type ProductGalleryProps = {
 };
 
 export function ProductGallery({ images, alt }: ProductGalleryProps) {
+  const safeImages = Array.isArray(images) ? images : [];
   const [active, setActive] = useState(0);
   const [zoom, setZoom] = useState(false);
+
+  // Reset active index if images change
+  useEffect(() => {
+    if (safeImages.length === 0) setActive(0);
+    else if (active >= safeImages.length) setActive(safeImages.length - 1);
+  }, [safeImages.length, active]);
+
+  if (safeImages.length === 0) {
+    return (
+      <div className="flex items-center justify-center aspect-square rounded-3xl border border-slate-200 bg-slate-100">
+        <span className="text-slate-400 text-sm">Tidak ada gambar</span>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-4">
@@ -32,7 +47,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
             className="h-full w-full"
           >
             <Image
-              src={images[active]}
+              src={safeImages[active]}
               alt={`${alt} - gambar ${active + 1}`}
               fill
               priority
@@ -48,7 +63,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
 
       {/* Thumbnails */}
       <div className="grid grid-cols-4 gap-3">
-        {images.map((img, i) => (
+        {safeImages.map((img, i) => (
           <button
             key={i}
             onClick={() => setActive(i)}

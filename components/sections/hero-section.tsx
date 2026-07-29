@@ -14,6 +14,25 @@ const heroHighlights = [
   { icon: Star, label: 'Pengiriman Seluruh Indonesia' },
 ];
 
+// Seeded positions to avoid hydration mismatch
+const PARTICLE_COUNT = 6;
+const particleSeeds = Array.from({ length: PARTICLE_COUNT }, (_, i) => {
+  // Use i as a seed for deterministic random-like values
+  const seed = (i * 7919 + 31) % 1000;
+  return {
+    x: Math.floor(seed * 1.92), // ~0 to 1920
+    y: Math.floor(seed * 0.8),
+    animY: seed % 100 + 50,
+    opacity: Math.round((seed % 50 + 30) * 10) / 100,
+    scale: Math.round((seed % 50 + 50) * 10) / 100,
+    rotate: seed % 360,
+    duration: Math.floor(seed % 10 + 15),
+    delay: seed % 5,
+    left: seed % 100,
+    top: Math.floor((seed * 3) % 100),
+  };
+});
+
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-navy pt-24 lg:pt-28">

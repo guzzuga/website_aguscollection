@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Search, SlidersHorizontal, X, ChevronRight } from 'lucide-react';
 import type { Category, Product } from '@/types';
 import { ProductCard } from '@/components/product/product-card';

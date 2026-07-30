@@ -52,7 +52,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
         {/* Content */}
         <div className="flex flex-1 flex-col p-5">
           <span className="label-eyebrow text-gold-600">{product.categoryLabel}</span>
-          <h3 className="mt-2 font-display text-lg font-bold tracking-tight text-navy transition-colors group-hover:text-gold-700">
+          <h3 className="mt-2 font-display text-lg font-bold tracking-tight text-slate-900 transition-colors group-hover:text-gold-700">
             {product.name}
           </h3>
           <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-500 dark:text-neutral-400">
@@ -87,20 +87,20 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
                   {product.educationPricing.map((ep) => (
                     <div key={ep.level} className="flex justify-between items-center">
                       <span className="text-xs text-slate-500 dark:text-neutral-400">{ep.label}</span>
-                      <span className="text-sm font-bold text-navy dark:text-white">{formatRupiah(ep.basePrice)}</span>
+                      <span className="text-sm font-bold text-slate-900 dark:text-white">{formatRupiah(ep.basePrice)}</span>
                     </div>
                   ))}
                 </div>
               ) : (
                 <div>
                   <span className="block text-xs text-slate-400">Mulai dari</span>
-                  <span className="font-display text-xl font-extrabold text-navy dark:text-white">
+                  <span className="font-display text-xl font-extrabold text-slate-900 dark:text-white">
                     {formatRupiah(product.basePrice)}
                   </span>
                 </div>
               )}
             </div>
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-white transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-navy dark:text-white">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-white transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-slate-900 dark:text-white">
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </span>
           </div>

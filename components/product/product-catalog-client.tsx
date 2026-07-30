@@ -155,19 +155,19 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
           <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm text-slate-500 dark:text-neutral-400">
               Menampilkan{' '}
-              <span className="font-semibold text-navy dark:text-white">{filtered.length}</span>{' '}
+              <span className="font-semibold text-slate-900 dark:text-white">{filtered.length}</span>{' '}
               produk
               {active !== ALL_SLUG && activeCategoryData && (
                 <> dalam <span className="font-semibold text-gold-700">{activeCategoryData.name}</span></>
               )}
               {query && (
-                <> untuk &ldquo;<span className="font-semibold text-navy dark:text-white">{query}</span>&rdquo;</>
+                <> untuk &ldquo;<span className="font-semibold text-slate-900 dark:text-white">{query}</span>&rdquo;</>
               )}
             </p>
             {(active !== ALL_SLUG || query) && (
               <button
                 onClick={() => { selectCategory(ALL_SLUG); setQuery(''); }}
-                className="flex items-center gap-1.5 text-sm text-slate-500 transition-colors hover:text-navy"
+                className="flex items-center gap-1.5 text-sm text-slate-500 transition-colors hover:text-slate-900"
               >
                 <X className="h-3.5 w-3.5" />
                 Hapus filter
@@ -187,7 +187,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
                 <span className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100 text-slate-400">
                   <SlidersHorizontal className="h-10 w-10" />
                 </span>
-                <h3 className="mt-6 text-xl font-bold text-navy dark:text-white">Produk Tidak Ditemukan</h3>
+                <h3 className="mt-6 text-xl font-bold text-slate-900 dark:text-white">Produk Tidak Ditemukan</h3>
                 <p className="mt-2 max-w-sm text-sm text-slate-500 dark:text-neutral-400">
                   Tidak ada produk yang cocok dengan pencarian Anda. Coba kata kunci lain atau hapus filter.
                 </p>
@@ -219,7 +219,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
       {active === ALL_SLUG && !query && (
         <section className="border-t border-slate-200 bg-slate-50/50 py-16 lg:py-20">
           <div className="container-page">
-            <h2 className="mb-10 font-display text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
+            <h2 className="mb-10 font-display text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
               Jelajahi per Kategori
             </h2>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-6">
@@ -236,10 +236,10 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
                     onClick={() => selectCategory(cat.slug)}
                     className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-soft transition-all hover:border-gold/40 hover:shadow-soft-lg"
                   >
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-gold-300 transition-all group-hover:bg-gold-gradient group-hover:text-navy dark:text-white">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-gold-300 transition-all group-hover:bg-gold-gradient group-hover:text-slate-900 dark:text-white">
                       <Icon className="h-6 w-6" />
                     </span>
-                    <h3 className="mt-4 text-sm font-bold leading-tight text-navy dark:text-white">{cat.name}</h3>
+                    <h3 className="mt-4 text-sm font-bold leading-tight text-slate-900 dark:text-white">{cat.name}</h3>
                     <p className="mt-1 text-xs text-slate-500 dark:text-neutral-400">{cat.productCount}+ produk</p>
                   </motion.button>
                 );
@@ -270,8 +270,8 @@ function CategoryTab({
       className={cn(
         'relative flex shrink-0 items-center gap-2 whitespace-nowrap border-b-2 px-4 py-4 text-sm font-semibold transition-all duration-200',
         isActive
-          ? 'border-gold-500 text-navy'
-          : 'border-transparent text-slate-500 hover:text-navy',
+          ? 'border-gold-500 text-slate-900'
+          : 'border-transparent text-slate-500 hover:text-slate-900',
       )}
     >
       <Icon className={cn('h-4 w-4 shrink-0', isActive ? 'text-gold-600' : 'text-slate-400')} />

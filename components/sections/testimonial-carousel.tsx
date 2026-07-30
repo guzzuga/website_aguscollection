@@ -73,7 +73,7 @@ export function TestimonialCarousel() {
                     <Image src={active.avatar} alt={active.name} fill sizes="48px" className="object-cover" />
                   </span>
                   <div>
-                    <p className="font-bold text-navy dark:text-white">{active.name}</p>
+                    <p className="font-bold text-slate-900 dark:text-white">{active.name}</p>
                     <p className="text-sm text-slate-500 dark:text-neutral-500">{active.role}</p>
                   </div>
                 </div>
@@ -86,7 +86,7 @@ export function TestimonialCarousel() {
             <button
               onClick={() => paginate(-1)}
               aria-label="Sebelumnya"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-navy dark:text-white transition-all hover:border-gold hover:bg-gold/5 dark:hover:bg-gold/10 hover:text-gold-700 dark:hover:text-gold"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-slate-900 dark:text-white transition-all hover:border-gold hover:bg-gold/5 dark:hover:bg-gold/10 hover:text-gold-700 dark:hover:text-gold"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -111,7 +111,7 @@ export function TestimonialCarousel() {
             <button
               onClick={() => paginate(1)}
               aria-label="Berikutnya"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-navy dark:text-white transition-all hover:border-gold hover:bg-gold/5 dark:hover:bg-gold/10 hover:text-gold-700 dark:hover:text-gold"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-slate-900 dark:text-white transition-all hover:border-gold hover:bg-gold/5 dark:hover:bg-gold/10 hover:text-gold-700 dark:hover:text-gold"
             >
               <ChevronRight className="h-5 w-5" />
             </button>

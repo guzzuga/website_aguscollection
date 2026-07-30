@@ -47,7 +47,7 @@ export function CategoryCard({ category, index = 0, className }: CategoryCardPro
 
           {/* Icon badge with enhanced glow */}
           <div className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/90 backdrop-blur transition-all duration-500 group-hover:bg-gold-gradient group-hover:shadow-lg group-hover:shadow-gold-400/30">
-            <Icon className="h-5 w-5 text-navy transition-all duration-300 group-hover:scale-110 group-hover:text-navy-900" />
+            <Icon className="h-5 w-5 text-slate-900 transition-all duration-300 group-hover:scale-110 group-hover:text-slate-900-900" />
           </div>
 
           {/* Content overlay */}
@@ -61,7 +61,7 @@ export function CategoryCard({ category, index = 0, className }: CategoryCardPro
                   {category.name}
                 </h3>
               </div>
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-all duration-500 group-hover:bg-gold-gradient group-hover:text-navy group-hover:rotate-45 group-hover:scale-110">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-all duration-500 group-hover:bg-gold-gradient group-hover:text-slate-900 group-hover:rotate-45 group-hover:scale-110">
                 <ArrowUpRight className="h-4 w-4" />
               </span>
             </div>

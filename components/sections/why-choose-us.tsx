@@ -36,10 +36,10 @@ export function WhyChooseUs() {
               >
                 <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/5 dark:bg-gold/5 transition-all duration-500 group-hover:scale-150 group-hover:bg-gold/10 dark:group-hover:bg-gold/10" />
                 <div className="relative">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy dark:bg-neutral-800 text-gold-300 transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-navy">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy dark:bg-neutral-800 text-gold-300 transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-slate-900">
                     <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
                   </span>
-                  <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-navy dark:text-white">
+                  <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-slate-900 dark:text-white">
                     {feature.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-neutral-400">

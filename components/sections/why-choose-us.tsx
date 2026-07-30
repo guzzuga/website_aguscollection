@@ -15,6 +15,7 @@ export function WhyChooseUs() {
           eyebrow="Keunggulan Kami"
           title="Mengapa Memilih Agus Collection?"
           description="Kami tidak hanya menjahit pakaian. Kami membangun kepercayaan dengan standar kualitas yang konsisten di setiap produk."
+          dark
         />
 
         <motion.div
@@ -31,17 +32,17 @@ export function WhyChooseUs() {
                 key={feature.title}
                 variants={fadeUp}
                 whileHover={{ y: -6 }}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-7 shadow-soft transition-all duration-300 hover:border-gold/40 hover:shadow-soft-xl"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-7 shadow-soft transition-all duration-300 hover:border-gold/40 dark:hover:border-gold/50 hover:shadow-soft-xl"
               >
-                <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/5 transition-all duration-500 group-hover:scale-150 group-hover:bg-gold/10" />
+                <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold/5 dark:bg-gold/5 transition-all duration-500 group-hover:scale-150 group-hover:bg-gold/10 dark:group-hover:bg-gold/10" />
                 <div className="relative">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-gold-300 transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-navy dark:text-white">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy dark:bg-neutral-800 text-gold-300 transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-navy">
                     <Icon className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" />
                   </span>
                   <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-navy dark:text-white">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                  <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-neutral-400">
                     {feature.description}
                   </p>
                 </div>

@@ -4,9 +4,9 @@ export function TrustBar() {
   const logos = [...trustLogos, ...trustLogos];
 
   return (
-    <section className="border-y border-slate-200 bg-slate-50/50 py-10">
+    <section className="border-y border-slate-200 dark:border-neutral-800 bg-slate-50/50 dark:bg-black py-10">
       <div className="container-page">
-        <p className="mb-7 text-center text-xs font-semibold uppercase tracking-ultra-wide text-slate-500">
+        <p className="mb-7 text-center text-xs font-semibold uppercase tracking-ultra-wide text-slate-500 dark:text-neutral-500">
           Dipercaya oleh 500+ sekolah, perusahaan &amp; instansi
         </p>
         <div className="mask-fade-x relative overflow-hidden">
@@ -14,7 +14,7 @@ export function TrustBar() {
             {logos.map((logo, i) => (
               <span
                 key={`${logo}-${i}`}
-                className="whitespace-nowrap text-lg font-bold tracking-tight text-slate-400 grayscale transition-all duration-300 hover:text-slate-700"
+                className="whitespace-nowrap text-lg font-bold tracking-tight text-slate-400 dark:text-neutral-600 grayscale transition-all duration-300 hover:text-slate-700 dark:hover:text-neutral-400"
               >
                 {logo}
               </span>

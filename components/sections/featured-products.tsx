@@ -34,7 +34,7 @@ export function FeaturedProducts() {
   );
 
   return (
-    <section id="produk" className="scroll-mt-20 bg-slate-50/50 py-20 lg:py-28">
+    <section id="produk" className="scroll-mt-20 bg-slate-50/50 dark:bg-black py-20 lg:py-28">
       <div className="container-page">
         <div className="flex flex-col items-center gap-6">
           <SectionHeading

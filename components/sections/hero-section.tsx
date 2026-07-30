@@ -35,10 +35,10 @@ const particleSeeds = Array.from({ length: PARTICLE_COUNT }, (_, i) => {
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-navy pt-24 lg:pt-28">
+    <section className="relative overflow-hidden bg-navy dark:bg-gradient-to-b dark:from-black dark:to-neutral-950 pt-24 lg:pt-28">
       {/* Background layers */}
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-20" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy via-navy-700 to-navy" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-navy via-navy-700 to-navy dark:from-black/80 dark:via-neutral-950 dark:to-black" />
       
       {/* Animated gold orbs */}
       <motion.div
@@ -129,7 +129,7 @@ export function HeroSection() {
               variants={fadeUp}
               initial="visible"
               animate="visible"
-              className="mt-6 max-w-xl text-base leading-[1.7] text-slate-300 text-pretty sm:text-lg"
+              className="mt-6 max-w-xl text-base leading-[1.7] text-neutral-400 text-pretty sm:text-lg"
             >
               Melayani pembuatan seragam sekolah, seragam perusahaan, kaos custom,
               polo shirt, celana, almamater, wearpack, hingga bahan kain dengan
@@ -144,7 +144,7 @@ export function HeroSection() {
               className="mt-7 flex flex-wrap gap-x-6 gap-y-3"
             >
               {heroHighlights.map((h) => (
-                <li key={h.label} className="flex items-center gap-2 text-sm text-slate-200">
+                <li key={h.label} className="flex items-center gap-2 text-sm text-neutral-300">
                   <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gold/15 text-gold-300">
                     <h.icon className="h-4 w-4" />
                   </span>
@@ -190,7 +190,7 @@ export function HeroSection() {
                 ].map((src, i) => (
                   <span
                     key={i}
-                    className="relative h-9 w-9 overflow-hidden rounded-full border-2 border-navy"
+                    className="relative h-9 w-9 overflow-hidden rounded-full border-2 border-navy dark:border-neutral-800"
                   >
                     <Image
                       src={src}
@@ -211,7 +211,7 @@ export function HeroSection() {
                     <Star key={i} className="h-3.5 w-3.5 fill-gold-400 text-gold-400" />
                   ))}
                 </div>
-                <p className="mt-0.5 text-xs text-slate-400">
+                <p className="mt-0.5 text-xs text-neutral-500">
                   <span className="font-semibold text-white">4.9/5</span> dari 500+ pelanggan puas
                 </p>
               </div>
@@ -228,7 +228,7 @@ export function HeroSection() {
             <motion.div
               animate={{ y: [0, -14, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-              className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 shadow-2xl"
+              className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 dark:border-neutral-700/50 shadow-2xl"
             >
               <Image
                 src="/images/hero.jpg"
@@ -240,22 +240,22 @@ export function HeroSection() {
                 decoding="async"
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent dark:from-black/80 dark:via-black/20 dark:to-transparent" />
             </motion.div>
 
             {/* Floating badge cards */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute -left-4 top-12 hidden rounded-2xl border border-white/10 bg-white/10 p-3 backdrop-blur-xl sm:block lg:-left-8"
+              className="absolute -left-4 top-12 hidden rounded-2xl border border-white/10 bg-white/10 dark:bg-neutral-900/80 p-3 backdrop-blur-xl sm:block lg:-left-8"
             >
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-gradient">
-                  <ShieldCheck className="h-5 w-5 text-navy dark:text-white" />
+                  <ShieldCheck className="h-5 w-5 text-navy dark:text-navy" />
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-white">Gratis Konsultasi</p>
-                  <p className="text-xs text-slate-300">& Gratis Desain</p>
+                  <p className="text-xs text-neutral-300">& Gratis Desain</p>
                 </div>
               </div>
             </motion.div>
@@ -263,15 +263,15 @@ export function HeroSection() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-              className="absolute -right-4 bottom-16 hidden rounded-2xl border border-white/10 bg-white/10 p-3 backdrop-blur-xl sm:block lg:-right-8"
+              className="absolute -right-4 bottom-16 hidden rounded-2xl border border-white/10 bg-white/10 dark:bg-neutral-900/80 p-3 backdrop-blur-xl sm:block lg:-right-8"
             >
               <div className="flex items-center gap-3">
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-gradient">
-                  <Sparkles className="h-5 w-5 text-navy dark:text-white" />
+                  <Sparkles className="h-5 w-5 text-navy dark:text-navy" />
                 </span>
                 <div>
                   <p className="text-sm font-semibold text-white">Tepat Waktu</p>
-                  <p className="text-xs text-slate-300">Quality Control</p>
+                  <p className="text-xs text-neutral-300">Quality Control</p>
                 </div>
               </div>
             </motion.div>

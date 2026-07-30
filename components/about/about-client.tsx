@@ -9,7 +9,6 @@ import {
   Heart,
   Target,
   Eye,
-  Check,
 } from 'lucide-react';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { StatsCounter } from '@/components/sections/stats-counter';
@@ -50,7 +49,7 @@ export function AboutClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy pt-28 lg:pt-32">
+      <section className="relative overflow-hidden bg-navy dark:bg-black pt-28 lg:pt-32">
         <div className="pointer-events-none absolute inset-0 grid-pattern opacity-20" />
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.35, 0.2] }}
@@ -88,7 +87,7 @@ export function AboutClient() {
             </motion.div>
             <motion.p
               variants={fadeUp}
-              className="mx-auto mt-6 max-w-2xl text-base leading-[1.7] text-slate-300 text-pretty sm:text-lg"
+              className="mx-auto mt-6 max-w-2xl text-base leading-[1.7] text-neutral-400 text-pretty sm:text-lg"
             >
               Agus Collection adalah perusahaan konveksi yang berfokus pada produksi
               seragam berkualitas tinggi untuk sekolah, perusahaan, instansi
@@ -107,7 +106,7 @@ export function AboutClient() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={viewportOnce}
               transition={{ duration: 0.6 }}
-              className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 shadow-soft-lg"
+              className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-200 dark:border-neutral-800 shadow-soft-lg"
             >
               <Image
                 src="/images/hero.jpg"
@@ -150,10 +149,10 @@ export function AboutClient() {
                   { icon: Users, value: '500+', label: 'Pelanggan Puas' },
                   { icon: Award, value: '4.9★', label: 'Rating' },
                 ].map((s) => (
-                  <div key={s.label} className="rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-soft">
-                    <s.icon className="mx-auto h-6 w-6 text-gold-600" />
+                  <div key={s.label} className="rounded-2xl border border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 text-center shadow-soft">
+                    <s.icon className="mx-auto h-6 w-6 text-gold-600 dark:text-gold" />
                     <p className="mt-2 font-display text-xl font-extrabold text-navy dark:text-white">{s.value}</p>
-                    <p className="text-xs text-slate-500">{s.label}</p>
+                    <p className="text-xs text-slate-500 dark:text-neutral-500">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -171,6 +170,7 @@ export function AboutClient() {
             eyebrow="Prinsip Kami"
             title="Yang Kami Pegang Teguh"
             description="Tiga pilar yang memandu setiap keputusan dan jahitan kami."
+            dark
           />
           <motion.div
             variants={staggerContainer}
@@ -184,13 +184,13 @@ export function AboutClient() {
                 key={v.title}
                 variants={fadeUp}
                 whileHover={{ y: -6 }}
-                className="group rounded-2xl border border-slate-200 bg-white p-8 shadow-soft transition-all hover:border-gold/40 hover:shadow-soft-xl"
+                className="group rounded-2xl border border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-8 shadow-soft transition-all hover:border-gold/40 dark:hover:border-gold/50 hover:shadow-soft-xl"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy text-gold-300 transition-all group-hover:bg-gold-gradient group-hover:text-navy dark:text-white">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy dark:bg-neutral-800 text-gold-300 transition-all group-hover:bg-gold-gradient group-hover:text-navy">
                   <v.icon className="h-7 w-7" />
                 </span>
                 <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-navy dark:text-white">{v.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{v.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-neutral-400">{v.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -198,12 +198,13 @@ export function AboutClient() {
       </section>
 
       {/* Timeline */}
-      <section className="bg-slate-50/50 py-20 lg:py-28">
+      <section className="bg-slate-50/50 dark:bg-black py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading
             eyebrow="Perjalanan Kami"
             title="Tumbuh Bersama Pelanggan"
             description="Setiap milestone adalah bukti komitmen kami pada kualitas dan pelayanan terbaik."
+            dark
           />
           <div className="relative mt-16">
             <div className="pointer-events-none absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-gold-400 via-gold-500 to-transparent sm:left-1/2 sm:-translate-x-1/2" />
@@ -218,15 +219,15 @@ export function AboutClient() {
                   className={`relative flex items-start gap-6 sm:w-1/2 ${i % 2 === 0 ? 'sm:pr-12' : 'sm:ml-auto sm:pl-12'}`}
                 >
                   <span
-                    className="absolute left-0 top-1.5 flex h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-gold-gradient text-xs font-bold text-navy dark:text-white shadow-gold-glow sm:left-auto sm:-right-4 sm:top-2"
+                    className="absolute left-0 top-1.5 flex h-8 w-8 items-center justify-center rounded-full border-4 border-white dark:border-neutral-900 bg-gold-gradient text-xs font-bold text-navy dark:text-navy shadow-gold-glow sm:left-auto sm:-right-4 sm:top-2"
                     style={i % 2 === 0 ? {} : { right: 'auto', left: '-1rem' }}
                   >
                     {i + 1}
                   </span>
-                  <div className="ml-12 rounded-2xl border border-slate-200 bg-white p-6 shadow-soft sm:ml-0">
-                    <span className="label-eyebrow text-gold-600">{m.year}</span>
+                  <div className="ml-12 rounded-2xl border border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 shadow-soft sm:ml-0">
+                    <span className="label-eyebrow text-gold-600 dark:text-gold">{m.year}</span>
                     <h3 className="mt-2 text-lg font-bold text-navy dark:text-white">{m.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-slate-500">{m.description}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-slate-500 dark:text-neutral-400">{m.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -252,7 +253,7 @@ export function AboutClient() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
                 whileHover={{ y: -4 }}
-                className={`group relative overflow-hidden rounded-2xl border border-slate-200 shadow-soft ${i === 0 ? 'col-span-2 sm:col-span-1' : ''}`}
+                className={`group relative overflow-hidden rounded-2xl border border-slate-200 dark:border-neutral-800 shadow-soft ${i === 0 ? 'col-span-2 sm:col-span-1' : ''}`}
               >
                 <div className="aspect-square">
                   <Image
@@ -270,12 +271,13 @@ export function AboutClient() {
       </section>
 
       {/* Team */}
-      <section className="bg-slate-50/50 py-20 lg:py-28">
+      <section className="bg-slate-50/50 dark:bg-black py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading
             eyebrow="Tim Kami"
             title="Orang di Balik Setiap Jahitan"
             description="Tim berpengalaman yang berdedikasi memberikan hasil terbaik untuk setiap pelanggan."
+            dark
           />
           <div className="mt-14 grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-8">
             {team.map((member, i) => (
@@ -286,9 +288,9 @@ export function AboutClient() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -6 }}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft transition-all hover:border-gold/40 hover:shadow-soft-xl"
+                className="group overflow-hidden rounded-2xl border border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-soft transition-all hover:border-gold/40 dark:hover:border-gold/50 hover:shadow-soft-xl"
               >
-                <div className="relative aspect-square overflow-hidden bg-slate-100">
+                <div className="relative aspect-square overflow-hidden bg-slate-100 dark:bg-neutral-800">
                   <Image
                     src={member.avatar}
                     alt={member.name}
@@ -299,7 +301,7 @@ export function AboutClient() {
                 </div>
                 <div className="p-5 text-center">
                   <h3 className="font-bold text-navy dark:text-white">{member.name}</h3>
-                  <p className="mt-0.5 text-sm text-gold-700">{member.role}</p>
+                  <p className="mt-0.5 text-sm text-gold-700 dark:text-gold">{member.role}</p>
                 </div>
               </motion.div>
             ))}

@@ -105,6 +105,15 @@
   .glass-nav {
     @apply border-b border-white/10 bg-navy/90 dark:bg-black/90 backdrop-blur-xl;
   }
+  .dark-section {
+    @apply dark:bg-gradient-to-b dark:from-[#2a2a2a] dark:via-[#252525] dark:to-[#1a1a1a];
+  }
+  .dark-section-hero {
+    @apply dark:bg-gradient-to-b dark:from-[#333333] dark:via-[#2a2a2a] dark:to-[#1f1f1f];
+  }
+  .dark-section-glow {
+    @apply relative after:pointer-events-none after:absolute after:inset-0 after:bg-gradient-to-b after:from-gold/5 after:via-transparent after:to-transparent;
+  }
   .gold-divider {
     @apply h-px w-full bg-gradient-to-r from-transparent via-gold/40 to-transparent;
   }

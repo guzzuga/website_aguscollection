@@ -26,7 +26,7 @@ const productLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-navy dark:bg-neutral-900 text-slate-300 dark:text-neutral-400">
+    <footer className="relative overflow-hidden bg-navy dark:bg-gradient-to-b dark:from-[#2a2a2a] dark:via-[#252525] dark:to-[#1a1a1a] text-slate-300 dark:text-neutral-400">
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-30" />
       <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[40rem] -translate-x-1/2 rounded-full bg-gold/10 blur-3xl" />
 

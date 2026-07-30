@@ -60,7 +60,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
   return (
     <div className="pt-24 lg:pt-28">
       {/* Hero header */}
-      <section className="relative overflow-hidden bg-navy dark:bg-neutral-900 py-14 lg:py-20">
+      <section className="relative overflow-hidden bg-navy dark:bg-gradient-to-b dark:from-[#333333] dark:via-[#2a2a2a] dark:to-[#1f1f1f] py-14 lg:py-20">
         <div className="pointer-events-none absolute inset-0 grid-pattern opacity-20" />
         <motion.div
           animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.35, 0.2] }}

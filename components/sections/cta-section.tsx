@@ -9,7 +9,7 @@ import { fadeUp, staggerContainer } from '@/animations/variants';
 
 export function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-navy dark:bg-neutral-900 py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-navy dark:bg-gradient-to-b dark:from-[#2a2a2a] dark:via-[#252525] dark:to-[#1a1a1a] py-20 lg:py-28">
       {/* Animated background */}
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-20" />
       <motion.div

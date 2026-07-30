@@ -103,7 +103,7 @@
     @apply border border-white/10 bg-white/5 backdrop-blur-xl;
   }
   .glass-nav {
-    @apply border-b border-white/10 bg-navy/90 dark:bg-black/90 backdrop-blur-xl;
+    @apply border-b border-white/10 bg-navy/90 backdrop-blur-2xl dark:bg-white/80 dark:backdrop-blur-2xl;
   }
   .dark-section {
     @apply dark:bg-gradient-to-b dark:from-[#2a2a2a] dark:via-[#252525] dark:to-[#1a1a1a];

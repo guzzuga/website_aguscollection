@@ -21,7 +21,7 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
 
   if (!mounted) {
     return (
-      <div className="fixed inset-0 bg-navy">
+      <div className="fixed inset-0 bg-navy dark:bg-gradient-to-b dark:from-[#404040] dark:to-[#2a2a2a]">
         <LoadingScreen onFinish={handleLoadingFinish} />
       </div>
     );

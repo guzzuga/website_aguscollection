@@ -1,5 +1,5 @@
 import { siteConfig } from '@/constants/site';
-import { HeroSection } from '@/components/sections/hero-section';
+import VideoHero from '@/components/sections/video-hero';
 import { TrustBar } from '@/components/sections/trust-bar';
 import dynamic from 'next/dynamic';
 
@@ -76,7 +76,14 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HeroSection />
+      <VideoHero
+        mobileVideo="/videos/hero-mobile.mp4"
+        desktopVideo="/videos/hero-desktop.mp4"
+        title="Konveksi Premium Berkualitas"
+        subtitle="Jasa pembuatan seragam sekolah, perusahaan, dan custom apparel dengan kualitas premium langsung dari pabrik."
+        ctaText="Lihat Katalog"
+        ctaHref="/produk"
+      />
       <TrustBar />
       <ProductCategories />
       <StatsCounter />

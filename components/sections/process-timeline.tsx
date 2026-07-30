@@ -9,17 +9,18 @@ import { cn } from '@/lib/utils';
 
 export function ProcessTimeline() {
   return (
-    <section id="proses" className="relative overflow-hidden bg-slate-50/50 py-20 lg:py-28">
+    <section id="proses" className="relative overflow-hidden bg-slate-50/50 dark:bg-black py-20 lg:py-28">
       <div className="container-page">
         <SectionHeading
           eyebrow="Alur Pemesanan"
           title="6 Langkah Mudah Pesan Seragam"
           description="Proses yang jelas dan transparan dari konsultasi hingga produk tiba di tangan Anda."
+          dark
         />
 
         <div className="relative mt-16">
           {/* Horizontal progress line (desktop) */}
-          <div className="pointer-events-none absolute left-0 right-0 top-7 hidden h-0.5 bg-slate-200 lg:block">
+          <div className="pointer-events-none absolute left-0 right-0 top-7 hidden h-0.5 bg-slate-200 dark:bg-neutral-800 lg:block">
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -42,9 +43,9 @@ export function ProcessTimeline() {
                   className="relative flex flex-col items-center text-center lg:items-start lg:text-left"
                 >
                   {/* Node */}
-                  <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-slate-200 bg-white shadow-soft transition-all duration-300 hover:border-gold hover:shadow-gold-glow">
-                    <Icon className="h-6 w-6 text-navy dark:text-white" />
-                    <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-gold-gradient text-[10px] font-bold text-navy dark:text-white shadow-gold-glow">
+                  <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl border-2 border-slate-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-soft transition-all duration-300 hover:border-gold dark:hover:border-gold/50 hover:shadow-gold-glow">
+                    <Icon className="h-6 w-6 text-navy dark:text-gold" />
+                    <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-gold-gradient text-[10px] font-bold text-navy dark:text-navy shadow-gold-glow">
                       {step.no}
                     </span>
                   </div>
@@ -52,7 +53,7 @@ export function ProcessTimeline() {
                   <h3 className="mt-5 font-display text-lg font-bold tracking-tight text-navy dark:text-white">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                  <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-neutral-300">
                     {step.description}
                   </p>
 

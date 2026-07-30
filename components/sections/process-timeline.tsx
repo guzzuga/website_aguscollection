@@ -15,7 +15,6 @@ export function ProcessTimeline() {
           eyebrow="Alur Pemesanan"
           title="6 Langkah Mudah Pesan Seragam"
           description="Proses yang jelas dan transparan dari konsultasi hingga produk tiba di tangan Anda."
-          dark
         />
 
         <div className="relative mt-16">

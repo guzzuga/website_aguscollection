@@ -15,7 +15,6 @@ export function WhyChooseUs() {
           eyebrow="Keunggulan Kami"
           title="Mengapa Memilih Agus Collection?"
           description="Kami tidak hanya menjahit pakaian. Kami membangun kepercayaan dengan standar kualitas yang konsisten di setiap produk."
-          dark
         />
 
         <motion.div

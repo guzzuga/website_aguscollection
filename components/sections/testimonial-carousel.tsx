@@ -33,7 +33,6 @@ export function TestimonialCarousel() {
           eyebrow="Testimoni"
           title="Apa Kata Pelanggan Kami"
           description="Lebih dari 500 pelanggan telah mempercayakan kebutuhan seragam mereka kepada Agus Collection."
-          dark
         />
 
         <div className="relative mx-auto mt-14 max-w-3xl">

@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { Search, SlidersHorizontal, X, ChevronRight } from 'lucide-react';
 import type { Category, Product } from '@/types';
 import { ProductCard } from '@/components/product/product-card';
@@ -12,7 +12,6 @@ import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import * as Icons from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { staggerContainer, fadeUp, viewportOnce } from '@/animations/variants';
 
 type Props = {
   categories: Category[];
@@ -28,6 +27,9 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
   const [active, setActive] = useState(initialCategory);
   const [query, setQuery] = useState('');
   const tabsRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [gridKey, setGridKey] = useState(0);
+  const [gridVisible, setGridVisible] = useState(true);
 
   // Sync URL → state when browser back/forward is used
   useEffect(() => {
@@ -177,12 +179,14 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
 
           <AnimatePresence mode="wait">
             {filtered.length === 0 ? (
-              <motion.div
+              <div
                 key="empty"
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
                 className="flex flex-col items-center justify-center py-24 text-center"
+                style={{
+                  opacity: 1,
+                  transform: 'none',
+                  transition: 'opacity 0.4s ease, transform 0.4s ease',
+                }}
               >
                 <span className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100 dark:bg-neutral-800 text-slate-400 dark:text-neutral-500">
                   <SlidersHorizontal className="h-10 w-10" />
@@ -197,19 +201,32 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
                 >
                   Lihat semua produk
                 </button>
-              </motion.div>
+              </div>
             ) : (
-              <motion.div
+              <div
                 key={`${active}-${query}`}
-                variants={staggerContainer}
-                initial="hidden"
-                animate="visible"
+                ref={gridRef}
                 className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                style={{
+                  opacity: gridVisible ? 1 : 0,
+                  transform: gridVisible ? 'none' : 'translateY(16px)',
+                  transition: 'opacity 0.5s ease, transform 0.5s ease',
+                }}
+                onTransitionEnd={() => setGridKey(k => k + 1)}
               >
                 {filtered.map((product, i) => (
-                  <ProductCard key={product.slug} product={product} index={i} />
+                  <div
+                    key={product.slug}
+                    className="opacity-0 translate-y-4"
+                    style={{
+                      transition: `opacity 0.5s ease ${i * 0.05}s, transform 0.5s ease ${i * 0.05}s`,
+                      ...(gridVisible ? { opacity: 1, transform: 'none' } : {}),
+                    }}
+                  >
+                    <ProductCard product={product} index={0} />
+                  </div>
                 ))}
-              </motion.div>
+              </div>
             )}
           </AnimatePresence>
         </div>
@@ -226,13 +243,15 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
               {categories.map((cat, i) => {
                 const Icon = (Icons[cat.icon as keyof typeof Icons] as LucideIcon) ?? Icons.Shirt;
                 return (
-                  <motion.button
+                  <button
                     key={cat.slug}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.4, delay: i * 0.05 }}
-                    whileHover={{ y: -4 }}
+                    style={{
+                      opacity: 1,
+                      transform: 'none',
+                      transition: `opacity 0.5s ease ${i * 0.05}s, transform 0.5s ease ${i * 0.05}s`,
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-4px)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
                     onClick={() => selectCategory(cat.slug)}
                     className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white dark:bg-neutral-800 p-5 text-left shadow-soft transition-all hover:border-gold/40 hover:shadow-soft-lg"
                   >
@@ -241,7 +260,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
                     </span>
                     <h3 className="mt-4 text-sm font-bold leading-tight text-slate-900 dark:text-white">{cat.name}</h3>
                     <p className="mt-1 text-xs text-slate-500 dark:text-neutral-400 dark:text-neutral-400">{cat.productCount}+ produk</p>
-                  </motion.button>
+                  </button>
                 );
               })}
             </div>

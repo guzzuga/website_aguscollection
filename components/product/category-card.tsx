@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 import { ArrowUpRight, type LucideIcon } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import type { Category } from '@/types';
@@ -15,20 +15,35 @@ type CategoryCardProps = {
 };
 
 export function CategoryCard({ category, index = 0, className }: CategoryCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); obs.disconnect(); } },
+      { once: true, threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   const Icon = (Icons[category.icon as keyof typeof Icons] as LucideIcon) ?? Icons.Shirt;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -8, scale: 1.02 }}
+    <div
+      ref={cardRef}
       className={cn(
         'group relative overflow-hidden rounded-2xl border border-slate-200 bg-white dark:bg-neutral-800 dark:border-neutral-700 shadow-soft transition-all duration-500 hover:border-gold/40 hover:shadow-soft-xl hover:dual-glow shimmer',
         'gradient-border-animated',
+        'transition-all duration-700 ease-out will-change-transform opacity',
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
         className,
       )}
+      style={{ transitionDelay: `${index * 100}ms` }}
+      onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)')}
+      onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0) scale(1)')}
     >
       <Link href={`/produk?kategori=${category.slug}`} className="block">
         {/* Image */}
@@ -73,6 +88,6 @@ export function CategoryCard({ category, index = 0, className }: CategoryCardPro
           {category.description}
         </p>
       </Link>
-    </motion.div>
+    </div>
   );
 }

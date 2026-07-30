@@ -24,13 +24,13 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -8 }}
       className={cn(
-        'group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft transition-all duration-300 hover:border-gold/40 hover:shadow-soft-xl',
+        'group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white dark:bg-neutral-800 dark:border-neutral-700 shadow-soft transition-all duration-300 hover:border-gold/40 hover:shadow-soft-xl',
         className,
       )}
     >
       <Link href={`/produk/${product.slug}`} className="flex h-full flex-col">
         {/* Image */}
-        <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+        <div className="relative aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-neutral-700">
           <Image
             src={product.images[0]}
             alt={product.name}
@@ -41,7 +41,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
             decoding="async"
             quality={85}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:from-white/10" />
           {product.badge && (
             <Badge className="absolute left-4 top-4 rounded-full bg-gold-gradient text-navy shadow-gold-glow">
               {product.badge}
@@ -51,8 +51,8 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
 
         {/* Content */}
         <div className="flex flex-1 flex-col p-5">
-          <span className="label-eyebrow text-gold-600">{product.categoryLabel}</span>
-          <h3 className="mt-2 font-display text-lg font-bold tracking-tight text-slate-900 transition-colors group-hover:text-gold-700">
+          <span className="label-eyebrow text-gold-600 dark:text-gold-300">{product.categoryLabel}</span>
+          <h3 className="mt-2 font-display text-lg font-bold tracking-tight text-slate-900 dark:text-white transition-colors group-hover:text-gold-700 dark:group-hover:text-gold-300">
             {product.name}
           </h3>
           <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-500 dark:text-neutral-400">
@@ -69,7 +69,7 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
                     'h-3.5 w-3.5',
                     i < Math.floor(product.rating)
                       ? 'fill-gold-400 text-gold-400'
-                      : 'fill-slate-200 text-slate-200',
+                      : 'fill-slate-200 text-slate-200 dark:fill-neutral-600 dark:text-neutral-600',
                   )}
                 />
               ))}
@@ -93,14 +93,14 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
                 </div>
               ) : (
                 <div>
-                  <span className="block text-xs text-slate-400">Mulai dari</span>
+                  <span className="block text-xs text-slate-500 dark:text-neutral-500">Mulai dari</span>
                   <span className="font-display text-xl font-extrabold text-slate-900 dark:text-white">
                     {formatRupiah(product.basePrice)}
                   </span>
                 </div>
               )}
             </div>
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy text-white transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-slate-900 dark:text-white">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-navy dark:bg-neutral-600 text-white dark:text-white transition-all duration-300 group-hover:bg-gold-gradient group-hover:text-slate-900">
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </span>
           </div>

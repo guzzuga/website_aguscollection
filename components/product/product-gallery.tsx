@@ -23,8 +23,8 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
 
   if (safeImages.length === 0) {
     return (
-      <div className="flex items-center justify-center aspect-square rounded-3xl border border-slate-200 bg-slate-100">
-        <span className="text-slate-400 text-sm">Tidak ada gambar</span>
+      <div className="flex items-center justify-center aspect-square rounded-3xl border border-slate-200 bg-slate-100 dark:bg-neutral-800">
+        <span className="text-slate-400 dark:text-neutral-500 text-sm">Tidak ada gambar</span>
       </div>
     );
   }
@@ -33,7 +33,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
     <div className="flex flex-col gap-4">
       {/* Main image */}
       <div
-        className="group relative aspect-square overflow-hidden rounded-3xl border border-slate-200 bg-slate-100"
+        className="group relative aspect-square overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 dark:bg-neutral-800"
         onMouseEnter={() => setZoom(true)}
         onMouseLeave={() => setZoom(false)}
       >
@@ -69,7 +69,7 @@ export function ProductGallery({ images, alt }: ProductGalleryProps) {
             onClick={() => setActive(i)}
             aria-label={`Lihat gambar ${i + 1}`}
             className={cn(
-              'relative aspect-square overflow-hidden rounded-xl border-2 bg-slate-100 transition-all duration-300',
+              'relative aspect-square overflow-hidden rounded-xl border-2 bg-slate-100 dark:bg-neutral-800 transition-all duration-300',
               active === i
                 ? 'border-gold shadow-gold-glow'
                 : 'border-slate-200 hover:border-gold/40',

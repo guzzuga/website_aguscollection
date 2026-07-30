@@ -25,14 +25,14 @@ export function CategoryCard({ category, index = 0, className }: CategoryCardPro
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -8, scale: 1.02 }}
       className={cn(
-        'group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft transition-all duration-500 hover:border-gold/40 hover:shadow-soft-xl hover:dual-glow shimmer',
+        'group relative overflow-hidden rounded-2xl border border-slate-200 bg-white dark:bg-neutral-800 dark:border-neutral-700 shadow-soft transition-all duration-500 hover:border-gold/40 hover:shadow-soft-xl hover:dual-glow shimmer',
         'gradient-border-animated',
         className,
       )}
     >
       <Link href={`/produk?kategori=${category.slug}`} className="block">
         {/* Image */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+        <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-neutral-700">
           <Image
             src={category.image}
             alt={category.name}
@@ -47,7 +47,7 @@ export function CategoryCard({ category, index = 0, className }: CategoryCardPro
 
           {/* Icon badge with enhanced glow */}
           <div className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/90 backdrop-blur transition-all duration-500 group-hover:bg-gold-gradient group-hover:shadow-lg group-hover:shadow-gold-400/30">
-            <Icon className="h-5 w-5 text-slate-900 transition-all duration-300 group-hover:scale-110 group-hover:text-slate-900-900" />
+            <Icon className="h-5 w-5 text-slate-900 transition-all duration-300 group-hover:scale-110 group-hover:text-slate-900" />
           </div>
 
           {/* Content overlay */}

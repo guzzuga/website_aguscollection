@@ -68,7 +68,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
     <div className="pt-24 lg:pt-28">
       <div className="container-page py-10 lg:py-16">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-1.5 text-sm text-slate-500">
+        <nav className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-neutral-400">
           <a href="/" className="transition-colors hover:text-slate-900 dark:hover:text-gold">Home</a>
           <ChevronRight className="h-3.5 w-3.5" />
           <a href="/#produk" className="transition-colors hover:text-slate-900 dark:hover:text-gold">Produk</a>
@@ -112,20 +112,20 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   />
                 ))}
               </div>
-              <span className="text-sm font-medium text-slate-600">
+              <span className="text-sm font-medium text-slate-600 dark:text-neutral-300">
                 {product.rating} ({product.reviewCount} ulasan)
               </span>
             </div>
 
-            <p className="mt-5 text-base leading-[1.7] text-slate-600">
+            <p className="mt-5 text-base leading-[1.7] text-slate-600 dark:text-neutral-300">
               {product.description}
             </p>
 
             {/* Price */}
-            <div className="mt-6 rounded-2xl border border-slate-200 dark:border-neutral-800 bg-slate-50/50 dark:bg-black p-5">
+            <div className="mt-6 rounded-2xl border border-slate-200 dark:border-neutral-800 bg-slate-50/50 dark:bg-neutral-900 p-5">
               <div className="flex items-end justify-between">
                 <div>
-                  <span className="text-xs text-slate-500">Harga per pcs (qty {qty})</span>
+                  <span className="text-xs text-slate-500 dark:text-neutral-400">Harga per pcs (qty {qty})</span>
                   <p className="font-display text-3xl font-extrabold text-slate-900 dark:text-gold">
                     {formatRupiah(finalPrice)}
                   </p>
@@ -136,7 +136,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   )}
                 </div>
                 <div className="text-right">
-                  <span className="text-xs text-slate-500">Estimasi Total</span>
+                  <span className="text-xs text-slate-500 dark:text-neutral-400">Estimasi Total</span>
                   <p className="font-display text-2xl font-extrabold text-gold-700">
                     {formatRupiah(total)}
                   </p>
@@ -146,7 +146,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
             {/* Color */}
             <div className="mt-6">
-              <p className="label-eyebrow text-slate-500">Warna: <span className="text-slate-900 dark:text-gold normal-case tracking-normal">{color}</span></p>
+              <p className="label-eyebrow text-slate-500 dark:text-neutral-400">Warna: <span className="text-slate-900 dark:text-gold-400 normal-case tracking-normal">{color}</span></p>
               <div className="mt-3 flex flex-wrap gap-3">
                 {product.colors.map((c) => (
                   <button
@@ -173,7 +173,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             {/* Education Level */}
             {product.educationPricing && Array.isArray(product.educationPricing) && product.educationPricing.length > 0 && (
               <div className="mt-6">
-                <p className="label-eyebrow text-slate-500">Tingkat Sekolah:</p>
+                <p className="label-eyebrow text-slate-500 dark:text-neutral-400">Tingkat Sekolah:</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {product.educationPricing.map((edu) => (
                     <button
@@ -183,7 +183,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                         'flex h-11 items-center gap-2 rounded-xl border-2 px-4 text-sm font-semibold transition-all',
                         educationLevel === edu.level
                           ? 'border-navy bg-navy text-white'
-                          : 'border-slate-200 text-slate-700 hover:border-slate-300',
+                          : 'border-slate-200 text-slate-700 dark:text-neutral-200 hover:border-slate-300',
                       )}
                     >
                       <span className="font-bold">{edu.level}</span>
@@ -191,7 +191,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     </button>
                   ))}
                 </div>
-                <p className="mt-2 text-xs text-slate-500">
+                <p className="mt-2 text-xs text-slate-500 dark:text-neutral-400">
                   Pilih tingkat sekolah untuk melihat harga yang sesuai
                 </p>
               </div>
@@ -200,7 +200,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
             {/* Tier Harga Grosir — Semakin banyak semakin hemat */}
             {product.priceTiers && Array.isArray(product.priceTiers) && product.priceTiers.length > 0 && (
               <div className="mt-6">
-                <p className="label-eyebrow text-slate-500">Semakin Banyak, Semakin Hemat:</p>
+                <p className="label-eyebrow text-slate-500 dark:text-neutral-400">Semakin Banyak, Semakin Hemat:</p>
                 <div className="mt-3 grid gap-2 sm:grid-cols-2">
                   {product.priceTiers.map((tier, i) => {
                     // Calculate discount price for current education level
@@ -224,7 +224,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                         )}
                       >
                         <span className="text-sm font-semibold text-slate-900 dark:text-gold">{tier.label}</span>
-                        <span className="text-xs text-slate-500">
+                        <span className="text-xs text-slate-500 dark:text-neutral-400">
                           {tier.minQty}–{tier.maxQty ?? '+'} pcs
                         </span>
                         <div className="mt-1 flex items-center gap-2">
@@ -239,7 +239,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     );
                   })}
                 </div>
-                <p className="mt-2 text-xs text-slate-500">
+                <p className="mt-2 text-xs text-slate-500 dark:text-neutral-400">
                   Klik tier untuk langsung set jumlah pesanan
                 </p>
               </div>
@@ -247,7 +247,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
             {/* Size */}
             <div className="mt-6">
-              <p className="label-eyebrow text-slate-500">Ukuran: <span className="text-slate-900 dark:text-gold normal-case tracking-normal">{size}</span></p>
+              <p className="label-eyebrow text-slate-500 dark:text-neutral-400">Ukuran: <span className="text-slate-900 dark:text-gold-400 normal-case tracking-normal">{size}</span></p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {product.sizes.map((s) => (
                   <button
@@ -257,7 +257,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                       'flex h-11 min-w-11 items-center justify-center rounded-xl border-2 px-3 text-sm font-semibold transition-all',
                       size === s
                         ? 'border-navy bg-navy text-white'
-                        : 'border-slate-200 text-slate-700 hover:border-slate-300',
+                        : 'border-slate-200 text-slate-700 dark:text-neutral-200 hover:border-slate-300',
                     )}
                   >
                     {s}
@@ -268,7 +268,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
 
             {/* Quantity */}
             <div className="mt-6">
-              <p className="label-eyebrow text-slate-500">Jumlah (pcs)</p>
+              <p className="label-eyebrow text-slate-500 dark:text-neutral-400">Jumlah (pcs)</p>
               <div className="mt-3 flex items-center gap-3">
                 <div className="flex items-center rounded-xl border border-slate-200">
                   <button
@@ -293,7 +293,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                     <Plus className="h-4 w-4" />
                   </button>
                 </div>
-                <span className="text-sm text-slate-500">
+                <span className="text-sm text-slate-500 dark:text-neutral-400">
                   Total: <span className="font-bold text-slate-900 dark:text-gold">{formatRupiah(total)}</span>
                 </span>
               </div>
@@ -332,7 +332,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy dark:bg-gold/20 text-gold-300 dark:text-slate-900">
                     <b.icon className="h-5 w-5" />
                   </span>
-                  <span className="text-xs font-medium text-slate-600">{b.label}</span>
+                  <span className="text-xs font-medium text-slate-600 dark:text-neutral-300">{b.label}</span>
                 </div>
               ))}
             </div>
@@ -356,7 +356,7 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/15 text-gold-700">
                     <Check className="h-3.5 w-3.5" strokeWidth={3} />
                   </span>
-                  <span className="text-sm leading-relaxed text-slate-700">{f}</span>
+                  <span className="text-sm leading-relaxed text-slate-700 dark:text-neutral-200 dark:text-neutral-200">{f}</span>
                 </motion.li>
               ))}
             </ul>
@@ -370,9 +370,9 @@ export function ProductDetailClient({ product }: ProductDetailClientProps) {
                   {product.specifications.map((spec, i) => (
                     <tr
                       key={i}
-                      className={cn(i % 2 === 0 ? 'bg-white' : 'bg-slate-50/50')}
+                      className={cn(i % 2 === 0 ? 'bg-white dark:bg-neutral-800' : 'bg-slate-50/50 dark:bg-neutral-800')}
                     >
-                      <td className="border-b border-slate-100 px-5 py-3.5 font-medium text-slate-500">
+                      <td className="border-b border-slate-100 px-5 py-3.5 font-medium text-slate-500 dark:text-neutral-400">
                         {spec.label}
                       </td>
                       <td className="border-b border-slate-100 dark:border-neutral-800 px-5 py-3.5 font-semibold text-slate-900 dark:text-gold">

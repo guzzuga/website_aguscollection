@@ -122,7 +122,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
       </section>
 
       {/* Sticky category tabs */}
-      <div className="sticky top-16 z-40 border-b border-slate-200 bg-white/95 shadow-soft backdrop-blur lg:top-20">
+      <div className="sticky top-16 z-40 border-b border-slate-200 bg-white/95 dark:bg-neutral-800/95 shadow-soft backdrop-blur lg:top-20 dark:border-neutral-700">
         <div className="container-page">
           <div
             ref={tabsRef}
@@ -153,7 +153,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
         <div className="container-page">
           {/* Result count + active filter info */}
           <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
-            <p className="text-sm text-slate-500 dark:text-neutral-400">
+            <p className="text-sm text-slate-500 dark:text-neutral-400 dark:text-neutral-400">
               Menampilkan{' '}
               <span className="font-semibold text-slate-900 dark:text-white">{filtered.length}</span>{' '}
               produk
@@ -167,7 +167,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
             {(active !== ALL_SLUG || query) && (
               <button
                 onClick={() => { selectCategory(ALL_SLUG); setQuery(''); }}
-                className="flex items-center gap-1.5 text-sm text-slate-500 transition-colors hover:text-slate-900"
+                className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-neutral-400 transition-colors hover:text-slate-900"
               >
                 <X className="h-3.5 w-3.5" />
                 Hapus filter
@@ -184,7 +184,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
                 exit={{ opacity: 0 }}
                 className="flex flex-col items-center justify-center py-24 text-center"
               >
-                <span className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100 text-slate-400">
+                <span className="flex h-20 w-20 items-center justify-center rounded-3xl bg-slate-100 dark:bg-neutral-800 text-slate-400 dark:text-neutral-500">
                   <SlidersHorizontal className="h-10 w-10" />
                 </span>
                 <h3 className="mt-6 text-xl font-bold text-slate-900 dark:text-white">Produk Tidak Ditemukan</h3>
@@ -217,9 +217,9 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
 
       {/* Category showcase — only on "semua" without query */}
       {active === ALL_SLUG && !query && (
-        <section className="border-t border-slate-200 bg-slate-50/50 py-16 lg:py-20">
+        <section className="border-t border-slate-200 bg-slate-50/50 dark:bg-neutral-900 py-16 lg:py-20">
           <div className="container-page">
-            <h2 className="mb-10 font-display text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
+            <h2 className="mb-10 font-display text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl">
               Jelajahi per Kategori
             </h2>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-6">
@@ -234,13 +234,13 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
                     transition={{ duration: 0.4, delay: i * 0.05 }}
                     whileHover={{ y: -4 }}
                     onClick={() => selectCategory(cat.slug)}
-                    className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-soft transition-all hover:border-gold/40 hover:shadow-soft-lg"
+                    className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white dark:bg-neutral-800 p-5 text-left shadow-soft transition-all hover:border-gold/40 hover:shadow-soft-lg"
                   >
                     <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-gold-300 transition-all group-hover:bg-gold-gradient group-hover:text-slate-900 dark:text-white">
                       <Icon className="h-6 w-6" />
                     </span>
                     <h3 className="mt-4 text-sm font-bold leading-tight text-slate-900 dark:text-white">{cat.name}</h3>
-                    <p className="mt-1 text-xs text-slate-500 dark:text-neutral-400">{cat.productCount}+ produk</p>
+                    <p className="mt-1 text-xs text-slate-500 dark:text-neutral-400 dark:text-neutral-400">{cat.productCount}+ produk</p>
                   </motion.button>
                 );
               })}
@@ -271,7 +271,7 @@ function CategoryTab({
         'relative flex shrink-0 items-center gap-2 whitespace-nowrap border-b-2 px-4 py-4 text-sm font-semibold transition-all duration-200',
         isActive
           ? 'border-gold-500 text-slate-900'
-          : 'border-transparent text-slate-500 hover:text-slate-900',
+          : 'border-transparent text-slate-500 dark:text-neutral-400 hover:text-slate-900',
       )}
     >
       <Icon className={cn('h-4 w-4 shrink-0', isActive ? 'text-gold-600' : 'text-slate-400')} />

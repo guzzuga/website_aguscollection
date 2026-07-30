@@ -21,7 +21,7 @@ export function PriceTierList({ tiers, selectedQty, basePrice = 0, className }: 
 
   return (
     <div className={cn('space-y-2', className)}>
-      <p className="label-eyebrow text-slate-500">Tier Harga (semakin banyak, semakin hemat)</p>
+      <p className="label-eyebrow text-slate-500 dark:text-neutral-400">Tier Harga (semakin banyak, semakin hemat)</p>
       <div className="space-y-2">
         {tierList.map((tier, i) => {
           const isActive = activeTier === tier;
@@ -38,7 +38,7 @@ export function PriceTierList({ tiers, selectedQty, basePrice = 0, className }: 
                 'flex items-center justify-between rounded-xl border px-4 py-3 transition-all',
                 isActive
                   ? 'border-gold bg-gold/5 shadow-gold-glow'
-                  : 'border-slate-200 bg-white',
+                  : 'border-slate-200 bg-white dark:bg-neutral-800',
               )}
             >
               <div className="flex items-center gap-2">
@@ -50,7 +50,7 @@ export function PriceTierList({ tiers, selectedQty, basePrice = 0, className }: 
                 >
                   {isActive && <Check className="h-3 w-3" strokeWidth={3} />}
                 </span>
-                <span className="text-sm font-medium text-slate-700">{tier.label}</span>
+                <span className="text-sm font-medium text-slate-700 dark:text-neutral-200">{tier.label}</span>
               </div>
               <span
                 className={cn(
@@ -59,7 +59,7 @@ export function PriceTierList({ tiers, selectedQty, basePrice = 0, className }: 
                 )}
               >
                 {formatRupiah(displayPrice)}
-                <span className="text-xs font-normal text-slate-400">/pcs</span>
+                <span className="text-xs font-normal text-slate-400 dark:text-neutral-500">/pcs</span>
               </span>
             </motion.div>
           );

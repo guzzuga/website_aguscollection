@@ -119,35 +119,43 @@ export function LoadingScreen({ onFinish }: LoadingScreenProps) {
           </div>
         </div>
 
-        {/* ── Brand Name with animated gradient ── */}
-        <h1
-          className="mb-3 font-display text-4xl font-extrabold tracking-[0.18em] uppercase opacity-0 animate-[brandReveal_1s_ease-out_0.4s_forwards]"
-          style={{
-            background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 25%, #FFEC8B 50%, #FFA500 75%, #FFD700 100%)',
-            backgroundSize: '200% 100%',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            animation: 'brandShimmer 3s ease-in-out infinite, brandReveal 1s ease-out 0.4s forwards',
-          }}
-        >
-          AGUS COLLECTION
-        </h1>
+        {/* ── Brand Name + Subtitle side-by-side ── */}
+        <div className="mb-10 flex flex-col items-center gap-3 text-center md:flex-row md:gap-8 md:justify-center">
+          {/* Brand name */}
+          <h1
+            className="font-display text-3xl font-extrabold tracking-[0.15em] uppercase md:text-4xl opacity-0 animate-[brandReveal_1s_ease-out_0.4s_forwards]"
+            style={{
+              background: 'linear-gradient(90deg, #FFD700 0%, #FFA500 25%, #FFEC8B 50%, #FFA500 75%, #FFD700 100%)',
+              backgroundSize: '200% 100%',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              animation: 'brandShimmer 3s ease-in-out infinite, brandReveal 1s ease-out 0.4s forwards',
+            }}
+          >
+            AGUS COLLECTION
+          </h1>
 
-        {/* ── Subtitle with gradient shift ── */}
-        <p
-          className="mb-10 text-sm font-semibold tracking-[0.22em] uppercase opacity-0 animate-[brandReveal_1s_ease-out_0.65s_forwards]"
-          style={{
-            background: 'linear-gradient(90deg, #fbbf24 0%, #f59e0b 30%, #fde68a 60%, #f59e0b 100%)',
-            backgroundSize: '250% 100%',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            animation: 'subtitleShimmer 4s ease-in-out infinite, brandReveal 1s ease-out 0.65s forwards',
-          }}
-        >
-          Konveksi Premium Mojokerto
-        </p>
+          {/* Vertical separator — hidden on mobile */}
+          <div
+            className="hidden h-8 w-px bg-gradient-to-b from-transparent via-amber-400/50 to-transparent md:block"
+          />
+
+          {/* Subtitle */}
+          <p
+            className="text-xs font-semibold tracking-[0.2em] uppercase text-amber-300 md:text-sm opacity-0 animate-[brandReveal_1s_ease-out_0.65s_forwards]"
+            style={{
+              background: 'linear-gradient(90deg, #fbbf24 0%, #f59e0b 30%, #fde68a 60%, #f59e0b 100%)',
+              backgroundSize: '250% 100%',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              animation: 'subtitleShimmer 4s ease-in-out infinite, brandReveal 1s ease-out 0.65s forwards',
+            }}
+          >
+            Konveksi Premium Mojokerto
+          </p>
+        </div>
 
         {/* ── Elegant divider ── */}
         <div className="mb-8 flex items-center gap-3">

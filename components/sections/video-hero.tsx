@@ -110,12 +110,14 @@ export default function VideoHero({
           {subtitle}
         </motion.p>
 
-        {/* CTA Button */}
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col items-center gap-4 sm:flex-row sm:gap-5"
         >
+          {/* Primary — Lihat Katalog */}
           <a
             href={ctaHref}
             className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full px-9 py-4 text-sm font-bold tracking-wide text-black transition-transform duration-300 hover:scale-105"
@@ -141,6 +143,45 @@ export default function VideoHero({
             <span className="relative z-10 flex items-center gap-2.5">
               {ctaText}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+            </span>
+          </a>
+
+          {/* Secondary — Tentang Kami */}
+          <a
+            href="/tentang"
+            className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-white/20 bg-white/5 px-9 py-4 text-sm font-bold tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:border-white/35"
+            style={{
+              backgroundSize: '300% 300%',
+            }}
+          >
+            {/* Subtle gradient shimmer on hover */}
+            <span
+              className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,215,0,0.08) 0%, rgba(255,165,0,0.05) 50%, rgba(255,215,0,0.08) 100%)',
+                backgroundSize: '200% 200%',
+                animation: 'heroGradient 4s ease-in-out infinite',
+              }}
+            />
+            {/* Glass shimmer */}
+            <span
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.08) 48%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.08) 52%, transparent 70%)',
+                backgroundSize: '200% 100%',
+                animation: 'sheen 3s ease-in-out infinite',
+              }}
+            />
+            {/* Glow on hover */}
+            <span className="absolute inset-0 rounded-full border border-gold-400/20 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none" />
+            
+            <span className="relative z-10 flex items-center gap-2">
+              {/* Decorative dot */}
+              <span className="h-1.5 w-1.5 rounded-full bg-gold-400/80 group-hover:bg-gold-300 transition-colors" />
+              Tentang Kami
+              <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </span>
           </a>
         </motion.div>

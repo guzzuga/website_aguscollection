@@ -11,12 +11,13 @@ import { faqs } from '@/constants/site';
 
 export function FaqSection() {
   return (
-    <section id="faq" className="bg-slate-50/50 py-20 lg:py-28">
+    <section id="faq" className="bg-slate-50/50 dark:bg-black py-20 lg:py-28">
       <div className="container-page">
         <SectionHeading
           eyebrow="FAQ"
           title="Pertanyaan yang Sering Diajukan"
           description="Jawaban untuk pertanyaan umum seputar pemesanan, produksi, dan pengiriman."
+          dark
         />
 
         <div className="mx-auto mt-12 max-w-3xl">
@@ -25,12 +26,12 @@ export function FaqSection() {
               <AccordionItem
                 key={i}
                 value={`item-${i}`}
-                className="overflow-hidden rounded-2xl border border-slate-200 bg-white px-5 shadow-soft data-[state=open]:border-gold/40"
+                className="overflow-hidden rounded-2xl border border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-5 shadow-soft data-[state=open]:border-gold/40 dark:data-[state=open]:border-gold/50"
               >
                 <AccordionTrigger className="py-5 text-left text-base font-semibold text-navy dark:text-white hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="pb-5 text-sm leading-[1.7] text-slate-600">
+                <AccordionContent className="pb-5 text-sm leading-[1.7] text-slate-600 dark:text-neutral-300">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

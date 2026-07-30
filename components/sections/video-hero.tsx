@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
 import {
   motion,
   useScroll,
@@ -117,37 +118,61 @@ export default function VideoHero({
         >
           <a
             href={ctaHref}
-            className="group relative inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-white/95 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+            className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full px-9 py-4 text-sm font-bold tracking-wide text-black transition-transform duration-300 hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FFEC8B 50%, #FFA500 75%, #FFD700 100%)',
+              backgroundSize: '300% 300%',
+              animation: 'heroGradient 4s ease-in-out infinite',
+              boxShadow: '0 8px 32px rgba(251, 191, 36, 0.35), 0 0 0 1px rgba(255,255,255,0.1) inset',
+            }}
           >
-            {ctaText}
-            <svg
-              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            {/* Animated sheen */}
+            <span
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(105deg, transparent 25%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0.35) 55%, transparent 75%)',
+                backgroundSize: '200% 100%',
+                animation: 'sheen 2s ease-in-out infinite',
+              }}
+            />
+            {/* Inner border glow */}
+            <span className="absolute inset-0 rounded-full border border-white/30 pointer-events-none" />
+            
+            <span className="relative z-10 flex items-center gap-2.5">
+              {ctaText}
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+            </span>
           </a>
         </motion.div>
-      </motion.div>
 
-      {/* === SCROLL INDICATOR === */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-xs tracking-widest text-white/50 uppercase">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="h-8 w-[1px] bg-gradient-to-b from-white/50 to-transparent"
-          />
-        </div>
+        {/* SCROLL INDICATOR */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2"
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-xs tracking-widest text-white/50 uppercase">Scroll</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="h-8 w-[1px] bg-gradient-to-b from-white/50 to-transparent"
+            />
+          </div>
+        </motion.div>
+
+        <style jsx>{`
+          @keyframes heroGradient {
+            0%   { background-position: 0%   50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0%   50%; }
+          }
+          @keyframes sheen {
+            0%   { background-position: 200% 0%; }
+            100% { background-position: -200% 0%; }
+          }
+        `}</style>
       </motion.div>
     </section>
   );

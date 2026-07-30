@@ -43,9 +43,9 @@ export function WhatsAppButton({ variant = 'hero', message, className = '' }: Wh
   }, [message]);
 
   const buttonVariants = {
-    hero: 'rounded-full bg-gold-gradient px-7 py-3 text-base text-navy shadow-gold-glow-lg transition-all hover:shadow-gold-glow',
-    cta: 'rounded-full bg-gold-gradient px-8 py-3 text-base text-navy shadow-gold-glow-lg transition-all hover:shadow-gold-glow sm:w-auto',
-    contact: 'group relative mt-6 w-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#25D366] to-[#128C7E] py-4 text-base font-semibold text-white shadow-lg shadow-[#25D366]/30 transition-all hover:shadow-xl hover:shadow-[#25D366]/40 sm:w-auto',
+    hero: 'group relative rounded-full px-8 py-3.5 text-base font-semibold shadow-lg overflow-hidden',
+    cta: 'group relative rounded-full px-8 py-3 text-base font-semibold shadow-lg overflow-hidden sm:w-auto',
+    contact: 'group relative mt-6 w-full overflow-hidden rounded-2xl py-4 text-base font-semibold shadow-lg sm:w-auto',
   };
 
   return (
@@ -53,16 +53,52 @@ export function WhatsAppButton({ variant = 'hero', message, className = '' }: Wh
       {/* Trigger Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
         className={`${buttonVariants[variant]} ${className}`}
+        style={{
+          background: variant === 'hero' || variant === 'cta'
+            ? 'linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FFEC8B 50%, #FFA500 75%, #FFD700 100%)'
+            : 'linear-gradient(135deg, #25D366 0%, #128C7E 50%, #25D366 100%)',
+          backgroundSize: '200% 200%',
+          animation: variant === 'hero' || variant === 'cta'
+            ? 'shimmerGradient 3s ease-in-out infinite'
+            : 'shimmerGradient 4s ease-in-out infinite',
+          boxShadow: variant === 'hero' || variant === 'cta'
+            ? '0 4px 20px rgba(251, 191, 36, 0.3)'
+            : '0 4px 20px rgba(37, 211, 102, 0.25)',
+        }}
       >
+        {/* Animated sheen overlay */}
+        <span
+          className="absolute inset-0 opacity-40 pointer-events-none"
+          style={{
+            background: 'linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.4) 48%, rgba(255,255,255,0.5) 52%, transparent 70%)',
+            backgroundSize: '200% 100%',
+            animation: 'sheen 2.5s ease-in-out infinite',
+          }}
+        />
         <span className="relative z-10 flex items-center justify-center gap-2">
           <MessageCircle className="h-5 w-5" />
           {variant === 'hero' ? 'Pesan Sekarang' : variant === 'cta' ? 'Hubungi WhatsApp' : 'Chat via WhatsApp'}
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </span>
+
+        {/* Glow ring on hover */}
+        <span className="absolute inset-0 rounded-full border-2 border-gold-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
       </motion.button>
+
+      <style jsx>{`
+        @keyframes shimmerGradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes sheen {
+          0% { background-position: 200% 0%; }
+          100% { background-position: -200% 0%; }
+        }
+      `}</style>
 
       {/* Modal */}
       <AnimatePresence>

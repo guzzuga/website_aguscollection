@@ -39,7 +39,7 @@ export function Navbar() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-500 border-b',
         scrolled
-          ? 'glass-nav border-white/15 bg-white/95 shadow-soft backdrop-blur-2xl dark:bg-white/80 dark:backdrop-blur-2xl'
+          ? 'glass-nav border-white/15 shadow-soft backdrop-blur-2xl bg-white/95 dark:bg-gradient-to-b dark:from-[#3a3a3a] dark:to-[#2a2a2a] dark:border-white/10'
           : 'border-white/10 bg-navy/90 backdrop-blur-2xl dark:bg-gradient-to-b dark:from-[#404040] dark:via-[#383838] dark:to-[#2a2a2a] dark:backdrop-blur-2xl',
       )}
     >

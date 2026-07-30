@@ -179,34 +179,88 @@ export function Navbar() {
               side="right"
               className="w-full max-w-sm border-l-0 p-0 text-white sm:max-w-[85vw]"
             >
-              {/* ── Animated background layers ── */}
+              {/* ── Premium animated background ── */}
               <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 {/* Deep base gradient */}
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f23] via-[#0a0a18] to-[#050510]" />
-                {/* Gold glow orbs — animated */}
+                {/* Gold glow orbs */}
                 <div className="absolute -right-20 -top-24 h-56 w-56 rounded-full bg-amber-500/[0.06] blur-[100px]" style={{ animation: 'sidebarOrb1 6s ease-in-out infinite' }} />
                 <div className="absolute -left-16 bottom-32 h-48 w-48 rounded-full bg-amber-400/[0.04] blur-[80px]" style={{ animation: 'sidebarOrb2 8s ease-in-out infinite' }} />
-                <div className="absolute right-8 top-1/2 h-40 w-40 rounded-full bg-yellow-500/[0.03] blur-[70px]" style={{ animation: 'sidebarOrb3 7s ease-in-out infinite' }} />
-                {/* Subtle gold line beams */}
-                <div className="absolute inset-0 opacity-[0.02]" style={{ background: 'repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(251,191,36,0.03) 60px, rgba(251,191,36,0.03) 61px)' }} />
-                {/* Gold dust particles */}
-                {Array.from({ length: 12 }).map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute rounded-full bg-amber-400"
-                    style={{
-                      width: 1 + (i % 2),
-                      height: 1 + (i % 2),
-                      left: `${10 + (i * 7.3) % 75}%`,
-                      top: `${10 + (i * 8.7) % 70}%`,
-                      opacity: 0.15 + (i % 3) * 0.05,
-                      animation: `sidebarParticle ${3 + (i % 3) * 0.5}s ease-in-out infinite`,
-                      animationDelay: `${(i * 0.3).toFixed(1)}s`,
-                    }}
-                  />
-                ))}
-                {/* Subtle vignette */}
+                {/* Vignette */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.3))]" />
+              </div>
+
+              {/* ── Floating fashion icons (garment + scissors) ── */}
+              <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                {/* Large AC monogram watermark — left side, very faint */}
+                <span
+                  className="absolute left-[-20px] top-1/2 -translate-y-1/2 font-display text-[140px] font-black leading-none opacity-[0.015] text-amber-400 select-none"
+                  style={{ animation: 'sidebarMonogram 8s ease-in-out infinite' }}
+                >
+                  AC
+                </span>
+
+                {/* Shirt icon — top right, drifting */}
+                <svg
+                  className="absolute top-[18%] right-[-8px] w-24 h-24 text-amber-400/[0.08]"
+                  style={{ animation: 'sidebarFloat1 8s ease-in-out infinite' }}
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M16 2l4 4-2.5 2.5L16 6 16 19a2 2 0 0 1-4 0l0-13-1.5 2.5L8 6 4 2l4 4L7.5 2H16z"/>
+                </svg>
+
+                {/* Scissors icon — mid right, counter-drift */}
+                <svg
+                  className="absolute top-[42%] right-[4px] w-20 h-20 text-amber-400/[0.065]"
+                  style={{ animation: 'sidebarFloat2 10s ease-in-out infinite' }}
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M6 2c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2zm6.5-5.5l-1.4 1.4c-.4-.3-.8-.5-1.3-.5-1.4 0-2.5 1.1-2.5 2.5s1.1 2.5 2.5 2.5c.5 0 .9-.2 1.3-.5l1.4 1.4c-.8.6-1.7 1-2.7 1-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5c1 0 1.9.4 2.7 1zM13 4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2V4zm0 14c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2v-4z"/>
+                </svg>
+
+                {/* Shirt icon — lower, slower drift */}
+                <svg
+                  className="absolute bottom-[25%] left-[8px] w-16 h-16 text-amber-300/[0.055]"
+                  style={{ animation: 'sidebarFloat3 12s ease-in-out infinite' }}
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M16 2l4 4-2.5 2.5L16 6 16 19a2 2 0 0 1-4 0l0-13-1.5 2.5L8 6 4 2l4 4L7.5 2H16z"/>
+                </svg>
+
+                {/* Scissors icon — bottom left, counter */}
+                <svg
+                  className="absolute bottom-[38%] left-[24px] w-14 h-14 text-amber-400/[0.06]"
+                  style={{ animation: 'sidebarFloat4 9s ease-in-out infinite' }}
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M6 2c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2s2-.9 2-2v-4c0-1.1-.9-2-2-2zm6.5-5.5l-1.4 1.4c-.4-.3-.8-.5-1.3-.5-1.4 0-2.5 1.1-2.5 2.5s1.1 2.5 2.5 2.5c.5 0 .9-.2 1.3-.5l1.4 1.4c-.8.6-1.7 1-2.7 1-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5c1 0 1.9.4 2.7 1zM13 4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2V4zm0 14c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2h-4c-1.1 0-2-.9-2-2v-4z"/>
+                </svg>
+
+                {/* Shimmer sweep — stronger diagonal */}
+                <div
+                  className="absolute inset-0 opacity-[0.04]"
+                  style={{
+                    background: 'linear-gradient(105deg, transparent 35%, rgba(251,191,36,0.7) 48%, rgba(255,255,255,0.85) 50%, rgba(251,191,36,0.7) 52%, transparent 65%)',
+                    backgroundSize: '300% 100%',
+                    animation: 'sidebarShimmer 5s ease-in-out infinite',
+                  }}
+                />
+                <div
+                  className="absolute inset-0 opacity-[0.025]"
+                  style={{
+                    background: 'linear-gradient(105deg, transparent 35%, rgba(251,191,36,0.7) 48%, rgba(255,255,255,0.85) 50%, rgba(251,191,36,0.7) 52%, transparent 65%)',
+                    backgroundSize: '300% 100%',
+                    animation: 'sidebarShimmer 5s ease-in-out infinite',
+                    animationDelay: '2.5s',
+                  }}
+                />
+                {/* Vertical gold haze streaks */}
+                <div className="absolute top-0 left-1/3 w-px h-full bg-gradient-to-b from-transparent via-amber-400/[0.03] to-transparent" />
+                <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-amber-400/[0.02] to-transparent" />
               </div>
 
               <div className="relative z-10 flex h-full flex-col">
@@ -308,15 +362,35 @@ export function Navbar() {
           0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
           50% { transform: translate(25px, -25px) scale(1.15); opacity: 0.6; }
         }
-        @keyframes sidebarOrb3 {
-          0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
-          50% { transform: translate(-15px, -20px) scale(1.08); opacity: 0.5; }
+        @keyframes sidebarFloat1 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          25% { transform: translate(-8px, 12px) rotate(5deg); }
+          50% { transform: translate(4px, -8px) rotate(-3deg); }
+          75% { transform: translate(-5px, 5px) rotate(2deg); }
         }
-        @keyframes sidebarParticle {
-          0%, 100% { transform: translateY(0) translateX(0); opacity: 0.15; }
-          25% { transform: translateY(-10px) translateX(5px); opacity: 0.3; }
-          50% { transform: translateY(-5px) translateX(-5px); opacity: 0.2; }
-          75% { transform: translateY(-12px) translateX(8px); opacity: 0.35; }
+        @keyframes sidebarFloat2 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          25% { transform: translate(10px, -10px) rotate(-4deg); }
+          50% { transform: translate(-6px, 8px) rotate(3deg); }
+          75% { transform: translate(8px, -4px) rotate(-2deg); }
+        }
+        @keyframes sidebarFloat3 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+          33% { transform: translate(6px, -14px) rotate(8deg) scale(1.05); }
+          66% { transform: translate(-8px, 6px) rotate(-5deg) scale(0.98); }
+        }
+        @keyframes sidebarFloat4 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(-10px, -8px) rotate(-6deg); }
+          66% { transform: translate(7px, 10px) rotate(4deg); }
+        }
+        @keyframes sidebarShimmer {
+          0% { background-position: 300% 0; }
+          100% { background-position: -300% 0; }
+        }
+        @keyframes sidebarMonogram {
+          0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.015; }
+          50% { transform: translateY(-50%) scale(1.03); opacity: 0.025; }
         }
       `}</style>
     </header>

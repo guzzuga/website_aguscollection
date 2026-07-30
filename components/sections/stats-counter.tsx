@@ -44,7 +44,7 @@ function Counter({
 
 export function StatsCounter() {
   return (
-    <section className="relative overflow-hidden bg-navy py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-navy dark:bg-neutral-900 py-20 lg:py-28">
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-20" />
       <div className="pointer-events-none absolute -left-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-gold/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-gold/10 blur-3xl" />

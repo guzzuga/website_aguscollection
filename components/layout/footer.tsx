@@ -26,7 +26,7 @@ const productLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-navy text-slate-300">
+    <footer className="relative overflow-hidden bg-navy dark:bg-neutral-900 text-slate-300 dark:text-neutral-400">
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-30" />
       <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[40rem] -translate-x-1/2 rounded-full bg-gold/10 blur-3xl" />
 
@@ -141,10 +141,10 @@ export function Footer() {
         <div className="gold-divider mt-14" />
 
         <div className="mt-6 flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-500 dark:text-neutral-600">
             &copy; {new Date().getFullYear()} {siteConfig.name}. Hak cipta dilindungi.
           </p>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-slate-500 dark:text-neutral-600">
             Dibuat dengan presisi &mdash; seperti jahitan kami.
           </p>
         </div>

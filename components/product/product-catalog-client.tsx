@@ -60,7 +60,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
   return (
     <div className="pt-24 lg:pt-28">
       {/* Hero header */}
-      <section className="relative overflow-hidden bg-navy py-14 lg:py-20">
+      <section className="relative overflow-hidden bg-navy dark:bg-neutral-900 py-14 lg:py-20">
         <div className="pointer-events-none absolute inset-0 grid-pattern opacity-20" />
         <motion.div
           animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.35, 0.2] }}
@@ -69,7 +69,7 @@ export function ProductCatalogClient({ categories, products, activeCategory: ini
         />
         <div className="container-page relative">
           {/* Breadcrumb */}
-          <nav className="mb-6 flex items-center gap-1.5 text-sm text-slate-400">
+          <nav className="mb-6 flex items-center gap-1.5 text-sm text-slate-400 dark:text-neutral-400">
             <Link href="/" className="transition-colors hover:text-white">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <span className="text-white">Produk</span>

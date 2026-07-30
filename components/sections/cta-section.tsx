@@ -9,7 +9,7 @@ import { fadeUp, staggerContainer } from '@/animations/variants';
 
 export function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-navy py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-navy dark:bg-neutral-900 py-20 lg:py-28">
       {/* Animated background */}
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-20" />
       <motion.div
@@ -59,7 +59,7 @@ export function CTASection() {
 
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-6 max-w-xl text-base leading-[1.7] text-slate-300 text-pretty sm:text-lg"
+            className="mx-auto mt-6 max-w-xl text-base leading-[1.7] text-slate-300 dark:text-neutral-300 text-pretty sm:text-lg"
           >
             Konsultasikan kebutuhan seragam Anda sekarang juga. Tim kami siap
             membantu dari desain hingga produksi — gratis!

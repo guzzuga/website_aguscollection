@@ -1,12 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-
-const defaultTransition = {
-  duration: 0.7,
-  ease: [0.22, 1, 0.36, 1],
-};
+import { useRef, Children, isValidElement, cloneElement } from "react";
+import { useInView } from "framer-motion";
 
 export function RevealItem({
   children,
@@ -22,29 +17,25 @@ export function RevealItem({
   as?: keyof JSX.IntrinsicElements;
 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const isInView = useInView(ref, { once: true, margin: "-40px" });
 
   const distance = 40;
-  const getInitial = () => {
+  const directionOffset = () => {
     switch (direction) {
-      case "up": return { opacity: 0, y: distance };
-      case "down": return { opacity: 0, y: -distance };
-      case "left": return { opacity: 0, x: distance };
-      case "right": return { opacity: 0, x: -distance };
-      default: return { opacity: 0 };
+      case "up": return distance;
+      case "down": return -distance;
+      case "left": return distance;
+      case "right": return -distance;
+      default: return 0;
     }
   };
 
+  const xOffset = direction === "left" || direction === "right" ? directionOffset() : 0;
+  const yOffset = direction === "up" || direction === "down" ? directionOffset() : 0;
+
   return (
-    <Component ref={ref} initial="hidden" animate={isInView ? "visible" : "hidden"} className={className}>
-      <motion.div
-        variants={{
-          hidden: getInitial(),
-          visible: { opacity: 1, y: 0, x: 0, transition: { ...defaultTransition, delay } },
-        }}
-      >
-        {children}
-      </motion.div>
+    <Component ref={ref} className={className} style={{ opacity: isInView ? 1 : 0, transform: isInView ? "none" : `translate(${xOffset}px, ${yOffset}px)`, transition: `opacity 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}s, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${delay}s`, willChange: "transform, opacity" }}>
+      {children}
     </Component>
   );
 }
@@ -62,14 +53,19 @@ export function StaggerContainer({
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={{ hidden: {}, visible: { transition: { staggerChildren: gap } } }}
-      className={className}
-    >
-      {children}
+    <div ref={ref} className={className}>
+      {Children.map(children, (child, i) => {
+        if (!isValidElement(child)) return child;
+        return cloneElement(child as any, {
+          style: {
+            opacity: isInView ? 1 : 0,
+            transform: isInView ? "none" : "translateY(20px)",
+            transition: `opacity 0.6s cubic-bezier(0.22,1,0.36,1) ${(i + 1) * gap}s, transform 0.6s cubic-bezier(0.22,1,0.36,1) ${(i + 1) * gap}s`,
+            willChange: "transform, opacity",
+            ...(child.props.style || {}),
+          } as React.CSSProperties,
+        });
+      })}
     </div>
   );
 }
@@ -82,12 +78,15 @@ export function RevealLine({ className = "", delay = 0 }: {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ width: 0, opacity: 0 }}
-      animate={isInView ? { width: "60px", opacity: 1 } : {}}
-      transition={{ ...defaultTransition, duration: 1, delay }}
       className={`h-[2px] bg-gradient-to-r from-gold-400 via-gold-300 to-transparent ${className}`}
+      style={{
+        width: isInView ? "60px" : "0px",
+        opacity: isInView ? 1 : 0,
+        transition: `width 1s cubic-bezier(0.22,1,0.36,1) ${delay}s, opacity 0.5s ease ${delay}s`,
+        willChange: "width, opacity",
+      }}
     />
   );
 }

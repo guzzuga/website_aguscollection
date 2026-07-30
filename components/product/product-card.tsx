@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 import { Star, ArrowRight } from 'lucide-react';
 import type { Product } from '@/types';
 import { formatRupiah } from '@/utils/format';
@@ -16,17 +16,32 @@ type ProductCardProps = {
 };
 
 export function ProductCard({ product, className, index = 0 }: ProductCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); obs.disconnect(); } },
+      { once: true, threshold: 0.1 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -8 }}
+    <div
+      ref={cardRef}
       className={cn(
         'group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white dark:bg-neutral-800 dark:border-neutral-700 shadow-soft transition-all duration-300 hover:border-gold/40 hover:shadow-soft-xl',
+        'transition-all duration-700 ease-out will-change-transform opacity',
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
         className,
       )}
+      style={{ transitionDelay: `${index * 80}ms` }}
+      onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-8px)')}
+      onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
     >
       <Link href={`/produk/${product.slug}`} className="flex h-full flex-col">
         {/* Image */}
@@ -106,6 +121,6 @@ export function ProductCard({ product, className, index = 0 }: ProductCardProps)
           </div>
         </div>
       </Link>
-    </motion.article>
+    </div>
   );
 }

@@ -178,6 +178,10 @@ export function Navbar() {
             <SheetContent
               side="right"
               className="w-full max-w-sm border-l-0 p-0 text-white sm:max-w-[85vw]"
+              onCloseAutoFocus={(e) => e.preventDefault()}
+              onInteractOutside={(e) => e.preventDefault()}
+              onEscapeKeyDown={(e) => e.preventDefault()}
+              dismissible={false}
             >
               {/* ── Premium animated background ── */}
               <div className="pointer-events-none absolute inset-0 overflow-hidden">

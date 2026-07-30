@@ -68,6 +68,7 @@ function rowToProduct(row: Record<string, unknown>): Product {
     rating: row.rating as number,
     reviewCount: row.review_count as number,
     priceRange: undefined,
+    isFeatured: !!row.is_featured,
   };
 }
 
@@ -95,6 +96,7 @@ function productToRow(p: Partial<Product>) {
   if (p.shopeeUrl !== undefined) row.shopee_url = p.shopeeUrl || null;
   if (p.rating !== undefined) row.rating = p.rating;
   if (p.reviewCount !== undefined) row.review_count = p.reviewCount;
+  row.is_featured = !!p.isFeatured;
 
   return row;
 }

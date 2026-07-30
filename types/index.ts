@@ -52,6 +52,7 @@ export type Product = {
   shopeeUrl?: string;
   educationPricing?: EducationPricing[];
   priceRange?: { min: number; max: number };
+  isFeatured?: boolean;
 };
 
 export type Category = {

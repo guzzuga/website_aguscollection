@@ -45,6 +45,36 @@ export async function PUT(
   return NextResponse.json({ product: rowToProduct(data) });
 }
 
+// PATCH /api/admin/products/[slug] — partial update (e.g. isFeatured toggle)
+export async function PATCH(
+  request: NextRequest,
+  { params }: { params: { slug: string } }
+) {
+  const body = await request.json();
+  const sb = createSupabaseAdmin();
+
+  const patch: Record<string, unknown> = {};
+  if (body.isFeatured !== undefined) patch.is_featured = !!body.isFeatured;
+  if (body.isActive !== undefined) patch.is_active = !!body.isActive;
+
+  if (Object.keys(patch).length === 0) {
+    return NextResponse.json({ error: 'No fields to update' }, { status: 400 });
+  }
+
+  const { data, error } = await sb
+    .from('products')
+    .update(patch)
+    .eq('slug', params.slug)
+    .select()
+    .single();
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json({ product: rowToProduct(data) });
+}
+
 // DELETE /api/admin/products/[slug] — delete product
 export async function DELETE(
   _request: NextRequest,
@@ -91,6 +121,7 @@ function rowToProduct(row: Record<string, unknown>): Product {
     rating: row.rating as number,
     reviewCount: row.review_count as number,
     priceRange: undefined,
+    isFeatured: !!row.is_featured,
   };
 }
 
@@ -116,5 +147,6 @@ function productToRow(p: Partial<Product>) {
   if (p.shopeeUrl !== undefined) row.shopee_url = p.shopeeUrl || null;
   if (p.rating !== undefined) row.rating = p.rating;
   if (p.reviewCount !== undefined) row.review_count = p.reviewCount;
+  row.is_featured = !!p.isFeatured;
   return row;
 }

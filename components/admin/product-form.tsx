@@ -685,6 +685,27 @@ export function ProductForm({ mode, initialData }: ProductFormProps) {
         <section className="bg-slate-900/50 rounded-xl border border-slate-800 p-6">
           <h3 className="text-sm font-semibold text-gold uppercase tracking-wider mb-4">Pengaturan Tambahan</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Featured Toggle */}
+            <div className="flex items-center justify-between bg-slate-800/50 rounded-lg px-4 py-3">
+              <div>
+                <label className="text-sm font-medium text-white">Tampilkan di Home Page</label>
+                <p className="text-xs text-slate-500 mt-0.5">Produk ini akan muncul di bagian "Produk Unggulan"</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setProduct({ ...product, isFeatured: !product.isFeatured })}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                  product.isFeatured ? 'bg-gold-gradient' : 'bg-slate-700'
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                    product.isFeatured ? 'translate-x-6' : 'translate-x-1'
+                  }`}
+                />
+              </button>
+            </div>
+
             <div>
               <label className={labelClass}>Badge (opsional)</label>
               <input

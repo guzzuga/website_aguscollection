@@ -64,7 +64,7 @@ export default function ContactPage() {
       />
       <div className="pt-24 lg:pt-28">
         {/* Header */}
-        <section className="relative overflow-hidden bg-navy py-16 lg:py-20">
+        <section className="relative overflow-hidden bg-navy dark:bg-gradient-to-b dark:from-[#2a2a2a] dark:via-[#252525] dark:to-[#1a1a1a] py-16 lg:py-20">
           <div className="pointer-events-none absolute inset-0 grid-pattern opacity-20" />
           <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-gold/15 blur-[100px]" />
           <div className="container-page relative text-center">
@@ -89,11 +89,10 @@ export default function ContactPage() {
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
               {/* Left — contact info + map */}
               <div className="flex flex-col">
-                <h2 className="text-2xl font-bold tracking-tight text-navy">
-                  Informasi Kontak
+                <h2 className="text-2xl font-bold tracking-tight text-navy dark:text-white">
                 </h2>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                  Hubungi kami melalui channel berikut atau kunjungi workshop kami
+                <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-neutral-400">
+                Hubungi kami melalui channel berikut atau kunjungi workshop kami
                   langsung.
                 </p>
 
@@ -101,22 +100,22 @@ export default function ContactPage() {
                   {contactItems.map((item) => (
                     <div
                       key={item.label}
-                      className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-soft transition-all hover:border-gold/30 hover:shadow-soft-lg"
+                      className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white dark:bg-neutral-800 dark:border-neutral-700 p-5 shadow-soft transition-all hover:border-gold/30 hover:shadow-soft-lg"
                     >
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy text-gold-300">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy dark:bg-neutral-600 text-gold-300 dark:text-gold-300">
                         <item.icon className="h-5 w-5" />
                       </span>
                       <div>
-                        <p className="label-eyebrow text-slate-500">{item.label}</p>
+                        <p className="label-eyebrow text-slate-500 dark:text-neutral-400">{item.label}</p>
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="mt-1 block font-semibold text-navy transition-colors hover:text-gold-700"
+                            className="mt-1 block font-semibold text-navy dark:text-white transition-colors hover:text-gold-700 dark:hover:text-gold-300"
                           >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="mt-1 font-semibold text-navy">{item.value}</p>
+                          <p className="mt-1 font-semibold text-navy dark:text-white">{item.value}</p>
                         )}
                       </div>
                     </div>
@@ -127,7 +126,7 @@ export default function ContactPage() {
                 <WhatsAppAdminSelector />
 
                 {/* Map */}
-                <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 shadow-soft">
+                <div className="mt-8 overflow-hidden rounded-2xl border border-slate-200 dark:border-neutral-700 shadow-soft">
                   <iframe
                     title="Lokasi Agus Collection"
                     src="https://www.google.com/maps?q=-7.4063689,112.4104139&z=18&output=embed"
@@ -138,12 +137,12 @@ export default function ContactPage() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
-                  <div className="border-t border-slate-200 bg-slate-50 px-6 py-4">
+                  <div className="border-t border-slate-200 bg-slate-50 dark:bg-neutral-900 px-6 py-4">
                     <a
                       href="https://maps.app.goo.gl/Lovh7wxdbk6cg3248"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-navy transition-colors hover:text-gold-700"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-navy dark:text-white transition-colors hover:text-gold-700 dark:hover:text-gold-300"
                     >
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -155,11 +154,11 @@ export default function ContactPage() {
               </div>
 
               {/* Right — form */}
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft-lg sm:p-8 lg:p-10">
-                <h2 className="text-2xl font-bold tracking-tight text-navy">
+              <div className="rounded-3xl border border-slate-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 p-6 shadow-soft-lg sm:p-8 lg:p-10">
+                <h2 className="text-2xl font-bold tracking-tight text-navy dark:text-white">
                   Kirim Pesanan
                 </h2>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-neutral-400">
                   Isi form di bawah ini. Semua field bertanda <span className="text-error">*</span> wajib diisi.
                 </p>
                 <div className="mt-8">

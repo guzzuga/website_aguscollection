@@ -78,17 +78,17 @@ export function WhatsAppAdminSelector() {
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="relative w-full max-w-md rounded-3xl bg-white p-5 sm:p-6 shadow-2xl my-auto"
+                className="relative w-full max-w-md rounded-3xl bg-white dark:bg-neutral-800 p-5 sm:p-6 shadow-2xl my-auto"
               >
                 {/* Header */}
                 <div className="mb-5 flex items-start justify-between gap-3">
                   <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl font-bold text-navy">Pilih Admin</h3>
-                    <p className="mt-1 text-xs sm:text-sm text-slate-500">Silakan pilih admin yang ingin dihubungi</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-navy dark:text-white">Pilih Admin</h3>
+                    <p className="mt-1 text-xs sm:text-sm text-slate-500 dark:text-neutral-400">Silakan pilih admin yang ingin dihubungi</p>
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500 transition-colors hover:bg-slate-200 hover:text-navy"
+                    className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 dark:bg-neutral-700 text-slate-500 dark:text-neutral-400 transition-colors hover:bg-slate-200 dark:hover:bg-neutral-600 hover:text-navy dark:hover:text-white"
                   >
                     <X className="h-4 w-4 sm:h-5 sm:w-5" />
                   </button>
@@ -102,7 +102,7 @@ export function WhatsAppAdminSelector() {
                       href={getWhatsAppLink(admin.number)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-r from-white to-slate-50 p-3 sm:p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#25D366]/40 hover:shadow-lg hover:shadow-[#25D366]/10"
+                      className="group relative overflow-hidden rounded-2xl border border-slate-200 dark:border-neutral-700 bg-gradient-to-r from-white dark:from-neutral-700 to-slate-50 dark:to-neutral-800 p-3 sm:p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#25D366]/40 hover:shadow-lg hover:shadow-[#25D366]/10"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       {/* Hover gradient */}
@@ -123,15 +123,15 @@ export function WhatsAppAdminSelector() {
                         {/* Info */}
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
-                            <h4 className="font-bold text-navy group-hover:text-[#25D366] transition-colors text-sm sm:text-base">
+                            <h4 className="font-bold text-navy dark:text-white group-hover:text-[#25D366] transition-colors text-sm sm:text-base">
                               {admin.name}
                             </h4>
                             <span className="rounded-full bg-[#25D366]/10 px-2 py-0.5 text-[10px] font-semibold text-[#25D366] whitespace-nowrap">
                               {admin.badge}
                             </span>
                           </div>
-                          <p className="mt-0.5 text-xs sm:text-sm text-slate-600">{admin.label}</p>
-                          <p className="mt-1 text-xs text-slate-400 font-mono">
+                          <p className="mt-0.5 text-xs sm:text-sm text-slate-600 dark:text-neutral-300">{admin.label}</p>
+                          <p className="mt-1 text-xs text-slate-400 dark:text-neutral-500 font-mono">
                             +{admin.number.replace(/^62/, '62 ')}
                           </p>
                         </div>
@@ -146,9 +146,9 @@ export function WhatsAppAdminSelector() {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-slate-50 p-2.5 sm:p-3">
+                <div className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-slate-50 dark:bg-neutral-800 p-2.5 sm:p-3">
                   <Shield className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#25D366] shrink-0" />
-                  <p className="text-[10px] sm:text-xs text-slate-500 text-center">
+                  <p className="text-[10px] sm:text-xs text-slate-500 dark:text-neutral-400 text-center">
                     Fast Response • Senin-Sabtu, 08.00-17.00 WIB
                   </p>
                 </div>

@@ -80,7 +80,7 @@ export function Navbar() {
           <span
             className={cn(
               'font-display text-lg font-extrabold tracking-tight transition-colors',
-              scrolled ? 'text-navy' : 'text-white',
+              scrolled ? 'text-navy dark:text-white' : 'text-white',
             )}
           >
             Agus
@@ -102,7 +102,7 @@ export function Navbar() {
                 className={cn(
                   'group relative px-4 py-2 text-sm font-medium transition-all duration-300',
                   scrolled
-                    ? 'text-slate-700 hover:text-navy'
+                    ? 'text-slate-700 dark:text-slate-300 hover:text-navy dark:hover:text-white'
                     : 'text-slate-200 hover:text-white',
                 )}
               >

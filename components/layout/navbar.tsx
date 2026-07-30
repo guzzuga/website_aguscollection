@@ -38,16 +38,26 @@ export function Navbar() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-500 border-b',
+        // Light theme: original styling
         scrolled
           ? 'bg-white/95 shadow-soft backdrop-blur-2xl border-white/15'
-          : 'bg-navy/90 backdrop-blur-2xl border-white/10'
+          : 'bg-navy/90 backdrop-blur-2xl border-white/10',
+        // Dark theme: glass abu gelap → abu terang
+        'dark:bg-[#1a1a1a]/80 dark:backdrop-blur-xl dark:border-white/[0.06]',
+        scrolled
+          ? 'dark:bg-[#2a2a2a]/90 dark:border-white/[0.1] dark:shadow-[0_1px_0_rgba(255,255,255,0.04)]'
+          : 'dark:shadow-none',
       )}
     >
       {/* Active indicator line — dark mode only */}
       <div
         className={cn(
-          'absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/40 to-transparent transition-opacity duration-500',
-          scrolled ? 'opacity-100 dark:opacity-100' : 'opacity-0 dark:opacity-100',
+          'absolute bottom-0 left-0 right-0 h-px transition-opacity duration-500',
+          'dark:bg-gradient-to-r dark:from-transparent dark:via-gold-400/25 dark:to-transparent dark:opacity-100',
+          'bg-gradient-to-r from-transparent via-gold-400/40 to-transparent',
+          scrolled
+            ? 'opacity-100'
+            : 'opacity-0 dark:opacity-100',
         )}
       />
       <nav className="container-page flex h-16 items-center justify-between lg:h-20">
@@ -59,7 +69,11 @@ export function Navbar() {
         >
           <span
             className={cn(
-              'relative flex h-9 w-9 items-center justify-center rounded-xl border-2 border-gold/40 bg-white/90 shadow-gold-glow transition-all duration-500 group-hover:scale-110 group-hover:shadow-gold-glow-lg',
+              'relative flex h-9 w-9 items-center justify-center rounded-xl transition-all duration-500 group-hover:scale-110',
+              // Light theme: original
+              'border-2 border-gold/40 bg-white/90 shadow-gold-glow group-hover:shadow-gold-glow-lg',
+              // Dark theme: glass abu
+              'dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none dark:group-hover:bg-white/[0.08]',
             )}
           >
             {/* Shine effect — dark mode only */}
@@ -80,11 +94,15 @@ export function Navbar() {
           <span
             className={cn(
               'font-display text-lg font-extrabold tracking-tight transition-colors',
-              scrolled ? 'text-navy' : 'text-white'
+              // Light theme
+              scrolled ? 'text-navy' : 'text-white',
+              // Dark theme
+              'dark:text-white',
+              scrolled ? 'dark:text-white' : '',
             )}
           >
             Agus
-            <span className="text-gold-600"> Collection</span>
+            <span className={cn('text-gold-600', 'dark:text-amber-400/90')}> Collection</span>
           </span>
         </Link>
 
@@ -101,9 +119,12 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   'group relative px-4 py-2 text-sm font-medium transition-all duration-300',
+                  // Light theme
                   scrolled
                     ? 'text-slate-700 hover:text-navy'
-                    : 'text-slate-200 hover:text-white'
+                    : 'text-slate-200 hover:text-white',
+                  // Dark theme
+                  'dark:text-white/60 dark:hover:text-white dark:hover:bg-white/[0.04]',
                 )}
               >
                 {link.label}
@@ -118,6 +139,8 @@ export function Navbar() {
                   className={cn(
                     'absolute inset-x-4 -bottom-0.5 h-0.5 origin-left rounded-full',
                     'bg-gradient-to-r from-gold-400 to-gold-600',
+                    // Dark theme: subtle gold underline
+                    'dark:bg-gradient-to-r dark:from-gold-400/60 dark:to-gold-400/40',
                   )}
                 />
               </Link>
@@ -140,7 +163,13 @@ export function Navbar() {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <button
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-neutral-600 bg-white/80 dark:bg-neutral-700/80 text-navy dark:text-white backdrop-blur transition-colors hover:bg-slate-50 dark:hover:bg-neutral-600"
+                className={cn(
+                  'flex h-10 w-10 items-center justify-center rounded-xl border transition-colors backdrop-blur hover:bg-slate-50',
+                  // Light theme
+                  'border-slate-200 bg-white/80 text-navy',
+                  // Dark theme
+                  'dark:border-white/10 dark:bg-white/[0.04] dark:text-white dark:hover:bg-white/[0.08]',
+                )}
                 aria-label="Buka menu"
               >
                 <Menu className="h-5 w-5" />
@@ -148,27 +177,47 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-full max-w-sm border-l-0 bg-navy dark:bg-gradient-to-b dark:from-[#3a3a3a] dark:to-[#2a2a2a] p-0 text-white"
+              className={cn(
+                'w-full max-w-sm border-l-0 p-0 text-white',
+                // Light theme
+                'bg-navy border-white/10',
+                // Dark theme
+                'dark:border-white/[0.06] dark:bg-gradient-to-b dark:from-[#1e1e1e] dark:to-[#161616]',
+              )}
             >
               <div className="flex h-full flex-col">
-                <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
+                <div className={cn(
+                  'flex items-center justify-between px-6 py-5 border-b',
+                  'border-white/10',
+                  'dark:border-white/[0.06]',
+                )}>
                   <span className="flex items-center gap-2 text-lg font-extrabold">
-                    <span className="relative flex h-8 w-8 items-center justify-center rounded-lg border-2 border-gold/40 bg-white/90">
-                                        <Image
-                                          src="/images/logo.jpg"
-                                          alt="Agus Collection Logo"
-                                          fill
-                                          className="object-contain p-0.5"
-                                          sizes="32px"
-                                        />
-                                      </span>
-                    Agus <span className="text-gold-400">Collection</span>
+                    <span className={cn(
+                      'relative flex h-8 w-8 items-center justify-center rounded-lg p-0.5',
+                      // Light theme
+                      'border-2 border-gold/40 bg-white/90',
+                      // Dark theme
+                      'dark:border-white/10 dark:bg-white/[0.04]',
+                    )}>
+                      <Image
+                        src="/images/logo.jpg"
+                        alt="Agus Collection Logo"
+                        fill
+                        className="object-contain"
+                        sizes="32px"
+                      />
+                    </span>
+                    Agus <span className={cn('text-gold-400', 'dark:text-amber-400')}>Collection</span>
                   </span>
                   <div className="flex items-center gap-2">
                     <ThemeToggle />
                     <SheetClose asChild>
                       <button
-                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-white/80 transition-colors hover:bg-white/10"
+                        className={cn(
+                          'flex h-9 w-9 items-center justify-center rounded-lg border transition-colors',
+                          'border-white/10 text-white/80 hover:bg-white/10',
+                          'dark:border-white/[0.08] dark:hover:bg-white/[0.08]',
+                        )}
                         aria-label="Tutup menu"
                       >
                         <X className="h-5 w-5" />
@@ -187,22 +236,35 @@ export function Navbar() {
                     >
                       <Link
                         href={link.href}
-                        className="flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-white"
+                        className={cn(
+                          'flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors',
+                          // Light theme
+                          'text-slate-200 hover:bg-white/5 hover:text-white',
+                          // Dark theme
+                          'dark:text-white/60 dark:hover:bg-white/[0.04] dark:hover:text-white',
+                        )}
                       >
                         {link.label}
-                        <span className="text-gold-400">→</span>
+                        <span className={cn('text-gold-400', 'dark:text-amber-400')}>→</span>
                       </Link>
                     </motion.div>
                   ))}
                 </div>
 
-                <div className="border-t border-white/10 p-6">
+                <div className={cn('p-6 border-t',
+                  'border-white/10',
+                  'dark:border-white/[0.06]',
+                )}>
                   <WhatsAppButton 
                     variant="hero" 
                     message={`Halo ${siteConfig.name}, saya ingin konsultasi pemesanan.`}
                     className="!w-full !rounded-full !bg-gold-gradient !text-navy !shadow-gold-glow"
                   />
-                  <p className="mt-4 text-center text-xs text-slate-400">
+                  <p className={cn(
+                    'mt-4 text-center text-xs',
+                    'text-slate-400',
+                    'dark:text-white/40',
+                  )}>
                     {siteConfig.hours}
                   </p>
                 </div>

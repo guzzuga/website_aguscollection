@@ -37,29 +37,39 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-500 border-b',
+        'fixed inset-x-0 top-0 z-50 transition-all duration-500',
         // Light theme: original styling
         scrolled
-          ? 'bg-white/95 shadow-soft backdrop-blur-2xl border-white/15'
-          : 'bg-navy/90 backdrop-blur-2xl border-white/10',
-        // Dark theme: glass abu gelap → abu terang
-        'dark:bg-[#1a1a1a]/80 dark:backdrop-blur-xl dark:border-white/[0.06]',
+          ? 'bg-white/95 shadow-soft backdrop-blur-2xl border-b border-white/15'
+          : 'bg-navy/90 backdrop-blur-2xl border-b border-white/10',
+        // Dark theme: macOS-style glass — pure black transparent, blur-xl, no solid fill
+        'dark:border-b dark:border-white/[0.04]',
         scrolled
-          ? 'dark:bg-[#2a2a2a]/90 dark:border-white/[0.1] dark:shadow-[0_1px_0_rgba(255,255,255,0.04)]'
-          : 'dark:shadow-none',
+          ? 'dark:bg-[#000000]/60 dark:backdrop-blur-2xl dark:shadow-[0_1px_0_rgba(255,255,255,0.03)]'
+          : 'dark:bg-[#000000]/30 dark:backdrop-blur-xl dark:shadow-none',
       )}
     >
       {/* Active indicator line — dark mode only */}
       <div
         className={cn(
           'absolute bottom-0 left-0 right-0 h-px transition-opacity duration-500',
-          'dark:bg-gradient-to-r dark:from-transparent dark:via-gold-400/25 dark:to-transparent dark:opacity-100',
+          'dark:bg-gradient-to-r dark:from-transparent dark:via-gold-400/30 dark:to-transparent dark:opacity-100',
           'bg-gradient-to-r from-transparent via-gold-400/40 to-transparent',
           scrolled
             ? 'opacity-100'
             : 'opacity-0 dark:opacity-100',
         )}
       />
+      {/* Noise texture overlay — dark mode only */}
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-[0.015] mix-blend-overlay dark:block">
+        <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+          <filter id="navbarNoise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#navbarNoise)" />
+        </svg>
+      </div>
       <nav className="container-page flex h-16 items-center justify-between lg:h-20">
         {/* Logo */}
         <Link

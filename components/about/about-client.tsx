@@ -9,11 +9,13 @@ import {
   Heart,
   Target,
   Eye,
+  Play,
 } from 'lucide-react';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { StatsCounter } from '@/components/sections/stats-counter';
 import { CTASection } from '@/components/sections/cta-section';
 import { fadeUp, staggerContainer, viewportOnce } from '@/animations/variants';
+import { RevealItem, RevealLine } from '@/components/shared/scroll-reveal';
 
 const milestones = [
   { year: '2010', title: 'Awal Mula', description: 'Berdiri sebagai workshop kecil di Mojokerto, Jawa Timur dengan tekad kuat melayani kebutuhan seragam lokal.' },
@@ -236,7 +238,67 @@ export function AboutClient() {
         </div>
       </section>
 
-      {/* Gallery */}
+      {/* Gallery Video — luxury hero banner */}
+      <div className="py-6 lg:py-8">
+        <div className="container-page">
+          <RevealItem>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative overflow-hidden rounded-3xl border border-slate-200 dark:border-neutral-700 shadow-soft-lg"
+            >
+              {/* Video */}
+              <div className="relative aspect-[16/9] w-full bg-black lg:aspect-[21/9]">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="absolute inset-0 h-full w-full object-cover"
+                >
+                  <source src="/videos/hero-mobile-2.mp4" type="video/mp4" />
+                </video>
+
+                {/* Gradient overlays */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/30" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+                {/* Play button overlay */}
+                <motion.div
+                  className="pointer-events-none absolute inset-0 flex items-center justify-center"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                >
+                  <motion.div
+                    className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-md sm:h-20 sm:w-20"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <Play className="h-7 w-7 text-white/80 sm:h-8 sm:w-8 ml-0.5" fill="currentColor" />
+                  </motion.div>
+                </motion.div>
+
+                {/* Luxury label */}
+                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between sm:bottom-6 sm:left-6 sm:right-6">
+                  <div>
+                    <span className="inline-block rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium tracking-widest text-white/80 uppercase backdrop-blur-sm">
+                      Behind The Scenes
+                    </span>
+                  </div>
+                  <span className="text-xs text-white/40 hidden sm:block">Workshop Produksi</span>
+                </div>
+              </div>
+            </motion.div>
+          </RevealItem>
+        </div>
+      </div>
+
+      {/* Gallery Photo Grid */}
       <section className="py-20 lg:py-28">
         <div className="container-page">
           <SectionHeading

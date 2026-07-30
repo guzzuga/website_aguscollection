@@ -258,21 +258,7 @@ export function Navbar() {
                     </span>
                     Agus <span className={cn('text-gold-400', 'dark:text-amber-400')}>Collection</span>
                   </span>
-                  <div className="flex items-center gap-2">
-                    <ThemeToggle />
-                    <SheetClose asChild>
-                      <button
-                        className={cn(
-                          'flex h-9 w-9 items-center justify-center rounded-lg border transition-colors',
-                          'border-white/10 text-white/80 hover:bg-white/10',
-                          'dark:border-white/[0.08] dark:hover:bg-white/[0.08]',
-                        )}
-                        aria-label="Tutup menu"
-                      >
-                        <X className="h-5 w-5" />
-                      </button>
-                    </SheetClose>
-                  </div>
+                  <ThemeToggle />
                 </div>
 
                 <div className="flex flex-1 flex-col gap-1 px-4 py-6">

@@ -94,10 +94,10 @@
     @apply text-xs font-semibold uppercase tracking-ultra-wide;
   }
   .heading-gradient {
-    @apply bg-gradient-to-br from-navy via-navy-600 to-navy-800 bg-clip-text text-transparent dark:from-white dark:via-neutral-200 dark:to-neutral-400 dark:bg-clip-text;
+    @apply bg-gradient-to-br from-navy via-navy-600 to-navy-800 bg-clip-text text-transparent dark:text-white dark:bg-clip-text;
   }
   .heading-gradient-gold {
-    @apply bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent dark:from-gold-300 dark:via-gold-400 dark:to-gold-500 dark:bg-clip-text;
+    @apply bg-gradient-to-br from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent dark:text-gold dark:bg-clip-text;
   }
   .glass-card {
     @apply border border-white/10 bg-white/5 backdrop-blur-xl;

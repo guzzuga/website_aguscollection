@@ -84,7 +84,7 @@ export function Navbar() {
               className="dark:hidden"
             />
             <Image
-              src="/images/logo.jpg"
+              src="/logo-loading.png"
               alt="Agus Collection Logo"
               fill
               className="object-contain p-0.5"
@@ -200,7 +200,7 @@ export function Navbar() {
                       'dark:border-white/10 dark:bg-white/[0.04]',
                     )}>
                       <Image
-                        src="/images/logo.jpg"
+                        src="/logo-loading.png"
                         alt="Agus Collection Logo"
                         fill
                         className="object-contain"

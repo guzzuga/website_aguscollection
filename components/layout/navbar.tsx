@@ -177,15 +177,39 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className={cn(
-                'w-full max-w-sm border-l-0 p-0 text-white',
-                // Light theme
-                'bg-navy border-white/10',
-                // Dark theme
-                'dark:border-white/[0.06] dark:bg-gradient-to-b dark:from-[#1e1e1e] dark:to-[#161616]',
-              )}
+              className="w-full max-w-sm border-l-0 p-0 text-white sm:max-w-[85vw]"
             >
-              <div className="flex h-full flex-col">
+              {/* ── Animated background layers ── */}
+              <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                {/* Deep base gradient */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f23] via-[#0a0a18] to-[#050510]" />
+                {/* Gold glow orbs — animated */}
+                <div className="absolute -right-20 -top-24 h-56 w-56 rounded-full bg-amber-500/[0.06] blur-[100px]" style={{ animation: 'sidebarOrb1 6s ease-in-out infinite' }} />
+                <div className="absolute -left-16 bottom-32 h-48 w-48 rounded-full bg-amber-400/[0.04] blur-[80px]" style={{ animation: 'sidebarOrb2 8s ease-in-out infinite' }} />
+                <div className="absolute right-8 top-1/2 h-40 w-40 rounded-full bg-yellow-500/[0.03] blur-[70px]" style={{ animation: 'sidebarOrb3 7s ease-in-out infinite' }} />
+                {/* Subtle gold line beams */}
+                <div className="absolute inset-0 opacity-[0.02]" style={{ background: 'repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(251,191,36,0.03) 60px, rgba(251,191,36,0.03) 61px)' }} />
+                {/* Gold dust particles */}
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute rounded-full bg-amber-400"
+                    style={{
+                      width: 1 + (i % 2),
+                      height: 1 + (i % 2),
+                      left: `${10 + (i * 7.3) % 75}%`,
+                      top: `${10 + (i * 8.7) % 70}%`,
+                      opacity: 0.15 + (i % 3) * 0.05,
+                      animation: `sidebarParticle ${3 + (i % 3) * 0.5}s ease-in-out infinite`,
+                      animationDelay: `${(i * 0.3).toFixed(1)}s`,
+                    }}
+                  />
+                ))}
+                {/* Subtle vignette */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.3))]" />
+              </div>
+
+              <div className="relative z-10 flex h-full flex-col">
                 <div className={cn(
                   'flex items-center justify-between px-6 py-5 border-b',
                   'border-white/10',
@@ -273,6 +297,28 @@ export function Navbar() {
           </Sheet>
         </div>
       </nav>
+
+      {/* ── Sidebar mobile animations ── */}
+      <style jsx global>{`
+        @keyframes sidebarOrb1 {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+          50% { transform: translate(-20px, 30px) scale(1.1); opacity: 0.7; }
+        }
+        @keyframes sidebarOrb2 {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+          50% { transform: translate(25px, -25px) scale(1.15); opacity: 0.6; }
+        }
+        @keyframes sidebarOrb3 {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+          50% { transform: translate(-15px, -20px) scale(1.08); opacity: 0.5; }
+        }
+        @keyframes sidebarParticle {
+          0%, 100% { transform: translateY(0) translateX(0); opacity: 0.15; }
+          25% { transform: translateY(-10px) translateX(5px); opacity: 0.3; }
+          50% { transform: translateY(-5px) translateX(-5px); opacity: 0.2; }
+          75% { transform: translateY(-12px) translateX(8px); opacity: 0.35; }
+        }
+      `}</style>
     </header>
   );
 }

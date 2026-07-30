@@ -1,8 +1,7 @@
+// Server component: fetch featured products from Supabase
 import { createSupabaseClient } from '@/lib/supabase';
 import { ProductCard } from '@/components/product/product-card';
-import type { Product } from '@/types';
 
-// Server component: fetch featured products from Supabase
 export default async function FeaturedProductsServer() {
   try {
     const sb = createSupabaseClient();
@@ -15,13 +14,13 @@ export default async function FeaturedProductsServer() {
       .limit(8);
 
     if (!error && data && data.length > 0) {
-      const products: Product[] = data.map((row: Record<string, unknown>) => ({
+      const products = data.map((row: Record<string, unknown>) => ({
         slug: row.slug as string,
         name: row.name as string,
-        category: row.category as Product['category'],
-        categoryLabel: row.category_label as string,
-        shortDescription: row.short_description as string,
-        description: row.description as string,
+        category: row.category as string,
+        categoryLabel: (row.category_label as string) || '',
+        shortDescription: (row.short_description as string) || '',
+        description: (row.description as string) || '',
         images: Array.isArray(row.images)
           ? (row.images as string[])
           : typeof row.images === 'string'
@@ -39,50 +38,21 @@ export default async function FeaturedProductsServer() {
         rating: row.rating as number,
         reviewCount: row.review_count as number,
         priceRange: undefined,
+        isFeatured: !!row.is_featured,
       }));
 
-      if (products.length > 0) {
-        return (
-          <>
-            {products.map((product, i) => (
-              <ProductCard key={product.slug} product={product} index={i} />
-            ))}
-          </>
-        );
-      }
+      return (
+        <>
+          {products.map((product, i) => (
+            <ProductCard key={product.slug} product={product} index={i} />
+          ))}
+        </>
+      );
     }
   } catch {
-    // Supabase not configured — fall through to static products below
+    // Supabase not configured or query failed — show nothing
   }
 
-  // Fallback: use static featured products from constants
-  const { products } = await import('@/constants/products');
-  const HIDDEN = [
-    'polo-shirt-lacoste',
-    'polo-shirt-drifit',
-    'jaket-bomber',
-    'bahan-katun-combed',
-    'bahan-katun-combed-30s',
-    'kaos-custom-combed',
-    'bahan-serge-drill',
-    'celana-sekolah',
-    'jas-labschool',
-    'dompet-sekolah',
-    'tali-nama-sekolah',
-    'sabuk-sekolah',
-    'jilbab-sekolah',
-    'rok-mermaid-highwaist-premium',
-    'rok-mermaid-satin-premium-luxury',
-    'celana-cutbray-highwaist-korean',
-    'celana-cutbray-denim-premium',
-  ];
-  const featured = products.filter(p => !HIDDEN.includes(p.slug));
-
-  return (
-    <>
-      {featured.map((product, i) => (
-        <ProductCard key={product.slug} product={product} index={i} />
-      ))}
-    </>
-  );
+  // No featured products found
+  return null;
 }

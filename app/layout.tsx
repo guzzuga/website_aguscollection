@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/footer';
 import { WhatsAppFloatingButton } from '@/components/layout/whatsapp-floating-button';
 import { LoadingProvider } from '@/components/loading-provider';
 import { ThemeProvider } from '@/components/theme/theme-provider';
+import SmoothScroll from '@/components/shared/smooth-scroll';
 import { cn } from '@/lib/utils';
 
 const inter = Inter({
@@ -114,7 +115,9 @@ export default function RootLayout({
         <ThemeProvider>
           <LoadingProvider>
             <Navbar />
-            <main className="relative">{children}</main>
+            <SmoothScroll>
+              <main className="relative">{children}</main>
+            </SmoothScroll>
             <Footer />
             <WhatsAppFloatingButton />
           </LoadingProvider>

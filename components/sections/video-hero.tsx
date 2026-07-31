@@ -76,9 +76,11 @@ export default function VideoHero({
       <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
 
       {/* === BRAND TITLE — FIXED at top, desktop only (no parallax) === */}
-      <div className="hidden sm:flex absolute left-0 top-0 z-20 w-full items-center justify-center pt-[16vh] md:pt-[14vh] lg:pt-[13vh]">
+      <div className="hidden sm:block absolute left-0 top-0 z-30 w-full">
         <div
+          className="flex justify-center"
           style={{
+            paddingTop: '18vh',
             animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
           }}
         >

@@ -30,12 +30,13 @@ export default function VideoHero({
   const mobileRef = useRef<HTMLElement>(null);
   const desktopRef = useRef<HTMLElement>(null);
 
-  /* ─── Mobile scroll tracking (targets mobile section) ─── */
+  /* ─── Mobile scroll tracking — wider range for smoother, more noticeable fade ─── */
   const { scrollYProgress: mobileProgress } = useScroll({
     target: mobileRef,
     offset: ["start start", "end start"],
   });
-  const mobileFade = useTransform(mobileProgress, [0, 0.5], [1, 0]);
+  const mobileFade = useTransform(mobileProgress, [0, 0.35], [1, 0]);
+  const mobileY = useTransform(mobileProgress, [0, 0.35], [0, 20]);
 
   /* ─── Desktop scroll tracking (targets desktop section) ─── */
   const { scrollYProgress: desktopProgress } = useScroll({
@@ -172,9 +173,10 @@ export default function VideoHero({
         <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-        {/* Content — fade on scroll */}
+        {/* Content — fade + parallax on scroll */}
         <motion.div
-          style={{ opacity: mobileFade }}
+          style={{ opacity: mobileFade, y: mobileY }}
+          transition={{ opacity: { duration: 0.3, ease: "easeOut" }, y: { duration: 0.4, ease: "easeOut" } }}
           className="relative z-20 flex h-full flex-col items-center justify-center gap-3 overflow-y-auto px-6 text-center py-20"
         >
           <div className="mb-4 flex-shrink-0">

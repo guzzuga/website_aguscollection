@@ -117,18 +117,18 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
           }}
         />
 
-        {/* ---- glassmorphism pill — more visible on video bg ---- */}
+        {/* ---- glassmorphism pill — very transparent (for clean pre-scroll look) ---- */}
         <div
           className="relative overflow-hidden"
           style={{
             background:
-              "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 45%, rgba(255,255,255,0.08) 100%)",
+              "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 45%, rgba(255,255,255,0.05) 100%)",
             backdropFilter: "blur(40px) saturate(1.5)",
             WebkitBackdropFilter: "blur(40px) saturate(1.5)",
-            border: "1px solid rgba(255,255,255,0.18)",
+            border: "1px solid rgba(255,255,255,0.10)",
             borderRadius: 20,
             boxShadow:
-              "0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(0,0,0,0.2)",
+              "0 4px 24px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(0,0,0,0.15)",
             padding: "15px 34px",
             animation: "lgFloat 5s ease-in-out infinite",
           }}

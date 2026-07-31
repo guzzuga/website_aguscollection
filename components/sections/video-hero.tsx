@@ -1,20 +1,13 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { ArrowRight } from "lucide-react";
 import {
   motion,
   useScroll,
   useTransform,
-  useInView,
 } from "framer-motion";
-import { Orbitron } from "next/font/google";
-
-const orbitron = Orbitron({
-  subsets: ["latin"],
-  weight: ["700", "800", "900"],
-  variable: "--font-orbitron",
-});
+import LiquidGlassTitle from "@/components/ui/liquid-glass-title";
 
 interface VideoHeroProps {
   mobileVideo: string;
@@ -94,66 +87,21 @@ export default function VideoHero({
             animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
           }}
         >
-          <div
-            className="relative inline-block rounded-[20px]"
-            style={{
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.08) 100%)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255,255,255,0.12)',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 60px rgba(251,191,36,0.08), inset 0 1px 0 rgba(255,255,255,0.1)',
-              padding: '14px 32px',
-            }}
-          >
-            {/* Metallic gold shine sweep */}
-            <div
-              className="pointer-events-none absolute inset-0 rounded-[20px] overflow-hidden"
-              style={{
-                background: 'linear-gradient(105deg, transparent 20%, rgba(255,215,0,0.15) 45%, rgba(255,255,255,0.25) 50%, rgba(255,215,0,0.15) 55%, transparent 80%)',
-                backgroundSize: '250% 100%',
-                animation: 'goldShine 5s ease-in-out infinite',
-              }}
-            />
-            {/* Title text — letter by letter */}
-            <p
-              className="relative z-10 text-xl font-extrabold tracking-[0.4em] uppercase sm:text-2xl md:text-3xl whitespace-nowrap"
-              style={{
-                fontFamily: 'var(--font-orbitron), sans-serif',
-                color: 'transparent',
-                background: 'linear-gradient(90deg, #B8860B 0%, #FFD700 15%, #FFF8DC 30%, #FFD700 50%, #DAA520 70%, #FFD700 85%, #FFEC8B 100%)',
-                backgroundSize: '200% auto',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-                textShadow: 'none',
-              }}
-            >
-              {['A','G','U','S',' ','C','O','L','L','E','C','T','I','O','N'].map((letter, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 30, rotateX: -40 }}
-                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.8 + i * 0.04,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </p>
+          {/* 3D Liquid Glass Title — AGUS COLLECTION */}
+          <div className="mb-2 flex justify-center">
+            <LiquidGlassTitle text="AGUS COLLECTION" />
           </div>
-        </div>
 
-        {/* Main title — luxury gradient */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-4 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          Konveksi Premium Berkualitas
-        </motion.h1>
+          {/* Main title — luxury gradient */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-4 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
+          >
+            Konveksi Premium Berkualitas
+          </motion.h1>
+        </div>
 
         {/* Subtitle */}
         <motion.p

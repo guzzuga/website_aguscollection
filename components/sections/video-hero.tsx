@@ -140,7 +140,7 @@ export default function VideoHero({
     `}</style>
   );
 
-  /* ─── HERO MOBILE — AGUS COLLECTION fixed top, content centered below ─── */
+  /* ─── HERO MOBILE — AGUS COLLECTION inline, content centered ─── */
   const MobileHero = (
     <section
       ref={videoRef}
@@ -162,46 +162,22 @@ export default function VideoHero({
       <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-      {/* AGUS COLLECTION — fixed top area */}
-      <div className="absolute left-0 top-0 z-30 w-full flex items-start justify-center pt-[80px]">
-        <div
-          style={{
-            animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
-          }}
-        >
+      {/* Content — full centered layout */}
+      <div className="relative z-20 flex h-full flex-col items-center justify-center gap-3 overflow-y-auto px-6 text-center py-20">
+        <div className="mb-4 flex-shrink-0">
           <LiquidGlassTitle text="AGUS COLLECTION" />
         </div>
-      </div>
-
-      {/* Content — always centered, below AGUS */}
-      <motion.div style={motionStyle} className="relative z-20 flex h-full flex-col items-center justify-center pt-[10vh] px-6 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mb-4 max-w-lg font-display text-3xl font-bold leading-[1.1] tracking-[-0.03em] text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-4xl"
-        >
+        <h1 className="mx-auto mb-2 w-full max-w-lg flex-shrink-0 font-display text-3xl font-bold leading-[1.1] tracking-[-0.03em] bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-4xl md:text-5xl">
           Konveksi Premium Berkualitas
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8 max-w-sm text-sm leading-relaxed text-white/70 sm:text-base"
-        >
+        </h1>
+        <p className="mx-auto mb-6 max-w-sm flex-shrink-0 text-sm leading-relaxed text-white/70 sm:text-base md:text-lg">
           {subtitle}
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-center gap-4"
-        >
+        </p>
+        <div className="flex w-full flex-col items-center gap-4 flex-shrink-0">
           {PrimaryCTA}
           {SecondaryCTA}
-        </motion.div>
-        {ScrollIndicator}
-      </motion.div>
+        </div>
+      </div>
 
       {HeroStyles}
     </section>

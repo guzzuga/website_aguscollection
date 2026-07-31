@@ -140,7 +140,7 @@ export default function VideoHero({
     `}</style>
   );
 
-  /* ─── HERO MOBILE — vertical video, content flow ─── */
+  /* ─── HERO MOBILE — AGUS COLLECTION fixed top, content centered below ─── */
   const MobileHero = (
     <section
       ref={videoRef}
@@ -162,11 +162,19 @@ export default function VideoHero({
       <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-      {/* Content — always centered */}
-      <motion.div style={motionStyle} className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center">
-        <div className="mb-6">
+      {/* AGUS COLLECTION — fixed top area */}
+      <div className="absolute left-0 top-0 z-30 w-full flex items-start justify-center pt-[80px]">
+        <div
+          style={{
+            animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
+          }}
+        >
           <LiquidGlassTitle text="AGUS COLLECTION" />
         </div>
+      </div>
+
+      {/* Content — always centered, below AGUS */}
+      <motion.div style={motionStyle} className="relative z-20 flex h-full flex-col items-center justify-center pt-[10vh] px-6 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

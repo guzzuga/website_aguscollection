@@ -194,54 +194,37 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
                       {ch}
                     </span>
 
-                    {/* LAYER 2 — AGUS = white solid, COLLECTION = gold conic shimmer */}
+                    {/* LAYER 2 — AGUS = white with gold tint, COLLECTION = gold conic shimmer */}
                     <span
                       className="absolute inset-0"
                       style={{
                         ...CHAR_FONT,
-                        color: isAgusLetter ? "#ffffff" : "transparent",
+                        color: isAgusLetter ? "rgba(255,255,255,0.92)" : "transparent",
                         background: isAgusLetter
-                          ? undefined
+                          ? "conic-gradient(from 0deg at 50% 50%, #ffffff 0deg, rgba(255,255,255,0.85) 90deg, #ffffff 180deg, rgba(255,255,255,0.85) 270deg, #ffffff 360deg)"
                           : "conic-gradient(from 0deg at 50% 50%, #B8860B 0deg, #FFD700 45deg, #FFF8DC 90deg, #FFD700 135deg, #DAA520 180deg, #FFD700 225deg, #FFF8DC 270deg, #B8860B 360deg)",
-                        backgroundSize: isAgusLetter
-                          ? undefined
-                          : "200% 200%",
-                        WebkitBackgroundClip: isAgusLetter
-                          ? undefined
-                          : "text",
-                        backgroundClip: isAgusLetter
-                          ? undefined
-                          : "text",
-                        animation: isAgusLetter
-                          ? undefined
-                          : "lgGoldSweep 12s linear infinite",
+                        backgroundSize: "200% 200%",
+                        WebkitBackgroundClip: "text",
+                        backgroundClip: "text",
+                        animation: "lgGoldSweep 12s linear infinite",
                       }}
                     >
                       {ch}
                     </span>
 
-                    {/* LAYER 3 — aurora overlay (COLLECTION only) */}
+                    {/* LAYER 3 — aurora overlay (AGUS + COLLECTION) */}
                     <span
                       className="pointer-events-none absolute inset-0"
                       aria-hidden="true"
                       style={{
                         ...CHAR_FONT,
                         color: "transparent",
-                        background: isAgusLetter
-                          ? undefined
-                          : "linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,215,0,0.10) 25%, rgba(255,248,220,0.22) 50%, rgba(255,215,0,0.10) 75%, rgba(255,255,255,0.18) 100%)",
-                        backgroundSize: isAgusLetter
-                          ? undefined
-                          : "250% 100%",
-                        WebkitBackgroundClip: isAgusLetter
-                          ? undefined
-                          : "text",
-                        backgroundClip: isAgusLetter
-                          ? undefined
-                          : "text",
-                        animation: isAgusLetter
-                          ? undefined
-                          : "lgAurora 8s ease-in-out infinite",
+                        background:
+                          "linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,215,0,0.10) 25%, rgba(255,248,220,0.22) 50%, rgba(255,215,0,0.10) 75%, rgba(255,255,255,0.18) 100%)",
+                        backgroundSize: "250% 100%",
+                        WebkitBackgroundClip: "text",
+                        backgroundClip: "text",
+                        animation: "lgAurora 8s ease-in-out infinite",
                       }}
                     >
                       {ch}

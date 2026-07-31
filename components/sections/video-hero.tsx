@@ -26,18 +26,9 @@ export default function VideoHero({
   ctaText = "Lihat Katalog",
   ctaHref = "/produk",
 }: VideoHeroProps) {
-  const videoRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: videoRef,
-    offset: ["start start", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, 80]);
-
-  /* ─── shared parallax values ─── */
-  const motionStyle: React.CSSProperties = { opacity, scale, y };
+  /* ─── scroll fade — window-based (works on ALL viewports) ─── */
+  const { scrollYProgress } = useScroll();
+  const fade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   /* ─── shared CTA buttons ─── */
   const PrimaryCTA = (
@@ -140,12 +131,11 @@ export default function VideoHero({
     `}</style>
   );
 
-  /* ─── HERO MOBILE — AGUS COLLECTION inline, content centered, fade on scroll ─── */
+  /* ─────────────────────────────────────────────────────
+   *  MOBILE HERO — simple flex, fade on scroll (window)
+   * ───────────────────────────────────────────────────── */
   const MobileHero = (
-    <section
-      ref={videoRef}
-      className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden bg-black md:hidden"
-    >
+    <section className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden bg-black md:hidden">
       {/* Mobile Video */}
       <video
         autoPlay
@@ -162,8 +152,8 @@ export default function VideoHero({
       <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-      {/* Content — full centered layout with fade on scroll */}
-      <motion.div style={{ opacity }} className="relative z-20 flex h-full flex-col items-center justify-center gap-3 overflow-y-auto px-6 text-center py-20">
+      {/* Content — always visible, fade on window scroll */}
+      <motion.div style={{ opacity: fade }} className="relative z-20 flex h-full flex-col items-center justify-center gap-3 overflow-y-auto px-6 text-center py-20">
         <div className="mb-4 flex-shrink-0">
           <LiquidGlassTitle text="AGUS COLLECTION" />
         </div>
@@ -183,12 +173,11 @@ export default function VideoHero({
     </section>
   );
 
-  /* ─── HERO DESKTOP — horizontal video, AGUS top, H1 center ─── */
+  /* ─────────────────────────────────────────────────────
+   *  DESKTOP HERO — parallax fade on window scroll
+   * ───────────────────────────────────────────────────── */
   const DesktopHero = (
-    <section
-      ref={videoRef}
-      className="relative hidden h-screen max-h-[1000px] overflow-hidden bg-black md:block"
-    >
+    <section className="relative hidden h-screen max-h-[1000px] overflow-hidden bg-black md:block">
       {/* Desktop Video */}
       <video
         autoPlay
@@ -217,7 +206,7 @@ export default function VideoHero({
       </div>
 
       {/* Content — centered below AGUS COLLECTION */}
-      <motion.div style={motionStyle} className="relative z-20 flex h-full flex-col items-center justify-center pt-[24vh] px-6 text-center">
+      <motion.div style={{ opacity: fade }} className="relative z-20 flex h-full flex-col items-center justify-center pt-[24vh] px-6 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

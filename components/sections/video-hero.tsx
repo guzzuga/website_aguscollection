@@ -75,12 +75,11 @@ export default function VideoHero({
       {/* Subtle dark overlay untuk readability */}
       <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
 
-      {/* === BRAND TITLE — FIXED at top, desktop only (no parallax) === */}
-      <div className="hidden sm:block absolute left-0 top-0 z-30 w-full">
+      {/* === BRAND TITLE — desktop fixed top, mobile inline === */}
+      <div className="hidden sm:flex absolute left-0 top-0 z-30 w-full items-center justify-center pt-[18vh]">
         <div
           className="flex justify-center"
           style={{
-            paddingTop: '18vh',
             animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
           }}
         >
@@ -91,19 +90,19 @@ export default function VideoHero({
       {/* === CENTER CONTENT LAYER — parallax fade on scroll === */}
       <motion.div
         style={{ opacity, scale, y }}
-        className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center"
+        className="relative z-20 flex h-full flex-col items-center px-6 text-center sm:justify-center"
       >
         {/* Brand Title — Mobile only */}
-        <div className="mb-4 sm:hidden">
+        <div className="mb-2 sm:hidden">
           <LiquidGlassTitle text="AGUS COLLECTION" />
         </div>
 
-        {/* Main heading */}
+        {/* Main heading — always centered, desktop starts below fixed title */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mb-4 w-full max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-center text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
+          className="mx-auto mb-4 w-full max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-center text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:mt-[18vh] lg:text-7xl"
         >
           Konveksi Premium Berkualitas
         </motion.h1>

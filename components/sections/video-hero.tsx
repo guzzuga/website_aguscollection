@@ -97,7 +97,7 @@ export default function VideoHero({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-4 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
+            className="mx-auto mb-4 w-full max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-center text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Konveksi Premium Berkualitas
           </motion.h1>

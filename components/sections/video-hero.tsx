@@ -140,7 +140,7 @@ export default function VideoHero({
     `}</style>
   );
 
-  /* ─── HERO MOBILE — AGUS COLLECTION inline, content centered ─── */
+  /* ─── HERO MOBILE — AGUS COLLECTION inline, content centered, fade on scroll ─── */
   const MobileHero = (
     <section
       ref={videoRef}
@@ -162,8 +162,8 @@ export default function VideoHero({
       <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-      {/* Content — full centered layout */}
-      <div className="relative z-20 flex h-full flex-col items-center justify-center gap-3 overflow-y-auto px-6 text-center py-20">
+      {/* Content — full centered layout with fade on scroll */}
+      <motion.div style={{ opacity }} className="relative z-20 flex h-full flex-col items-center justify-center gap-3 overflow-y-auto px-6 text-center py-20">
         <div className="mb-4 flex-shrink-0">
           <LiquidGlassTitle text="AGUS COLLECTION" />
         </div>
@@ -177,7 +177,7 @@ export default function VideoHero({
           {PrimaryCTA}
           {SecondaryCTA}
         </div>
-      </div>
+      </motion.div>
 
       {HeroStyles}
     </section>

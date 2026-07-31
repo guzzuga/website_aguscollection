@@ -80,22 +80,12 @@ export default function VideoHero({
         style={{ opacity, scale, y }}
         className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center"
       >
-        {/* Main title — luxury gradient */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-2 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          Konveksi Premium Berkualitas
-        </motion.h1>
-
         {/* Brand name — gold accent */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-6 font-display text-xl font-semibold tracking-[0.2em] text-transparent bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text uppercase sm:text-2xl"
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-3 font-display text-xl font-semibold tracking-[0.2em] text-transparent bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text uppercase sm:text-2xl"
           style={{
             backgroundSize: '200% auto',
             animation: 'sheen 3s ease-in-out infinite',
@@ -103,6 +93,16 @@ export default function VideoHero({
         >
           Agus Collection
         </motion.p>
+
+        {/* Main title — luxury gradient */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-4 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          Konveksi Premium Berkualitas
+        </motion.h1>
 
         {/* Subtitle */}
         <motion.p

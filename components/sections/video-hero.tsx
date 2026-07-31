@@ -75,23 +75,36 @@ export default function VideoHero({
       {/* Subtle dark overlay untuk readability */}
       <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
 
-      {/* === BRAND TITLE — FIXED (no parallax, stays in place on scroll) === */}
-      <div className="absolute inset-0 z-20 flex items-start justify-center pt-[28vh]">
+      {/* === BRAND TITLE — FIXED at top, desktop only (no parallax) === */}
+      <div className="hidden sm:flex absolute left-0 top-0 z-20 w-full items-center justify-center pt-[16vh] md:pt-[14vh] lg:pt-[13vh]">
         <div
           style={{
             animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
           }}
         >
-          {/* 3D Liquid Glass Title — AGUS COLLECTION */}
           <LiquidGlassTitle text="AGUS COLLECTION" />
         </div>
       </div>
 
-      {/* === CONTENT LAYER — parallax fade on scroll === */}
+      {/* === CENTER CONTENT LAYER — parallax fade on scroll === */}
       <motion.div
         style={{ opacity, scale, y }}
         className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center"
       >
+        {/* Brand Title — Mobile only */}
+        <div className="mb-4 sm:hidden">
+          <LiquidGlassTitle text="AGUS COLLECTION" />
+        </div>
+
+        {/* Main heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto mb-4 w-full max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-center text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          Konveksi Premium Berkualitas
+        </motion.h1>
 
         {/* Subtitle */}
         <motion.p

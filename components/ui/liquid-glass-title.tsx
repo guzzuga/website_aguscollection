@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback, memo } from "react";
+import { useRef, useEffect, useState, memo } from "react";
 
 /* ========================================================================
  *  3D Liquid Glass Typography  —  AGUS COLLECTION brand title
@@ -68,26 +68,30 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const raf = useRef(0);
 
-  const onMove = useCallback((e: MouseEvent) => {
-    if (raf.current) return;
-    raf.current = requestAnimationFrame(() => {
-      const el = ref.current;
-      if (!el) { raf.current = 0; return; }
-      const r = el.getBoundingClientRect();
-      const dx = (e.clientX - r.left - r.width / 2) / r.width;  // -0.5 → 0.5
-      const dy = (e.clientY - r.top - r.height / 2) / r.height;
-      setMouse({ x: dx * 10, y: dy * 10 }); // ±10 px range
-      raf.current = 0;
-    });
-  }, []);
-
   useEffect(() => {
+    const heroEl = ref.current;
+    if (!heroEl) return;
+    const onMove = (e: MouseEvent) => {
+      if (raf.current) return;
+      raf.current = requestAnimationFrame(() => {
+        const r = heroEl.getBoundingClientRect();
+        // only activate when cursor is within hero section bounds
+        if (e.clientY < r.top || e.clientY > r.bottom) {
+          raf.current = 0;
+          return;
+        }
+        const dx = (e.clientX - r.left - r.width / 2) / r.width;
+        const dy = (e.clientY - r.top - r.height / 2) / r.height;
+        setMouse({ x: dx * 8, y: dy * 8 }); // ±8 px range
+        raf.current = 0;
+      });
+    };
     window.addEventListener("mousemove", onMove, { passive: true });
     return () => {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf.current);
     };
-  }, [onMove]);
+  }, []);
 
   const letters = text.split("");
 

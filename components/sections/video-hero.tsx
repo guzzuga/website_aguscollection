@@ -222,7 +222,7 @@ export default function VideoHero({
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
       {/* AGUS COLLECTION — fixed top area */}
-      <div className="absolute left-0 top-0 z-30 w-full flex items-start justify-center pt-[18vh]">
+      <div className="absolute left-0 top-0 z-30 w-full flex items-start justify-center pt-[16vh]">
         <div
           style={{
             animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
@@ -232,8 +232,8 @@ export default function VideoHero({
         </div>
       </div>
 
-      {/* Content — centered, below AGUS */}
-      <motion.div style={motionStyle} className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center">
+      {/* Content — centered below AGUS COLLECTION */}
+      <motion.div style={motionStyle} className="relative z-20 flex h-full flex-col items-center justify-center pt-[24vh] px-6 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

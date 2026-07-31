@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import {
   motion,

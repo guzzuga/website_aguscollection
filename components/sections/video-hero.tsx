@@ -75,33 +75,23 @@ export default function VideoHero({
       {/* Subtle dark overlay untuk readability */}
       <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
 
-      {/* === CONTENT LAYER === */}
-      <motion.div
-        style={{ opacity, scale, y }}
-        className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center"
-      >
-        {/* BRAND TITLE — Premium luxury glassmorphism */}
+      {/* === BRAND TITLE — FIXED (no parallax, stays in place on scroll) === */}
+      <div className="absolute inset-0 z-20 flex items-start justify-center pt-[28vh]">
         <div
-          className="mb-6"
           style={{
             animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
           }}
         >
           {/* 3D Liquid Glass Title — AGUS COLLECTION */}
-          <div className="mb-2 flex justify-center">
-            <LiquidGlassTitle text="AGUS COLLECTION" />
-          </div>
-
-          {/* Main title — luxury gradient */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto mb-4 w-full max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-center text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            Konveksi Premium Berkualitas
-          </motion.h1>
+          <LiquidGlassTitle text="AGUS COLLECTION" />
         </div>
+      </div>
+
+      {/* === CONTENT LAYER — parallax fade on scroll === */}
+      <motion.div
+        style={{ opacity, scale, y }}
+        className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center"
+      >
 
         {/* Subtitle */}
         <motion.p

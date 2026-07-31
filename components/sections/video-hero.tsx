@@ -8,10 +8,17 @@ import {
   useTransform,
   useInView,
 } from "framer-motion";
+import { Orbitron } from "next/font/google";
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  variable: "--font-orbitron",
+});
 
 interface VideoHeroProps {
-  mobileVideo: string; // path untuk mobile (vertical 1080x1920)
-  desktopVideo: string; // path untuk desktop (horizontal 1920x1080)
+  mobileVideo: string;
+  desktopVideo: string;
   title: string;
   subtitle: string;
   ctaText?: string;
@@ -80,19 +87,63 @@ export default function VideoHero({
         style={{ opacity, scale, y }}
         className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center"
       >
-        {/* Brand name — gold accent */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-3 font-display text-xl font-semibold tracking-[0.2em] text-transparent bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text uppercase sm:text-2xl"
+        {/* BRAND TITLE — Premium luxury glassmorphism */}
+        <div
+          className="mb-6"
           style={{
-            backgroundSize: '200% auto',
-            animation: 'sheen 3s ease-in-out infinite',
+            animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
           }}
         >
-          Agus Collection
-        </motion.p>
+          <div
+            className="relative inline-block rounded-[20px]"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.08) 100%)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 0 60px rgba(251,191,36,0.08), inset 0 1px 0 rgba(255,255,255,0.1)',
+              padding: '14px 32px',
+            }}
+          >
+            {/* Metallic gold shine sweep */}
+            <div
+              className="pointer-events-none absolute inset-0 rounded-[20px] overflow-hidden"
+              style={{
+                background: 'linear-gradient(105deg, transparent 20%, rgba(255,215,0,0.15) 45%, rgba(255,255,255,0.25) 50%, rgba(255,215,0,0.15) 55%, transparent 80%)',
+                backgroundSize: '250% 100%',
+                animation: 'goldShine 5s ease-in-out infinite',
+              }}
+            />
+            {/* Title text — letter by letter */}
+            <p
+              className="relative z-10 text-xl font-extrabold tracking-[0.4em] uppercase sm:text-2xl md:text-3xl whitespace-nowrap"
+              style={{
+                fontFamily: 'var(--font-orbitron), sans-serif',
+                color: 'transparent',
+                background: 'linear-gradient(90deg, #B8860B 0%, #FFD700 15%, #FFF8DC 30%, #FFD700 50%, #DAA520 70%, #FFD700 85%, #FFEC8B 100%)',
+                backgroundSize: '200% auto',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                textShadow: 'none',
+              }}
+            >
+              {['A','G','U','S',' ','C','O','L','L','E','C','T','I','O','N'].map((letter, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 30, rotateX: -40 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.8 + i * 0.04,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </p>
+          </div>
+        </div>
 
         {/* Main title — luxury gradient */}
         <motion.h1
@@ -207,7 +258,7 @@ export default function VideoHero({
           </div>
         </motion.div>
 
-        <style jsx>{`
+        <style jsx global>{`
           @keyframes heroGradient {
             0%   { background-position: 0%   50%; }
             50%  { background-position: 100% 50%; }
@@ -216,6 +267,14 @@ export default function VideoHero({
           @keyframes sheen {
             0%   { background-position: 200% 0%; }
             100% { background-position: -200% 0%; }
+          }
+          @keyframes heroFadeUp {
+            0%   { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes goldShine {
+            0%   { background-position: -250% 0; }
+            100% { background-position: 250% 0; }
           }
         `}</style>
       </motion.div>

@@ -5,7 +5,7 @@ import { useRef, useEffect, useState, useCallback, memo } from "react";
 /* ========================================================================
  *  3D Liquid Glass Typography  —  AGUS COLLECTION brand title
  * ------------------------------------------------------------------------
- *  Font        : Satoshi Black 900 (self-hosted woff2)
+ *  Font        : Clash Display Bold 700 (Fontshare CDN, luxury fashion brand font)
  *  3D depth    : 16-layer extrusion text-shadow (8–16 px)
  *  Glassmorphism: translucent backdrop-blur container
  *  Metallic    : gold/champagne gradient fill + reflection overlay
@@ -22,11 +22,12 @@ import { useRef, useEffect, useState, useCallback, memo } from "react";
 /*  Shared character styles (avoids object re-creation per render)    */
 /* ------------------------------------------------------------------ */
 const CHAR_FONT: React.CSSProperties = {
-  fontFamily: "'Satoshi', 'Inter', system-ui, sans-serif",
-  fontWeight: 900,
-  fontSize: "clamp(1.1rem, 2.8vw, 1.85rem)",
-  lineHeight: 1,
-  letterSpacing: "0.32em",
+  fontFamily: "'Clash Display', 'Inter', system-ui, sans-serif",
+  fontWeight: 700,
+  fontSize: "clamp(2.2rem, 7.5vw, 5.5rem)",
+  lineHeight: 1.05,
+  letterSpacing: "0.12em",
+  textTransform: "uppercase",
 };
 
 /* 16-layer 3D extrusion shadow */

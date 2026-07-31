@@ -26,9 +26,25 @@ export default function VideoHero({
   ctaText = "Lihat Katalog",
   ctaHref = "/produk",
 }: VideoHeroProps) {
-  /* ─── scroll fade — window-based (works on ALL viewports) ─── */
-  const { scrollYProgress } = useScroll();
-  const fade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  /* ─── TWO separate refs — one per hero section ─── */
+  const mobileRef = useRef<HTMLElement>(null);
+  const desktopRef = useRef<HTMLElement>(null);
+
+  /* ─── Mobile scroll tracking (targets mobile section) ─── */
+  const { scrollYProgress: mobileProgress } = useScroll({
+    target: mobileRef,
+    offset: ["start start", "end start"],
+  });
+  const mobileFade = useTransform(mobileProgress, [0, 0.5], [1, 0]);
+
+  /* ─── Desktop scroll tracking (targets desktop section) ─── */
+  const { scrollYProgress: desktopProgress } = useScroll({
+    target: desktopRef,
+    offset: ["start start", "end start"],
+  });
+  const desktopFade = useTransform(desktopProgress, [0, 0.5], [1, 0]);
+  const desktopScale = useTransform(desktopProgress, [0, 0.5], [1, 1.1]);
+  const desktopY = useTransform(desktopProgress, [0, 0.5], [0, 80]);
 
   /* ─── shared CTA buttons ─── */
   const PrimaryCTA = (
@@ -131,118 +147,123 @@ export default function VideoHero({
     `}</style>
   );
 
-  /* ─────────────────────────────────────────────────────
-   *  MOBILE HERO — simple flex, fade on scroll (window)
-   * ───────────────────────────────────────────────────── */
-  const MobileHero = (
-    <section className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden bg-black md:hidden">
-      {/* Mobile Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src={mobileVideo} type="video/mp4" />
-      </video>
-
-      {/* Overlay */}
-      <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-      {/* Content — always visible, fade on window scroll */}
-      <motion.div style={{ opacity: fade }} className="relative z-20 flex h-full flex-col items-center justify-center gap-3 overflow-y-auto px-6 text-center py-20">
-        <div className="mb-4 flex-shrink-0">
-          <LiquidGlassTitle text="AGUS COLLECTION" />
-        </div>
-        <h1 className="mx-auto mb-2 w-full max-w-lg flex-shrink-0 font-display text-3xl font-bold leading-[1.1] tracking-[-0.03em] bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-4xl md:text-5xl">
-          Konveksi Premium Berkualitas
-        </h1>
-        <p className="mx-auto mb-6 max-w-sm flex-shrink-0 text-sm leading-relaxed text-white/70 sm:text-base md:text-lg">
-          {subtitle}
-        </p>
-        <div className="flex w-full flex-col items-center gap-4 flex-shrink-0">
-          {PrimaryCTA}
-          {SecondaryCTA}
-        </div>
-      </motion.div>
-
-      {HeroStyles}
-    </section>
-  );
-
-  /* ─────────────────────────────────────────────────────
-   *  DESKTOP HERO — parallax fade on window scroll
-   * ───────────────────────────────────────────────────── */
-  const DesktopHero = (
-    <section className="relative hidden h-screen max-h-[1000px] overflow-hidden bg-black md:block">
-      {/* Desktop Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src={desktopVideo} type="video/mp4" />
-      </video>
-
-      {/* Overlay */}
-      <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-      {/* AGUS COLLECTION — fixed top area */}
-      <div className="absolute left-0 top-0 z-30 w-full flex items-start justify-center pt-[16vh]">
-        <div
-          style={{
-            animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
-          }}
-        >
-          <LiquidGlassTitle text="AGUS COLLECTION" />
-        </div>
-      </div>
-
-      {/* Content — centered below AGUS COLLECTION */}
-      <motion.div style={{ opacity: fade }} className="relative z-20 flex h-full flex-col items-center justify-center pt-[24vh] px-6 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mb-4 w-full max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-center text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          Konveksi Premium Berkualitas
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg md:max-w-2xl"
-        >
-          {subtitle}
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-center gap-4 sm:flex-row sm:gap-5"
-        >
-          {PrimaryCTA}
-          {SecondaryCTA}
-        </motion.div>
-        {ScrollIndicator}
-      </motion.div>
-
-      {HeroStyles}
-    </section>
-  );
-
+  /* ═══════════════════════════════════════════════════════
+   *  MOBILE HERO
+   * ═══════════════════════════════════════════════════════ */
   return (
     <>
-      {MobileHero}
-      {DesktopHero}
+      <section
+        ref={mobileRef as React.RefObject<HTMLDivElement>}
+        className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden bg-black md:hidden"
+      >
+        {/* Mobile Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src={mobileVideo} type="video/mp4" />
+        </video>
+
+        {/* Overlay */}
+        <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+        {/* Content — fade on scroll */}
+        <motion.div
+          style={{ opacity: mobileFade }}
+          className="relative z-20 flex h-full flex-col items-center justify-center gap-3 overflow-y-auto px-6 text-center py-20"
+        >
+          <div className="mb-4 flex-shrink-0">
+            <LiquidGlassTitle text="AGUS COLLECTION" />
+          </div>
+          <h1 className="mx-auto mb-2 w-full max-w-lg flex-shrink-0 font-display text-3xl font-bold leading-[1.1] tracking-[-0.03em] bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-4xl md:text-5xl">
+            Konveksi Premium Berkualitas
+          </h1>
+          <p className="mx-auto mb-6 max-w-sm flex-shrink-0 text-sm leading-relaxed text-white/70 sm:text-base md:text-lg">
+            {subtitle}
+          </p>
+          <div className="flex w-full flex-col items-center gap-4 flex-shrink-0">
+            {PrimaryCTA}
+            {SecondaryCTA}
+          </div>
+        </motion.div>
+
+        {HeroStyles}
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
+       *  DESKTOP HERO
+       * ═══════════════════════════════════════════════════════ */}
+      <section
+        ref={desktopRef as React.RefObject<HTMLDivElement>}
+        className="relative hidden h-screen max-h-[1000px] overflow-hidden bg-black md:block"
+      >
+        {/* Desktop Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src={desktopVideo} type="video/mp4" />
+        </video>
+
+        {/* Overlay */}
+        <div className="pointer-events-none absolute inset-0 z-[5] bg-black/20" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[45%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+        {/* AGUS COLLECTION — fixed top area */}
+        <div className="absolute left-0 top-0 z-30 w-full flex items-start justify-center pt-[16vh]">
+          <div
+            style={{
+              animation: 'heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both',
+            }}
+          >
+            <LiquidGlassTitle text="AGUS COLLECTION" />
+          </div>
+        </div>
+
+        {/* Content — parallax fade + scale + y on scroll */}
+        <motion.div
+          style={{ opacity: desktopFade, scale: desktopScale, y: desktopY }}
+          className="relative z-20 flex h-full flex-col items-center justify-center pt-[24vh] px-6 text-center"
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="mx-auto mb-4 w-full max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-center text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
+          >
+            Konveksi Premium Berkualitas
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-8 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg md:max-w-2xl"
+          >
+            {subtitle}
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center gap-4 sm:flex-row sm:gap-5"
+          >
+            {PrimaryCTA}
+            {SecondaryCTA}
+          </motion.div>
+          {ScrollIndicator}
+        </motion.div>
+
+        {HeroStyles}
+      </section>
     </>
   );
 }

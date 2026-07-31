@@ -80,38 +80,29 @@ export default function VideoHero({
         style={{ opacity, scale, y }}
         className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center"
       >
-        {/* Brand label — premium gold */}
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-amber-400/25 bg-black/30 backdrop-blur-md px-6 py-2.5 shadow-[0_0_20px_rgba(251,191,36,0.12)]"
-        >
-          {/* Gold diamond accent */}
-          <span className="h-1.5 w-1.5 rotate-45 rounded-[2px] bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
-          <span
-            className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text text-sm font-extrabold tracking-[0.25em] text-transparent uppercase"
-            style={{
-              backgroundSize: '200% auto',
-              animation: 'sheen 3s ease-in-out infinite',
-            }}
-          >
-            Agus Collection
-          </span>
-          <span className="h-1.5 w-1.5 rotate-45 rounded-[2px] bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.6)]" />
-        </motion.span>
-
         {/* Main title — luxury gradient */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-4 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] sm:text-5xl md:text-6xl lg:text-7xl"
+          className="mb-2 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          <span className="bg-gradient-to-br from-white via-white to-white/80 bg-clip-text text-transparent">
-            Agus Collection
-          </span>
+          Konveksi Premium Berkualitas
         </motion.h1>
+
+        {/* Brand name — gold accent */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-6 font-display text-xl font-semibold tracking-[0.2em] text-transparent bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-300 bg-clip-text uppercase sm:text-2xl"
+          style={{
+            backgroundSize: '200% auto',
+            animation: 'sheen 3s ease-in-out infinite',
+          }}
+        >
+          Agus Collection
+        </motion.p>
 
         {/* Subtitle */}
         <motion.p

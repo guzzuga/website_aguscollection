@@ -182,7 +182,7 @@ export default function VideoHero({
           <div className="mb-4 flex-shrink-0">
             <LiquidGlassTitle text="AGUS COLLECTION" />
           </div>
-          <h1 className="mx-auto mb-2 w-full max-w-lg flex-shrink-0 font-display text-3xl font-bold leading-[1.1] tracking-[-0.03em] bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-4xl md:text-5xl">
+          <h1 className="mx-auto mb-2 w-full max-w-lg flex-shrink-0 font-display text-3xl font-bold leading-[1.1] tracking-[-0.03em] text-transparent !bg-gradient-to-br !from-white !via-white/95 !to-white/70 !bg-clip-text sm:text-4xl md:text-5xl">
             Konveksi Premium Berkualitas
           </h1>
           <p className="mx-auto mb-6 max-w-sm flex-shrink-0 text-sm leading-relaxed text-white/70 sm:text-base md:text-lg">
@@ -240,7 +240,7 @@ export default function VideoHero({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto mb-4 w-full max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-center text-transparent bg-gradient-to-br from-white via-white/95 to-white/70 bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
+            className="mx-auto mb-4 w-full max-w-4xl font-display text-4xl font-bold leading-[1.1] tracking-[-0.03em] text-center text-transparent !bg-gradient-to-br !from-white !via-white/95 !to-white/70 !bg-clip-text sm:text-5xl md:text-6xl lg:text-7xl"
           >
             Konveksi Premium Berkualitas
           </motion.h1>

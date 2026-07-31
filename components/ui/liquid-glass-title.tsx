@@ -143,17 +143,15 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
             }}
           />
 
-          {/* shine sweep (every 4 s) */}
+          {/* LUXURY: slow gold border glow pulse */}
           <div
-            className="pointer-events-none absolute -inset-6"
+            className="pointer-events-none absolute inset-0"
             aria-hidden="true"
             style={{
-              background:
-                "linear-gradient(105deg, transparent 0%, transparent 32%, rgba(255,215,0,0.20) 46%, rgba(255,255,255,0.32) 50%, rgba(255,215,0,0.20) 54%, transparent 68%, transparent 100%)",
-              backgroundSize: "300% 100%",
-              animation: "lgShine 4s ease-in-out infinite",
-              borderRadius: 26,
-              mixBlendMode: "overlay",
+              borderRadius: 20,
+              boxShadow:
+                "0 0 0 1px rgba(255,215,0,0.08), 0 0 20px rgba(255,215,0,0.04)",
+              animation: "lgGlow 6s ease-in-out infinite",
             }}
           />
 
@@ -194,24 +192,24 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
                       {ch}
                     </span>
 
-                    {/* LAYER 2 — gold gradient fill */}
+                    {/* LAYER 2 — gold conic shimmer (luxury slow sweep) */}
                     <span
                       className="absolute inset-0"
                       style={{
                         ...CHAR_FONT,
                         color: "transparent",
                         background:
-                          "linear-gradient(90deg, #B8860B 0%, #FFD700 14%, #FFF8DC 28%, #FFD700 42%, #DAA520 56%, #FFD700 70%, #FFF8DC 84%, #B8860B 100%)",
-                        backgroundSize: "200% auto",
+                          "conic-gradient(from 0deg at 50% 50%, #B8860B 0deg, #FFD700 45deg, #FFF8DC 90deg, #FFD700 135deg, #DAA520 180deg, #FFD700 225deg, #FFF8DC 270deg, #B8860B 360deg)",
+                        backgroundSize: "200% 200%",
                         WebkitBackgroundClip: "text",
                         backgroundClip: "text",
-                        animation: "lgTextShimmer 6s ease-in-out infinite",
+                        animation: "lgGoldSweep 12s linear infinite",
                       }}
                     >
                       {ch}
                     </span>
 
-                    {/* LAYER 3 — metallic reflection overlay */}
+                    {/* LAYER 3 — aurora gradient overlay (slow diagonal drift) */}
                     <span
                       className="pointer-events-none absolute inset-0"
                       aria-hidden="true"
@@ -219,9 +217,11 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
                         ...CHAR_FONT,
                         color: "transparent",
                         background:
-                          "linear-gradient(160deg, rgba(255,255,255,0.22) 0%, transparent 35%, transparent 65%, rgba(255,215,0,0.08) 100%)",
+                          "linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,215,0,0.10) 25%, rgba(255,248,220,0.22) 50%, rgba(255,215,0,0.10) 75%, rgba(255,255,255,0.18) 100%)",
+                        backgroundSize: "250% 100%",
                         WebkitBackgroundClip: "text",
                         backgroundClip: "text",
+                        animation: "lgAurora 8s ease-in-out infinite",
                       }}
                     >
                       {ch}
@@ -251,14 +251,17 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
           0%, 100% { transform: translateY(0); }
           50%      { transform: translateY(-3px); }
         }
-        @keyframes lgShine {
-          0%   { background-position: 250% 0; }
-          100% { background-position: -250% 0; }
+        @keyframes lgGlow {
+          0%, 100% { box-shadow: 0 0 0 1px rgba(255,215,0,0.06), 0 0 15px rgba(255,215,0,0.02); }
+          50%      { box-shadow: 0 0 0 1px rgba(255,215,0,0.14), 0 0 35px rgba(255,215,0,0.06); }
         }
-        @keyframes lgTextShimmer {
-          0%   { background-position: 0% center; }
-          50%  { background-position: 100% center; }
-          100% { background-position: 0% center; }
+        @keyframes lgGoldSweep {
+          0%   { background-position: 0% 0%; }
+          100% { background-position: 200% 200%; }
+        }
+        @keyframes lgAurora {
+          0%   { background-position: 150% 0; }
+          100% { background-position: -150% 0; }
         }
       `}</style>
     </div>

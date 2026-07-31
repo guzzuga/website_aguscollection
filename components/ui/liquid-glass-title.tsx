@@ -173,7 +173,9 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
 
           {/* ===== LETTERS ===== */}
           <div className="relative z-10 flex items-center whitespace-nowrap">
-            {letters.map((ch, i) => (
+            {letters.map((ch, i) => {
+              const isAgusLetter = i >= 0 && i < 4; // "A", "G", "U", "S"
+              return (
               <span key={i} className="relative inline-block">
                 {ch === " " ? (
                   <span className="inline-block" style={{ width: "0.22em" }} />
@@ -185,43 +187,61 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
                       className="block select-none"
                       style={{
                         ...CHAR_FONT,
-                        color: "#1a1100",
+                        color: isAgusLetter ? "#2a2a2a" : "#1a1100",
                         textShadow: EXTRUSION_SHADOW,
                       }}
                     >
                       {ch}
                     </span>
 
-                    {/* LAYER 2 — gold conic shimmer (luxury slow sweep) */}
+                    {/* LAYER 2 — AGUS = white solid, COLLECTION = gold conic shimmer */}
                     <span
                       className="absolute inset-0"
                       style={{
                         ...CHAR_FONT,
-                        color: "transparent",
-                        background:
-                          "conic-gradient(from 0deg at 50% 50%, #B8860B 0deg, #FFD700 45deg, #FFF8DC 90deg, #FFD700 135deg, #DAA520 180deg, #FFD700 225deg, #FFF8DC 270deg, #B8860B 360deg)",
-                        backgroundSize: "200% 200%",
-                        WebkitBackgroundClip: "text",
-                        backgroundClip: "text",
-                        animation: "lgGoldSweep 12s linear infinite",
+                        color: isAgusLetter ? "#ffffff" : "transparent",
+                        background: isAgusLetter
+                          ? undefined
+                          : "conic-gradient(from 0deg at 50% 50%, #B8860B 0deg, #FFD700 45deg, #FFF8DC 90deg, #FFD700 135deg, #DAA520 180deg, #FFD700 225deg, #FFF8DC 270deg, #B8860B 360deg)",
+                        backgroundSize: isAgusLetter
+                          ? undefined
+                          : "200% 200%",
+                        WebkitBackgroundClip: isAgusLetter
+                          ? undefined
+                          : "text",
+                        backgroundClip: isAgusLetter
+                          ? undefined
+                          : "text",
+                        animation: isAgusLetter
+                          ? undefined
+                          : "lgGoldSweep 12s linear infinite",
                       }}
                     >
                       {ch}
                     </span>
 
-                    {/* LAYER 3 — aurora gradient overlay (slow diagonal drift) */}
+                    {/* LAYER 3 — aurora overlay (COLLECTION only) */}
                     <span
                       className="pointer-events-none absolute inset-0"
                       aria-hidden="true"
                       style={{
                         ...CHAR_FONT,
                         color: "transparent",
-                        background:
-                          "linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,215,0,0.10) 25%, rgba(255,248,220,0.22) 50%, rgba(255,215,0,0.10) 75%, rgba(255,255,255,0.18) 100%)",
-                        backgroundSize: "250% 100%",
-                        WebkitBackgroundClip: "text",
-                        backgroundClip: "text",
-                        animation: "lgAurora 8s ease-in-out infinite",
+                        background: isAgusLetter
+                          ? undefined
+                          : "linear-gradient(120deg, rgba(255,255,255,0.18) 0%, rgba(255,215,0,0.10) 25%, rgba(255,248,220,0.22) 50%, rgba(255,215,0,0.10) 75%, rgba(255,255,255,0.18) 100%)",
+                        backgroundSize: isAgusLetter
+                          ? undefined
+                          : "250% 100%",
+                        WebkitBackgroundClip: isAgusLetter
+                          ? undefined
+                          : "text",
+                        backgroundClip: isAgusLetter
+                          ? undefined
+                          : "text",
+                        animation: isAgusLetter
+                          ? undefined
+                          : "lgAurora 8s ease-in-out infinite",
                       }}
                     >
                       {ch}
@@ -229,7 +249,8 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
                   </>
                 )}
               </span>
-            ))}
+            );
+            })}
           </div>
 
           {/* inner glow on pill */}

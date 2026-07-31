@@ -128,7 +128,7 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
             border: "1px solid rgba(255,255,255,0.08)",
             borderRadius: 20,
             boxShadow:
-              "0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.2)",
+              "0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.2)",
             padding: "15px 34px",
             animation: "lgFloat 5s ease-in-out infinite",
           }}

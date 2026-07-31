@@ -194,20 +194,20 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
                       {ch}
                     </span>
 
-                    {/* LAYER 2 — AGUS = silver metallic sweep, COLLECTION = gold conic shimmer */}
+                    {/* LAYER 2 — AGUS = smooth silver sweep, COLLECTION = gold conic shimmer */}
                     <span
                       className="absolute inset-0"
                       style={{
                         ...CHAR_FONT,
                         color: "transparent",
                         background: isAgusLetter
-                          ? "linear-gradient(120deg, #777 0%, #999 15%, #ffffff 30%, #bbb 45%, #555 55%, #ffffff 70%, #999 85%, #777 100%)"
+                          ? "linear-gradient(to right, #888 0%, #aaa 20%, #fff 35%, #ccc 50%, #fff 65%, #aaa 80%, #888 100%)"
                           : "conic-gradient(from 0deg at 50% 50%, #B8860B 0deg, #FFD700 45deg, #FFF8DC 90deg, #FFD700 135deg, #DAA520 180deg, #FFD700 225deg, #FFF8DC 270deg, #B8860B 360deg)",
-                        backgroundSize: isAgusLetter ? "250% 100%" : "200% 200%",
+                        backgroundSize: isAgusLetter ? "300% 100%" : "200% 200%",
                         WebkitBackgroundClip: "text",
                         backgroundClip: "text",
                         animation: isAgusLetter
-                          ? "lgAurora 8s ease-in-out infinite"
+                          ? "lgSilverSweep 10s ease-in-out infinite"
                           : "lgGoldSweep 12s linear infinite",
                       }}
                     >
@@ -267,7 +267,13 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
         }
         @keyframes lgAurora {
           0%   { background-position: 150% 0; }
-          100% { background-position: -150% 0; }
+          50%  { background-position: -150% 0; }
+          100% { background-position: 150% 0; }
+        }
+        @keyframes lgSilverSweep {
+          0%   { background-position: 250% 0; }
+          50%  { background-position: -250% 0; }
+          100% { background-position: 250% 0; }
         }
       `}</style>
     </div>

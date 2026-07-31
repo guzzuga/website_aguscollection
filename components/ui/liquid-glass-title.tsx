@@ -194,19 +194,21 @@ export default memo(function LiquidGlassTitle({ text }: { text: string }) {
                       {ch}
                     </span>
 
-                    {/* LAYER 2 — AGUS = dark conic shimmer, COLLECTION = gold conic shimmer */}
+                    {/* LAYER 2 — AGUS = silver metallic sweep, COLLECTION = gold conic shimmer */}
                     <span
                       className="absolute inset-0"
                       style={{
                         ...CHAR_FONT,
-                        color: isAgusLetter ? "#ffffff" : "transparent",
+                        color: "transparent",
                         background: isAgusLetter
-                          ? "conic-gradient(from 0deg at 50% 50%, #2a2a2a 0deg, #1a1a1a 60deg, #333333 120deg, #1a1a1a 180deg, #2a2a2a 240deg, #1a1a1a 300deg, #2a2a2a 360deg)"
+                          ? "linear-gradient(120deg, #777 0%, #999 15%, #ffffff 30%, #bbb 45%, #555 55%, #ffffff 70%, #999 85%, #777 100%)"
                           : "conic-gradient(from 0deg at 50% 50%, #B8860B 0deg, #FFD700 45deg, #FFF8DC 90deg, #FFD700 135deg, #DAA520 180deg, #FFD700 225deg, #FFF8DC 270deg, #B8860B 360deg)",
-                        backgroundSize: "200% 200%",
+                        backgroundSize: isAgusLetter ? "250% 100%" : "200% 200%",
                         WebkitBackgroundClip: "text",
                         backgroundClip: "text",
-                        animation: "lgGoldSweep 12s linear infinite",
+                        animation: isAgusLetter
+                          ? "lgAurora 8s ease-in-out infinite"
+                          : "lgGoldSweep 12s linear infinite",
                       }}
                     >
                       {ch}

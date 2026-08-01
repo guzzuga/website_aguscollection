@@ -194,8 +194,20 @@ export default function VideoHero({
           </div>
         </motion.div>
 
-        {/* Scroll indicator — mobile */}
-        {ScrollIndicator}
+        {/* Scroll indicator — mobile (outside motion.div, fades with section) */}
+        <motion.div
+          style={{ opacity: mobileFade }}
+          className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2"
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-xs tracking-widest text-white/50 uppercase">Scroll</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="h-8 w-[1px] bg-gradient-to-b from-white/50 to-transparent"
+            />
+          </div>
+        </motion.div>
 
         {HeroStyles}
       </section>

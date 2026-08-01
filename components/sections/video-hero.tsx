@@ -194,6 +194,9 @@ export default function VideoHero({
           </div>
         </motion.div>
 
+        {/* Scroll indicator — mobile */}
+        {ScrollIndicator}
+
         {HeroStyles}
       </section>
 

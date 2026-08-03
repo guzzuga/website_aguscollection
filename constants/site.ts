@@ -15,8 +15,8 @@ export const siteConfig = {
   hours: 'Senin–Sabtu, 08.00–17.00 WIB',
   social: {
     instagram: 'https://instagram.com/agus_collection_mjk',
-    facebook: 'https://facebook.com/aguscollection',
-    tiktok: 'https://tiktok.com/@aguscollection',
+    facebook: 'https://www.facebook.com/share/1DyUkkZ8yh/',
+    tiktok: 'https://tiktok.com/@aguscollection_mjk',
     youtube: 'https://youtube.com/@aguscollection',
   },
   shopee: 'https://s.shopee.co.id/20tQvxOu1S',

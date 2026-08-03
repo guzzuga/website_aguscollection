@@ -10,8 +10,15 @@ import {
   Phone,
   Mail,
   Clock,
-  Tiktok,
 } from 'lucide-react';
+
+function TiktokIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 10.86 4.48V13.2a8.28 8.28 0 0 0 5.58 2.16V11.9a4.85 4.85 0 0 1-3.77-1.82V6.69h3.77z"/>
+    </svg>
+  );
+}
 import { siteConfig, navLinks } from '@/constants/site';
 import { cn } from '@/lib/utils';
 
@@ -55,7 +62,7 @@ export function Footer() {
               {[
                 { icon: Instagram, href: siteConfig.social.instagram, label: 'Instagram' },
                 { icon: Facebook, href: siteConfig.social.facebook, label: 'Facebook' },
-                { icon: Tiktok, href: siteConfig.social.tiktok, label: 'TikTok' },
+                { icon: TiktokIcon, href: siteConfig.social.tiktok, label: 'TikTok' },
                 { icon: Youtube, href: siteConfig.social.youtube, label: 'Youtube' },
               ].map((s) => (
                 <a

@@ -10,6 +10,7 @@ import {
   Phone,
   Mail,
   Clock,
+  Tiktok,
 } from 'lucide-react';
 import { siteConfig, navLinks } from '@/constants/site';
 import { cn } from '@/lib/utils';
@@ -54,6 +55,7 @@ export function Footer() {
               {[
                 { icon: Instagram, href: siteConfig.social.instagram, label: 'Instagram' },
                 { icon: Facebook, href: siteConfig.social.facebook, label: 'Facebook' },
+                { icon: Tiktok, href: siteConfig.social.tiktok, label: 'TikTok' },
                 { icon: Youtube, href: siteConfig.social.youtube, label: 'Youtube' },
               ].map((s) => (
                 <a

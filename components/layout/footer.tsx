@@ -151,7 +151,7 @@ export function Footer() {
 
         <div className="mt-6 flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
           <p className="text-xs text-slate-500 dark:text-neutral-600">
-            &copy; {new Date().getFullYear()} {siteConfig.name}. Hak cipta dilindungi.
+            &copy; 2016–2026 {siteConfig.name}. Hak cipta dilindungi.
           </p>
           <p className="text-xs text-slate-500 dark:text-neutral-600">
             Dibuat dengan presisi &mdash; seperti jahitan kami.
